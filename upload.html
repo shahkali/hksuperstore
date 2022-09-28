@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Foree Delivery | Just Order Now</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!---Bootstrap 4--->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  <!--Font Family-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+
+  <!---Font Icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"  crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick.css"  crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!---Angular CDN-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<style>
+  body{
+    font-family:  'Sora', sans-serif;
+    background-color: #F9F9F9;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    font-weight: 400px;
+    scroll-behavior: smooth;
+  }
+  p,a{
+    margin:0px;
+  }
+  .container{
+    background-color: #fff;
+  }
+  .fixed-nav{
+    position: fixed;
+    left: 55%;
+    border: 1px solid;
+  }
+  .cat-img{
+    width: 100px;
+    max-width: 100%;
+    margin: auto;
+  }
+  .prod-img{
+    width:150px;
+    max-width: 150px;
+  }
+  .d-inline-block{
+    float:left;
+    height:100%;
+  }
+  .location-top{
+    padding: 5px
+  }
+  img{
+    width: 52px;
+  }
+  
+  .circular-icons{
+    padding: 19px;
+    height: 100%;
+    border-radius: 50%;
+    font-size: 18px;
+    
+  }
+  .circular-icons i{
+    padding: 5px;
+    
+  }
+  .circular-icons:hover{
+    background:rgba(0, 0, 0, 0.08)
+  }
+  
+  .btns{
+    width: 100%;
+    height: 100%;
+  }
+  .category-btn{
+    box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 3px 1px -2px rgb(0 0 0 / 12%);
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    border:none;
+    padding:10px 10px;
+    border-radius: 2px;
+    width: 100%;
+  }
+  .category-btn:hover{
+   
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  }
+  .search{
+    border:1px solid #EE7E25;
+    outline: none;
+    height:40px;
+    box-shadow: none;
+  }
+  .search-icon{
+    background-color: #EE7E25;
+    border:solid #EE7E25;
+    color:#fff
+  }
+  .search:focus{
+    border:1px solid #EE7E25;
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  }
+
+  
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.slick-slider{
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+.slide {
+  width:300px;
+  margin:10px;
+}
+
+.product{
+  border:1px solid #e7e7e7;
+  border-radius: 5px;
+  padding: 10px;
+}
+.single-item img{
+  max-width: 100%;
+  width: 100%;
+}
+.slick-dots{
+  bottom: 0;
+}
+.slick-dotted.slick-slider{
+  margin-bottom: 0px;
+}
+.border-rad{
+  border-radius: 5px;
+}
+.slick-prev{
+ 
+  left:0;
+  z-index: 1;
+}
+.badge-red{
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+.card-shadow{
+  box-shadow: 0 1px 1px rgb(0 0 0 / 15%), -1px 0 0 rgb(0 0 0 / 3%), 1px 0 0 rgb(0 0 0 / 3%), 0 1px 0 rgb(0 0 0 / 12%);;
+}
+.addcartbtn{
+  padding:10px 16px;
+  border:1px solid #EE7E25
+}
+.addcartbtn:hover{
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  color: #fff;
+  background-color: #EE7E25;
+}
+
+.addcartbtn-long{
+  padding:15px;
+  border:1px solid #EE7E25
+}
+.addcartbtn-long:hover{
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  color: #fff;
+  background-color: #EE7E25;
+}
+.table-bordered,.table-bordered tr,.table-bordered th,.table-bordered td{
+    border:none;
+    padding: 0px;
+}
+
+.slick-next{
+  right:0;
+  z-index:1;
+}
+.cart-badge{
+  position: absolute;
+    top: 15%;
+    right: 10%;
+    cursor: pointer;
+   
+}
+.cartbadge{
+    position: absolute;
+    right: 20px;
+    top: 5px
+}
+
+.cart-count{
+  font-size: 12px;
+    border-radius: 50%;
+    padding: 5px 9px;
+}
+.slick-prev:before, .slick-next:before{
+  color: #EE7E25;
+}
+.alert-warning{
+  background-color: #fffbc7;
+}
+.footer-icon{
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: 100%;
+}
+/*Color*/
+.color-black{
+  color: #1C2223;
+}
+.color-rgba{
+  color:rgba(0, 0, 0, 0.87);
+}
+.color-rgba-gray{
+  color:rgba(0, 0, 0, 0.54)
+}
+.color-white{
+  color:#fff
+}
+.color-orange{
+  color:#EE7E25
+}
+/*Font Size*/
+.text-12{
+  font-size: 12px;
+}
+.text-14{
+  font-size: 14px;
+}
+.text-16{
+  font-size: 16px;
+}
+.text-20{
+  font-size: 20px;
+}
+/*Background Color*/
+.bg-red{
+  background-color: #ff0000;
+}
+.bg-orange{
+  background-color: #EE7E25;
+}
+.text-capital{
+    text-transform: capitalize;
+}
+.text-upper{
+    text-transform: uppercase;
+}
+/*Font Wegiht*/
+.font-600{
+  font-weight: 600;
+}
+.font-400{
+  font-weight: 400;
+}
+.font-500{
+  font-weight:500;
+}
+.font-700{
+  font-weight: 700;;
+}
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #EE7E25; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 14px 17px; /* Some padding */
+  border-radius: 2px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  border-radius:50%;
+}
+#myBtn i{
+  font-size: 20px;
+}
+.single-item-class{
+    overflow: hidden;border: 1px solid #e7e7e7;
+}
+#myBtn:hover {
+  background-color: rgb(169, 89, 28); /* Add a dark-grey background on hover */
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+.single-slider-img{
+    max-width: 35% !important;
+    width:35% !important;
+    margin: auto;
+}
+.page-sub-head{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.54);
+}
+.page-sub-head:hover{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.54);
+    text-decoration: underline;
+}
+.single-slider-parent{
+   
+}
+.card-custom{
+    padding: 20px 16px;
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+.noLinkStyle{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+    
+}
+.noLinkStyle:hover{
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.87)
+}
+.no-bg{
+    background-color: transparent !important;
+}
+a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+}
+a:hover{
+   color: rgba(0, 0, 0, 0.87);
+   text-decoration: underline;
+}
+.headwrap{
+white-space: nowrap; 
+width: 250px; 
+overflow: hidden;
+text-overflow: ellipsis;
+
+}
+
+.visiblehidden{
+    visibility: hidden;
+}
+.visibleshow{
+    visibility: visible;
+}
+.notfound{
+    width:200px;
+    max-width: 200px;
+}
+a.footer-link {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 13px;
+}
+a.footer-link:hover{
+  color: #1C2223;
+}
+.footerstyle a{
+  text-decoration: none;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 13px;
+}
+.footerstyle a:hover{
+  color: #1C2223;
+  text-decoration: underline;
+}
+.loadMoreIcon{
+  font-size: 40px;
+  color: #EE7E25;
+  display: none;
+
+}
+.searchprods{
+    width:25%
+  }
+  .form-control{
+    height: 50px;
+    padding: 10px;
+  }
+  .form-control:hover{
+    border:1px solid #000
+  }
+  @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  
+    [class*="col"] {
+  
+  }
+  .searchprods{
+    width:100%
+  }
+
+  .headwrap{
+    width:auto
+  }
+  .prod-img{
+    width:130px;
+    max-width: 130px;
+  }
+  .list{
+    padding: 5px;
+  }
+
+}
+</style>
+<body  ng-app="myApp" ng-controller="myCtrl">
+
+  <div>
+ <!---Header--> 
+<div class="container border-rad card-shadow pt-2 ">
+  
+    <div class="row ">
+      <div class="col-12">
+       
+        <div class="d-inline-block">
+         <i class="fa fa-solid fa-bars circular-icons"></i>
+        </div>
+  
+       <div class="d-inline-block">
+         <img src="https://pictures.grocerapps.com/original/grocerapp-large-logo-5e6d96218036a.png" />
+        </div>
+  
+       <div class="d-inline-block">
+        <div class="location-top">
+          <div  class="text-12  color-black">Online Store</div>
+          <div class="font-600 text-14 color-black">Foree Delivery</div>
+        </div>
+       </div>
+      
+      </div>
+     
+    
+      
+    </div>
+
+    
+   
+     
+
+</div>
+
+
+
+
+
+  <!---Top Sellers-->
+<div class="container mt-4 border-rad card-shadow" >
+
+    
+    <div class="row pt-2 pb-4 "  id="divID">
+  
+   
+ <div class="col">
+  <form action="">
+    <div class="form-group">
+     <h1 class="d-none">Fast Order</h1>
+    </div>
+    <div class="form-group">
+      <label for="email">Upload Your List:</label>
+      <input type="file" accept=".jpg, .jpeg, .png" title="Please Upload PNG,JPG,JPEG Picture" class="form-control" placeholder="List" id="list" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Name:</label>
+      <input type="text" class="form-control" placeholder="Name" id="name" pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]{3,}$" title="Please Enter Correct Name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Whats'app No#:</label>
+      <input type="text" class="form-control" placeholder="Whatsapp No" pattern="[0-9]{11}" title="Please Enter Correct Phone Number" maxlength="11" id="wa" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Delivery Address:</label>
+     <textarea class="form-control" placeholder="Delivery Address" pattern=".{5,}" title="Please Enter Full Address" rows="5" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="email">Payment Method:</label>
+      <div class="form-group form-check">
+      
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" checked> Cash On Delivery(COD)
+        </label>
+      </div>
+    </div>
+  
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="terms" required> 
+        I have read and agree to the Terms & Conditions
+      </label>
+    </div>
+   
+  
+    <button type="submit" class="btn btn-primary">Order Now</button>
+  </form>
+
+ </div>
+   
+  
+
+    
+  
+  </div>
+  
+  </div>
+
+<!---Footer-->
+<div class="container mt-3">
+
+
+
+
+<div class="row border-rad pb-3">
+    
+  
+  <div class="col-12">
+
+    
+    
+    
+    <div class="row pt-4  mt-0">
+     
+      <div class="col-12 text-12 color-rgba-gray">
+      
+        <p class="d-none">Info@foreedelivery.com</p>
+        <p>Al-Noor Plaza Dina, District Jhelum, Punjab Pakistan</p>
+        <a class="footer-link" href="https://web.facebook.com/ForeeDelivery" target="_blank"><i class="fa fa-facebook"></i>&nbsp;</a>
+        <a class="footer-link" href="https://www.instagram.com/foreedelivery/" target="_blank"><i class="fa fa-instagram"></i>&nbsp;</a>
+        <a class="footer-link" href="https://api.whatsapp.com/send?phone=03478981363&text=Hi%20There!" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;</a> 
+        <a class="footer-link" href="tel:+923478981363" target="_blank"><i class="fa fa-phone"></i>&nbsp;03478981363</a> 
+       
+      
+      </div>
+    </div>
+    <div class="row  mt-2">
+     
+      <div class="col-12 text-12 color-rgba-gray">
+      
+        <p>© Foree Delivery Pakistan Pvt. Ltd., 2022</p>
+        
+       </div>
+    </div>
+    
+    
+    
+  
+   
+  </div>
+  
+</div>
+
+
+
+</div>
+</div>
+<!---Move To Top-->
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+  <script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  $('html, body').animate({scrollTop:0}, 'slow');
+}
+
+</script>
+
+
+
+
+<script>
+    //Angular Modules
+   var app = angular.module('myApp', []);
+   app.controller('myCtrl', function($scope,$http) {
+   
+ 
+   });
+   </script>
+</body>
+</html>

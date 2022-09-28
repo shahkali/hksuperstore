@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>HK Halal Food: Online & Fastest Grocery Delivery</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Hong Kong best and largest online grocery website: Shop from a wide range of desi halal food, fast halal food,grocery,medicines, vegetables, beauty & wellness, household care, baby care, pet care, meats & more.">
+  <meta name="keywords" content="food,food service,food processor,food and drink,foodpanda,restaurants near me,food near me,halal food,halal food near me,halal restaurants , pakistani food,desi food, indian food, places to eat near me,italian restaurants,mexican restaurants,food places near me,vegan restaurants,vegetarian, fast food, halal hk , halal food hongkong,halal food hk, kowloon,breakfast restaurants,restaurants near my location,online store,online business,shopping cart,shopping,buy ,online,cheap hotels,free delivery,fast delivery,grocery,beverages,drinks,pharmacy,fruits,vegetables,bakery,fresh meat,halal hotel near me,halal restaurants near me">
+  <meta name="author" content="HK Halal Food">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!---FavIcon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  
+
+  <!---Bootstrap 4--->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  <!--Font Family-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+
+  <!---Font Icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"  crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick.css"  crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!---Angular CDN-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+  <!---External Style Sheets-->
+  <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+    <div class="outerWrapper">
+    <!---Loader-->
+    <div class="w-100">
+      <div class="text-center mt-3">
+        <i class="fa fa-circle-o-notch fa-spin loadMoreIcon" ></i><br>
+        <sub>Please wait. Preparing Products For You...</sub>
+      
+      </div>
+    </div>
+    </div>
+
+
+    <div class="innerWrapper">
+    <!---Sidebar-->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#"  class="text-16 color-black"><i class="fa fa-phone"></i>&nbsp;&nbsp;Call us</a>
+      <a href="#" class="text-16 hr"><hr style="margin: 0px;"></a>
+      <a href="#"  class="text-16 color-black"><i class="fa fa-question-circle"></i>&nbsp;&nbsp;FAQ</a>
+      <a href="#" class="text-16 hr"><hr style="margin: 0px;"></a>
+      <a href="#"  class="text-16 color-black d-none"><i class="fa fa-gavel" aria-hidden="true"></i>&nbsp;&nbsp;Foree Policy</a>
+      <a href="#" class="text-16 hr d-none"><hr style="margin: 0px;"></a>
+      <a href="#"  class="text-16 color-black"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;&nbsp; 
+      <i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp;&nbsp;Quick Chat</a>
+    </div>
+
+    <!---Main Content-->
+    <div id="main">
+    <!---Header--> 
+    <div class="container border-rad card-shadow pt-2">
+
+    <div class="row">
+      <div class="col-10 ">
+        <div class="d-inline-block">
+        <i class="fa fa-solid fa-bars circular-icons" onclick="openNav()"></i>
+        </div>
+
+      <div class="d-inline-block ml-1">
+        <img src="./flogo.png" alt="HK Halal Logo - Halal Food" style="border-radius: 8px">
+        </div>
+
+      <div class="d-inline-block">
+        <div class="location-top">
+          <div  class="text-12  color-black">Fatest Delivery Service</div>
+          <div class="dropdown">
+            <div class="font-600 text-14 color-black dropdown-toggle pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">HK Halal Food</div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item text-14 color-rgba"  ng-repeat="cat in places">{{cat.city}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+
+      <div class="col-2 text-right" >
+        <span data-toggle="modal" data-target="#myModal" class="cursor-pointer"><i class="fa fa-shopping-cart circular-icons"  style="float:right" id="cartid"></i>
+          <sup class="cart-badge cartbadge"><i class="badge badge-danger bg-orange cart-count">{{cart.length}}</i></sup></span>
+      </div>
+      
+    </div>
+
+    <div class="row mt-3 ">
+      <div class="col-5 col-md-2 text-right">
+        <a href="./categories.html" class="text-decoration-none color-black noLinkStyle"><button type="button" class="btns category-btn"><i class="fa fa-list color-orange"></i>&nbsp;&nbsp;Categories</button></a>
+      </div>
+      <div class="col-7 col-md-10 pl-2 pl-md-0">
+        <form>
+          <div class="input-group ">
+            <input type="text" id="search" oninput="searchProd()" class="form-control search" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text search-icon"><i class="fa fa-search"></i></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!---Categories-->
+
+    <div class="row pt-2 pb-4 border-rad card-shadow">
+      <div class="col-12">
+        <div class='slider-multi-two '>
+          <div class='slide ' ng-repeat="cat in categories">
+          <div class="text-center">
+            <a class="noLinkStyle" ng-href='landproducts.html?catid={{cat.id}}&title={{cat.title}}' title="{{cat.titlesub}}">
+                <img class="cat-img" loading="lazy" ng-src="{{cat.img}}"  alt="{{cat.title}}" ng-class="cat.status == '1' ? 'normal-img':'gray-img'">
+                <h1 class="text-14 color-rgba">{{cat.title}}</h1>
+            </a>
+          </div>  
+          </div> 
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!---Ramdaan Specials-->
+    <div class="container mt-3">
+    <div class="row pt-4 pb-4 border-rad card-shadow">
+    <div class="col-12  pl-4">
+    <h6 class="text-20 font-600">Top Products</h6>
+    </div>
+    <div class="col-12">
+    <div class='slider-multi productRamdaan'>
+    <div class='slide product card-shadow' ng-repeat="item in ramdaan">
+    <div class="">
+      <div class="">
+      <span class="badge badge-danger text-12 font-600 badge-red">{{item.tag}}</span></div>
+      <img class="prod-img" loading="lazy" alt="{{item.title}}" title="{{item.title}}" ng-src="{{item.img}}">
+      <h5 class="text-16 text-move" title="item.title">{{item.title}}</h5>
+      <div class="mt-2"><small class="text-12 color-rgba-gray">{{item.unit}}</small></div>
+      <div class="mt-2"><span class="text-14 color-rgba font-600">Rs. {{item.price}}</span>&nbsp;&nbsp;<del ng-if="item.oldprice.length>0"><small class="text-12 color-rgba-gray"> Rs. {{item.oldprice}}</small></del></div>
+      <div class="mt-2 d-none"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Add to Cart</button></div>
+      <div class="mt-2 ">
+         <a class="noStyleBtn" ng-click="addItem(item.id,item.title,item.price,item.img,item.unit,1)"><button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Buy Now</button></a></div>
+
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    <!---Image Single Item Slider-->
+    <div class="container mt-3 pt-3 pb-3 card-shadow border-rad">
+    <div class="row">
+    <div class="col-12">
+      <div class="slider single-item noarrow" style="overflow: hidden;">
+        <div>
+        <img src="./categories/slide1.webp" title="" alt="HK Halal Grocery">
+        </div>
+        <div>
+          <img src="./categories/slide2.webp" title="" alt="HK Halal Beverages">
+        </div>
+        <div>
+          <img src="./categories/slide3.webp" title="" alt="HK Halal Beauty & Care">
+        </div>
+        <div>
+          <img src="./categories/slide4.webp" title="" alt="HK Halal Products">
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+   
+
+    <!---Categories Listed-->
+    <div class="container mt-3" ng-repeat="subitem in categoriesSub">
+    <div class="row border-rad pt-3 pl-0 pr-0 pb-3 border-rad card-shadow"  >
+      <div class="col-12 ">
+        <div class="alert alert-warning">
+        <h5 class="text-20 font-600 color-rgba">{{subitem.title}}</h5>
+        <p class="text-14 color-rgba-gray">
+          {{subitem.desc}}
+        </p>
+        </div>
+      </div>
+    <div class="col-12">
+      <div class='slider-multi '>
+        <div class='slide' ng-repeat="item in subitem.subcat">
+        <div class="text-center">
+          <img class="cat2-img m-auto" title="{{item.desc}}" alt="{{item.desc}}" ng-src="{{item.img}}">
+          <p class="text-14 color-rgba-gray">{{item.desc}}</p>
+        </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <!---Footer-->
+    <div class="container mt-3">
+    <div class="row  border-rad" >
+
+      <div class="col-12 pt-4 pl-4 pr-4 pb-2">
+        
+        <h5 class="text-16 font-600">HK Halal Food aims to deliver all your favouite products by trying to be the best in following 3 things.</h5>
+        <hr>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-md-1 col-2 text-center">
+            <i class="fa fa-dollar footer-icon"></i>
+          </div>
+          <div class="col-md-11 col-9">
+            <h6 class="text-16 font-600">Best Prices & Offers</h6>
+            <p class="text-14 color-rgba-gray">
+              Cheaper prices than your local supermarket, great cashback offers to top it off.</p>
+          </div>
+
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-1 col-2 text-center">
+            <i class="fa fa-clock-o footer-icon"></i>
+          </div>
+          <div class="col-md-11 col-9">
+            <h6 class="text-16 font-600">Fast & Foree Delivery</h6>
+            <p class="text-14 color-rgba-gray">
+            We delivered your favourite products in fast & foree manners.</p>
+          </div>
+
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-1 col-2 text-center">
+            <i class="fa fa-caret-square-o-down footer-icon" aria-hidden="true"></i>
+          </div>
+          <div class="col-md-11 col-9">
+            <h6 class="text-16 font-600">Easy Returns</h6>
+            <p class="text-14 color-rgba-gray">
+              Not satisfied with a product? Return it at the doorstep & get a refund within hours.</p>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-12"><hr></div>
+        </div>
+      
+      </div>
+      
+    </div>
+    <div class="row border-rad " >
+
+    <div class="col-12  pl-4 pr-4 pb-2">
+
+    <h5 class="text-16 font-600">Categories</h5>
+    <hr>
+    </div>
+    <div class="col-12 footerstyle">
+    <div class="row pl-4 pl-4">
+      <div class="col-md-4 col-12 mt-md-0 mt-2">
+        <b class="text-14 color-rgba-gray font-700">Grocery</b>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Oil & Ghee</a></p>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Spices, Salt & Sugar</a></p>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Daalain, Rice & Flour</a></p>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Sauces, Olives & Pickles</a></p>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Jam, Honey & Spread</a></p>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Baking & Desserts</a></p>
+
+        
+      </div>
+      <div class="col-md-4 col-12 mt-md-0 mt-2">
+        <b class="text-14 color-rgba-gray font-700">Bakery & Dairy</b>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=8&title=Bakery & Dairy" >- Milk</a></p>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=8&title=Bakery & Dairy" >- Breads</a></p> 
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=8&title=Bakery & Dairy" >- Eggs</a></p> 
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=8&title=Bakery & Dairy" >- Cheese</a></p>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=8&title=Bakery & Dairy" >- Yogurt & Lassi</a></p>
+      </div>
+      <div class="col-md-4 col-12 mt-md-0 mt-2">
+        <b class="text-14 color-rgba-gray font-700">Frozen & Chilled</b>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=9&title=Frozen & Chilled" >- Kabab & Kofta</a></p>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=9&title=Frozen & Chilled" >- Burger Patties</a></p>  
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=9&title=Frozen & Chilled" >- Nuggets & Snacks</a></p> 
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=9&title=Frozen & Chilled" >- Samosa & Rolls</a></p>
+        
+      </div>
+
+
+
+    </div>
+    <div class="row pl-4 pl-4 mt-2">
+
+      <div class="col-md-4 col-12 mt-md-0 mt-2">
+        <b class="text-14 color-rgba-gray font-700">Beverages</b>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=10&title=Beverages" >- Sharbat</a></p>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=10&title=Beverages" >- Cold Drinks</a></p>  
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=10&title=Beverages" >- Juices</a></p> 
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=10&title=Beverages" >- Tea</a></p> 
+        
+      </div>
+      <div class="col-md-4 col-12 mt-md-0 mt-2">
+        <b class="text-14 color-rgba-gray font-700">Fresh Meat</b>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=3&title=Fresh Meat" >- Chicken</a></p>
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=3&title=Fresh Meat" >- Mutton</a></p> 
+        <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=3&title=Fresh Meat" >- Beef</a></p>
+        
+      </div>
+
+      <div class="col-md-4 col-12 mt-md-0 mt-2">
+        <b class="text-14 color-rgba-gray font-700">Fruits & Vegetables</b>
+        <p class="text-14 color-rgba-gray">
+          <a href="./landproducts.html?catid=2&title=Fruits & Vegetables" >- Vegetables</a>
+      </p>
+      <p class="text-14 color-rgba-gray">
+        <a href="./landproducts.html?catid=2&title=Fruits & Vegetables" >- Fruits</a>
+    </p>
+      </div>
+    </div>
+
+
+    <div class="row mb-2">
+      
+    </div>
+
+    </div>
+
+    </div>
+
+    <div class="row border-rad d-none" >
+
+    <div class="col-12  pl-4 pr-4 pb-2">
+
+    <h5 class="text-200 font-600 ">GrocerApp - Online Grocery Shopping</h5>
+    <hr>
+    </div>
+    <div class="col-12">
+
+    <div class="row pl-4 pl-4">
+      <div class="col-12">
+
+        <h6 class="text-14 color-rgba-gray">GrocerApp makes shopping easier and more convenient than ever.</h6>
+      
+      </div>
+      </div>
+
+    <div class="row pl-4 pl-4 mt-4">
+
+      <div class="col-12">
+        <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+        <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+      </div>
+    </div>
+    <div class="row pl-4 pl-4 mt-4">
+
+      <div class="col-12">
+        <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+        <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+      </div>
+    </div>
+    <div class="row pl-4 pl-4 mt-4">
+
+      <div class="col-12">
+        <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+        <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+      </div>
+    </div>
+    <div class="row pl-4 pl-4 mt-4">
+
+      <div class="col-12">
+        <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+        <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+      </div>
+    </div>
+
+
+   
+
+    </div>
+
+    </div>
+
+    <div class="row border-rad ">
+
+
+    <div class="col-12">
+
+
+
+    <div class="row pl-4 pl-4 mt-0 pt-3 pb-3 " style="background-color:#EE7E25">
+
+      <div class="col-12 col-md-6 text-12 color-rgba-gray">
+      
+        <p class="d-none">Info@hkhalal.com</p>
+        <p class="text-14 color-white ">Kowloon, Hong Kong</p>
+        <a class="footer-link text-14 color-white " href="https://web.facebook.com/For" target="_blank"><i class="fa fa-facebook " style="font-size:18px"></i>&nbsp;</a>
+        <a class="footer-link text-14 color-white " href="https://api.whatsapp.com/send?phone=+85253397843&text=Hi HK Halal Team! Say Welcome To Me..." target="_blank" style="font-size:18px"><i class="fa fa-whatsapp"></i>&nbsp;</a> 
+        <a class="footer-link text-14 color-white " href="tel:+923478981363" target="_blank"><i class="fa fa-phone" style="font-size:18px"></i>&nbsp;53397843</a> 
+      
+      
+      </div>
+      <div class="col-md-6 col-12  text-12 text-md-right mt-md-0 mt-2 color-rgba-gray">
+      
+        <p class="text-14 color-white ">We Accept Your Payment Via</p>
+        <p class="text-14 color-white ">Cash On Delivery, Master Card, Visa Card, WeChat</p>
+
+      
+      
+      </div>
+      <div class="col-12 text-12 color-white
+      pb-3">
+      <hr>
+        <p>© HK Halal Food HK , 2022</p>
+        
+      </div>
+    </div>
+   
+
+
+
+
+
+    </div>
+
+    </div>
+
+
+
+    </div>
+
+    <button type="button" style="display: none;" id="btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      Open modal
+    </button>
+
+        <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">My Cart </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body scroll-y" >
+            <table class="table table-striped">
+              
+              <tbody >
+                <tr   ng-repeat="cat in cart">
+                  <td><img class="img-fluid img-thumbnail" ng-src={{cat.img}} /></td>
+                  <td>{{cat.title}} <br><sub>{{cat.unit}} </sub><br><br>{{currency}} {{cat.price}} x {{cat.quantity}}</td>
+                  <td>{{currency}} {{cat.price * cat.quantity }}<br><br>
+                    <span ng-click="reducequan(cat.id,0)" class="badge badge-secondary pricechanger mr-1"><i class="fa fa-minus"></i></span>
+                    <input type="number" class="numberinput text-center" ng-model="cat.quantity" readonly />
+                    <span ng-click="increasequan(cat.id,1)" class="badge badge-secondary pricechanger ml-1"><i class="fa fa-plus"></i></span></td>
+                  <td><span class="badge  closeicon"><i class="fa fa-close"></i></span></td>
+                
+              </tr>
+              <tr ng-if="cart.length==0">  
+                <td>
+                  <div class="text-left w-100  pt-2 pl-4 pb-4 font-400 text-14" ngstyle="color:#EE7E25;">
+                    <span class="text-20">No items in your cart</span><br>
+                    Your favourite items are just a click away
+                 </div>
+                </td>
+              </tr>
+                
+                
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn color-white bg-orange" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+    <!---Move To Top-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+    </div>
+   
+
+  <script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  $('html, body').animate({scrollTop:0}, 'slow');
+}
+
+
+</script>
+<script src="https://kenwheeler.github.io/slick/slick/slick.js"  crossorigin="anonymous"></script>
+<script src="./slickslide.js"></script>
+<script src="./nav.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+  function info(text){
+    Toastify({
+  text: text,
+  duration: 3000,
+  close: true,
+  gravity: "bottom", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+  }
+  function danger(text){
+    Toastify({
+  text: text,
+  duration: 3000,
+  close: true,
+  gravity: "bottom", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+  }
+  function warning(text){
+    Toastify({
+  text: text,
+  duration: 3000,
+  close: true,
+  gravity: "bottom", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+  }
+  function success(text){
+    Toastify({
+  text: text,
+  duration: 3000,
+  close: true,
+  gravity: "bottom", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+  }
+  
+</script>
+<script>
+    //Angular Modules
+   var app = angular.module('myApp', []);
+   app.controller('myCtrl', function($scope,$http) {
+   
+    //For Storing Products
+    $scope.cart=[];
+    $scope.currency="HK";
+
+    $scope.reducequan=function(id,flag){
+      updateproduct(id,flag,0)
+    }
+    $scope.increasequan=function(id,flag){
+      updateproduct(id,flag,0)
+    }
+
+    
+    $scope.addItem=function(id,title,price,img,unit,quantity){
+    
+
+        if(!checkproduct(id)){
+          let prod={
+          "id":id,
+          "title":title,
+          "price":price,
+          "img":img,
+          "quantity":quantity,
+          "unit":unit
+        }
+        $scope.cart.push(prod);
+       // document.getElementById("btn").click();
+       success(prod.title+" added to cart")
+
+      }
+      else {
+        updateproduct(id,1,1);
+      }
+
+      //document.getElementById("btn").click();
+    }
+    //Function that returns false when item found
+    function checkproduct(id){
+      //find function returns undefined when get nothing 
+      let status=$scope.cart.find(item=>Number(item.id)==Number(id));
+      return status==undefined ? false : true
+    }
+    //Update Quantity Function
+    function updateproduct(id,flag,modelshow){
+     
+      let status=$scope.cart.find(item=>Number(item.id)==Number(id));
+      //Products Found 
+      if(status!=undefined){
+
+        //If Add More Item
+        if(flag==1){
+       
+        status.quantity=(Number(status.quantity)+1);
+        success(status.title+" added to cart")
+        if(modelshow==1){
+          //document.getElementById("btn").click();
+          
+        }
+       
+        
+
+        }
+        else if(flag==0){
+
+        if(Number(status.quantity)-1==0){
+          $scope.cart=$scope.cart.filter(item=>Number(item.id) != Number(id));
+        }
+
+        else{
+          status.quantity=(Number(status.quantity)-1);
+          success(status.title+" removed from cart")
+          if(modelshow==1){
+          //document.getElementById("btn").click();
+        
+        }
+        }
+       
+        
+        }
+        
+      }
+      else{
+        alert("Something Going Wrong...")
+      }
+
+
+    }
+   
+
+      $scope.places=[
+        {"id":1,"city":"Kowloon Tong"},
+        {"id":1,"city":"Shek Kip Mei"},
+        {"id":1,"city":"Fo Tan"},
+        {"id":1,"city":"Sham Shui Po"},
+        {"id":1,"city":"Lok Fo"}
+
+      ]
+      
+      $scope.categories=[
+         {"id":1,"title":"Grocery","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-grocery-61e9620ce82bd.jpeg","status":"1","titlesub":"Browse Grocery"},
+         {"id":8,"title":"Bakery Dairy","img":" https://pictures.grocerapps.com/lgthumb/grocerapp-bakery-dairy-61eab95d92b7a.jpeg","status":"1","titlesub":"Browse Bakery & Dairy "},
+         {"id":3,"title":"Fresh Meat","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-fresh-meat-61eab6cd051b0.jpeg","status":"1","titlesub":"Browse Fresh Meat"},
+         {"id":2,"title":"Fruits Vegetables","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg","status":"1","titlesub":"Browse Fruits & Vegetables"}, 
+         {"id":10,"title":"Beverages","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-beverages-61eab9642ec81.jpeg","status":"1","titlesub":"Browse Beverages"},
+         {"id":9,"title":"Frozen Chilled","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-frozen-chilled-61eab714bcb1c.jpeg","status":"0","titlesub":"Frozen & Chilled Coming Soon"},
+         {"id":4,"title":"Baby Care","img":"./categories/babycare.webp","status":"0","titlesub":"Baby Care Coming Soon"},
+         {"id":5,"title":"Home Care","img":"./categories/homecare.webp","status":"0","titlesub":"Home Care Coming Soon"}, 
+     ]
+
+     $scope.ramdaan=[
+       //Grocery Products
+       {id:7861,title:"Youngs Chicken Spread",img:"./top products/grocery/grocery-p1.webp",subimg:[""],price:"440",oldprice:"",unit:"500 ml",tag:"",descr:`Buy Youngs Chicken Spread Online from Foreedelivery. Youngs Chicken Spread Price in Pakistan is Rs. 440 at Foreedelivery. Shop Youngs Chicken Spread Online & Get delivery anywhere.`,parent:"Grocery",subparent:"",brand:"Youngs"},
+       {id:7862,title:"National Refined Salt",img:"./top products/grocery/grocery-p2.webp",subimg:[""],price:"31",oldprice:"",unit:"800 gm",tag:"",descr:`Buy National Refined Salt Online from Foreedelivery. National Refined Salt Price in Pakistan is Rs. 31 at Foreedelivery. Shop National Refined Salt Online & Get delivery anywhere.`,parent:"Grocery",subparent:"",brand:"National"},
+       {id:7863,title:"Shan Liver Masala",img:"./top products/grocery/grocery-p3.webp",subimg:[""],price:"60",oldprice:"",unit:"50 gm",tag:"",descr:`Buy Shan Liver Masala Online from Foreedelivery. Shan Liver Masala Price in Pakistan is Rs. 60 at Foreedelivery. Shop Shan Liver Masala Online & Get delivery anywhere.`,parent:"Grocery",subparent:"",brand:"Shan"},
+       {id:7864,title:"Knorr Tomato Ketchup",img:"./top products/grocery/grocery-p4.webp",subimg:[""],price:"258",oldprice:"",unit:"800 gm",tag:"",descr:`Buy Knorr Tomato Ketchup Online from Foreedelivery. Knorr Tomato Ketchup Price in Pakistan is Rs. 258 at GrocerApp. Shop Knorr Tomato Ketchup Online & Get delivery anywhere.`,parent:"Grocery",subparent:"",brand:"Knorr"},
+       {id:7865,title:"Youngs Mayonnaise",img:"./top products/grocery/grocery-p5.webp",subimg:[""],price:"460",oldprice:"",unit:"1 ltr",tag:"",descr:`Buy Youngs Mayonnaise Online from GrocerApp. Youngs Mayonnaise Price in Pakistan is Rs. 460 at GrocerApp. Shop Youngs Mayonnaise Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Grocery",subparent:"",brand:"Youngs"},
+       {id:7866,title:"Knorr Chicken Soup Stock",img:"./top products/grocery/grocery-p6.webp",subimg:[""],price:"45",oldprice:"",unit:"18 gm",tag:"",descr:`Buy Knorr Chicken Soup Stock Online from GrocerApp. Knorr Chicken Soup Stock Price in Pakistan is Rs. 45 at GrocerApp. Shop Knorr Chicken Soup Stock Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Grocery",subparent:"",brand:"Knorr"},
+       {id:7867,title:"National Chat Masala",img:"./top products/grocery/grocery-p7.webp",subimg:[""],price:"100",oldprice:"",unit:"100 gm",tag:"",descr:`Buy National Chat Masala Online from GrocerApp. National Chat Masala Price in Pakistan is Rs. 100 at GrocerApp. Shop National Chat Masala Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Grocery",subparent:"",brand:"National"},
+       {id:7868,title:"Rafhan Cornflour",img:"./top products/grocery/grocery-p8.webp",subimg:[""],price:"99",oldprice:"",unit:"275 gm",tag:"",descr:`Buy Rafhan Cornflour Online from GrocerApp. Rafhan Cornflour Price in Pakistan is Rs. 99 at GrocerApp. Shop Rafhan Cornflour Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Grocery",subparent:"",brand:"Rafhan"},
+       {id:7869,title:"National Quorma Masala Mix",img:"./top products/grocery/grocery-p10.webp",subimg:[""],price:"75",oldprice:"",unit:"50 gm",tag:"",descr:`Buy National Quorma Masala Mix Online from GrocerApp. National Quorma Masala Mix Price in Pakistan is Rs. 75 at GrocerApp. Shop National Quorma Masala Mix Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Grocery",subparent:"",brand:"National"},
+       {id:78610,title:"National Achar Gosht Masala Recipe Mix",img:"./top products/grocery/grocery-p11.webp",subimg:[""],price:"75",oldprice:"",unit:"50 gm",tag:"",descr:`Buy National Achar Gosht Masala Recipe Mix Online from GrocerApp. National Achar Gosht Masala Recipe Mix Price in Pakistan is Rs. 75 at GrocerApp. Shop National Achar Gosht Masala Recipe Mix Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Grocery",subparent:"",brand:"National"},
+       {id:78611,title:"National Tomato Ketchup Pouch",img:"./top products/grocery/grocery-p9.webp",subimg:[""],price:"95",oldprice:"",unit:"250 gm",tag:"",descr:`Buy National Tomato Ketchup Pouch Online from GrocerApp. National Tomato Ketchup Pouch Price in Pakistan is Rs. 95 at GrocerApp. Shop National Tomato Ketchup Pouch Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Grocery",subparent:"",brand:"National"},
+       {id:78612,title:"National Mixed Pickle Jar",img:"./top products/grocery/grocery-p12.webp",subimg:[""],price:"195",oldprice:"",unit:"400 gm",tag:"",descr:`Buy National Mixed Pickle Jar Online from GrocerApp. National Mixed Pickle Jar Price in Pakistan is Rs. 195 at GrocerApp. Shop National Mixed Pickle Jar Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Grocery",subparent:"",brand:"National"},
+       //Bakery Products
+       {id:78613,title:"Nestle Lactogrow 3 200g",img:"./top products/bakery/lacto-grow-milk.webp",subimg:[""],price:"380",oldprice:"",unit:"1 unit",tag:"",descr:`Buy Nestle Lactogrow 3 200g Online from GrocerApp. Nestle Lactogrow 3 200g Price in Pakistan is Rs. 380 at GrocerApp. Shop Nestle Lactogrow 3 200g Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Nestle"},
+       {id:78614,title:"Dawn Bran Bread 340g",img:"./top products/bakery/grocery-p15.webp",subimg:[""],price:"84",oldprice:"",unit:"1 unit",tag:"",descr:`Buy Dawn Bran Bread 340g Online from GrocerApp. Dawn Bran Bread 340g Price in Pakistan is Rs. 84 at GrocerApp. Shop Dawn Bran Bread 340g Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Dawn Bread"},
+       {id:78615,title:"Dawn Milky Bread Family Pack 725g",img:"./top products/bakery/grocery-p16.webp",subimg:[""],price:"125",oldprice:"",unit:"1 unit",tag:"",descr:`Buy Dawn Milky Bread Family Pack 725g Online from GrocerApp. Dawn Milky Bread Family Pack 725g Price in Pakistan is Rs. 125 at GrocerApp. Shop Dawn Milky Bread Family Pack 725g Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Dawn Bread"},
+       {id:78616,title:"Dawn Bread Plain Large 725g",img:"./top products/bakery/grocery-p14.webp",subimg:[""],price:"125",oldprice:"",unit:"1 unit",tag:"",descr:`Buy Dawn Bread Plain Large 725g Online from GrocerApp. Dawn Bread Plain Large 725g Price in Pakistan is Rs. 125 at GrocerApp. Shop Dawn Bread Plain Large 725g Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Dawn Bread"},
+       {id:78617,title:"Omega 3 Eggs Farm Fresh",img:"./top products/bakery/omega 3eggs.webp",subimg:[""],price:"258",oldprice:"",unit:"1 unit",tag:"",descr:`Buy Omega 3 Eggs Farm Fresh Online from GrocerApp. Omega 3 Eggs Farm Fresh Price in Pakistan is Rs. 258 at GrocerApp. Shop Omega 3 Eggs Farm Fresh Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Farm-Fresh"},
+       {id:78618,title:"SB Super Eggs 6 Pcs",img:"./top products/bakery/sb eggs.webp",subimg:[""],price:"100",oldprice:"",unit:"1 unit",tag:"",descr:`Buy SB Super Eggs 6 Pcs Online from GrocerApp. SB Super Eggs 6 Pcs Price in Pakistan is Rs. 100 at GrocerApp. Shop SB Super Eggs 6 Pcs Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Farm-Fresh"},
+       {id:78619,title:"Blue Band Margarine",img:"./top products/bakery/blue band margarine.webp",subimg:[""],price:"240",oldprice:"",unit:"200 gm",tag:"",descr:`Buy Blue Band Margarine Online from GrocerApp. Blue Band Margarine Price in Pakistan is Rs. 240 at GrocerApp. Shop Blue Band Margarine Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Blue Band"},
+       {id:78620,title:"Blue Band Margarine Spread",img:"./top products/bakery/blue band margarine spread.webp",subimg:[""],price:"600",oldprice:"",unit:"500 gm",tag:"",descr:`Buy Blue Band Margarine Spread Online from GrocerApp. Blue Band Margarine Spread Price in Pakistan is Rs. 600 at GrocerApp. Shop Blue Band Margarine Spread Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Blue Band"},
+       {id:78621,title:"Milk Pak Dairy Cream 200ml",img:"./top products/bakery/Milk Pak Dairy Cream 200ml.webp",subimg:[""],price:"150",oldprice:"",unit:"200 ml",tag:"",descr:`Buy Milk Pak Dairy Cream 200ml Online from GrocerApp. Milk Pak Dairy Cream 200ml Price in Pakistan is Rs. 150 at GrocerApp. Shop Milk Pak Dairy Cream 200ml Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Nestle"},
+       {id:78622,title:"Blue Band Margarine Spread 25gm",img:"./top products/bakery/Blue Band Margarine Spread 25gm.webp",subimg:[""],price:"35",oldprice:"",unit:"25 mg",tag:"",descr:`Buy Blue Band Margarine Spread 25gm Online from GrocerApp. Blue Band Margarine Spread 25gm Price in Pakistan is Rs. 35 at GrocerApp. Shop Blue Band Margarine Spread 25gm Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Nestle"},
+       {id:78623,title:"Nestle Original Yogurt Sweet & Tasty",img:"./top products/bakery/nestle yogurt.webp",subimg:[""],price:"145",oldprice:"",unit:"400 mg",tag:"",descr:`Buy Nestle Original Yogurt Sweet & Tasty Online from GrocerApp. Nestle Original Yogurt Sweet & Tasty Price in Pakistan is Rs. 145 at GrocerApp. Shop Nestle Original Yogurt Sweet & Tasty Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Nestle"},
+       {id:78624,title:"Prema Natural Yogurt",img:"./top products/bakery/yogurt 400.webp",subimg:[""],price:"150",oldprice:"",unit:"400 mg",tag:"",descr:`Buy Prema Natural Yogurt Online from GrocerApp. Prema Natural Yogurt Price in Pakistan is Rs. 150 at GrocerApp. Shop Prema Natural Yogurt Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Bakery & Dairy",subparent:"",brand:"Prema"},
+       //Forzen
+       {id:78625,title:"K&N's Burger Patties 16 Pieces (1070g)",img:"./top products/frozen/K&N's Burger Patties 16 Pieces (1070g).jpeg",subimg:[""],price:"965",oldprice:"",unit:"1070 gm",tag:"",descr:`Buy K&N's Burger Patties 16 Pieces (1070g) Online from GrocerApp. K&N's Burger Patties 16 Pieces (1070g) Price in Pakistan is Rs. 965 at GrocerApp. Shop K&N's Burger Patties 16 Pieces (1070g) Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Frozen & Chilled",subparent:"",brand:"K&N's"},
+       {id:78626,title:"K&N's Fun Nuggets 9 Pieces (265g)",img:"./top products/frozen/K&N's Fun Nuggets 9 Pieces (265g).webp",subimg:[""],price:"345",oldprice:"",unit:"265 gm",tag:"",descr:`Buy K&N's Fun Nuggets 9 Pieces (265g) Online from GrocerApp. K&N's Fun Nuggets 9 Pieces (265g) Price in Pakistan is Rs. 345 at GrocerApp. Shop K&N's Fun Nuggets 9 Pieces (265g) Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Frozen & Chilled",subparent:"",brand:"K&N's"},
+       {id:78627,title:"K&N's Chicken Samosa 30 Pieces (420g)",img:"./top products/frozen/K&N's Chicken Samosa 30 Pieces (420g).webp",subimg:[""],price:"605",oldprice:"",unit:"405 gm",tag:"",descr:`Buy K&N's Chicken Samosa 30 Pieces (420g) Online from GrocerApp. K&N's Chicken Samosa 30 Pieces (420g) Price in Pakistan is Rs. 605 at GrocerApp. Shop K&N's Chicken Samosa 30 Pieces (420g) Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Frozen & Chilled",subparent:"",brand:"K&N's"},
+       {id:78628,title:"K&N's Haray Bharay Nuggets 45-47 Pieces (1kg)",img:"./top products/frozen/K&N's Haray Bharay Nuggets 45-47 Pieces (1kg).jpeg",subimg:[""],price:"910",oldprice:"",unit:"1000 gm",tag:"",descr:`Buy K&N's Haray Bharay Nuggets 45-47 Pieces (1kg) Online from GrocerApp. K&N's Haray Bharay Nuggets 45-47 Pieces (1kg) Price in Pakistan is Rs. 910 at GrocerApp. Shop K&N's Haray Bharay Nuggets 45-47 Pieces (1kg) Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Frozen & Chilled",subparent:"",brand:"K&N's"},
+       {id:78629,title:"K&N's Spring Roll 18 Pieces (630g)",img:"./top products/frozen/K&N's Spring Roll 18 Pieces (630g).webp",subimg:[""],price:"745",oldprice:"",unit:"630 gm",tag:"",descr:`Buy K&N's Spring Roll 18 Pieces (630g) Online from GrocerApp. K&N's Spring Roll 18 Pieces (630g) Price in Pakistan is Rs. 745 at GrocerApp. Shop K&N's Spring Roll 18 Pieces (630g) Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Frozen & Chilled",subparent:"",brand:"K&N's"},
+       //Beverages
+       {id:78630,title:"Sprite Drink",img:"./top products/beverages/Sprite Drink.webp",subimg:[""],price:"99",oldprice:"",unit:"1.5 Litre",tag:"",descr:`Buy Sprite Drink Online from GrocerApp. Sprite Drink Price in Pakistan is Rs. 99 at GrocerApp. Shop Sprite Drink Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Cold Drinks",brand:""},
+       {id:78631,title:"Pepsi - پیپسی",img:"./top products/beverages/Pepsi - پیپسی.webp",subimg:[""],price:"99",oldprice:"",unit:"1.5 Litre",tag:"",descr:`Buy Pepsi - پیپسی Online from GrocerApp. Pepsi - پیپسی Price in Pakistan is Rs. 95 at GrocerApp. Shop Pepsi - پیپسی Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Cold Drinks",brand:""},
+       {id:78632,title:"Mirinda 1.5L",img:"./top products/beverages/Mirinda 1.5L.webp",subimg:[""],price:"99",oldprice:"",unit:"1.5 Litre",tag:"",descr:`Buy Mirinda 1.5L Online from GrocerApp. Mirinda 1.5L Price in Pakistan is Rs. 94 at GrocerApp. Shop Mirinda 1.5L Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Cold Drinks",brand:""},
+       {id:78633,title:"Coca Cola Zero Drink Can",img:"./top products/beverages/Coca Cola Zero Drink Can.webp",subimg:[""],price:"52",oldprice:"",unit:"250 ml",tag:"",descr:`Buy Coca Cola Zero Drink Can Online from GrocerApp. Coca Cola Zero Drink Can Price in Pakistan is Rs. 52 at GrocerApp. Shop Coca Cola Zero Drink Can Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Cold Drinks",brand:""},
+       {id:78634,title:"Sprite Drink Can",img:"./top products/beverages/Sprite Drink Can.webp",subimg:[""],price:"52",oldprice:"",unit:"250 ml",tag:"",descr:`Buy Sprite Drink Can Online from GrocerApp. Sprite Drink Can Price in Pakistan is Rs. 50 at GrocerApp. Shop Sprite Drink Can Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Cold Drinks",brand:""},
+       {id:78635,title:"7Up Can",img:"./top products/beverages/7Up Can.webp",subimg:[""],price:"48",oldprice:"",unit:"250 ml",tag:"",descr:`Buy 7Up Can Online from GrocerApp. 7Up Can Price in Pakistan is Rs. 48 at GrocerApp. Shop 7Up Can Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Cold Drinks",brand:""},
+       {id:78636,title:"Pepsi Diet Can",img:"./top products/beverages/pepsi.webp",subimg:[""],price:"50",oldprice:"",unit:"250 ml",tag:"",descr:`Buy Pepsi Diet Can Online from GrocerApp. Pepsi Diet Can Price in Pakistan is Rs. 50 at GrocerApp. Shop Pepsi Diet Can Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Cold Drinks",brand:""},
+       {id:78637,title:"Nescafe Chilled Latte",img:"./top products/beverages/Nescafe Chilled Latte.jpeg",subimg:[""],price:"70",oldprice:"",unit:"200 ml",tag:"",descr:`Buy Nescafe Chilled Latte Online from GrocerApp. Nescafe Chilled Latte Price in Pakistan is Rs. 70 at GrocerApp. Shop Nescafe Chilled Latte Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Cold Drinks",brand:""},
+       {id:78638,title:"Fruitien Juice Joy Mango Juice",img:"./top products/beverages/Fruitien Juice Joy Mango Juice.webp",subimg:[""],price:"30",oldprice:"",unit:"200 ml",tag:"",descr:`Buy Fruitien Juice Joy Mango Juice Online from GrocerApp. Fruitien Juice Joy Mango Juice Price in Pakistan is Rs. 27 at GrocerApp. Shop Fruitien Juice Joy Mango Juice Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Juices",brand:"Fruitien"},
+       {id:78639,title:"Nestle Fruita Vitals Chaunsa 1 Litre",img:"./top products/beverages/Nestle Fruita Vitals Chaunsa 1 Litre.webp",subimg:[""],price:"200",oldprice:"",unit:"1 Litre",tag:"",descr:`Buy Nestle Fruita Vitals Chaunsa 1 Litre Online from GrocerApp. Nestle Fruita Vitals Chaunsa 1 Litre Price in Pakistan is Rs. 195 at GrocerApp. Shop Nestle Fruita Vitals Chaunsa 1 Litre Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Juices",brand:"Nestle"},
+       {id:78640,title:"Nestle Nesfruta Mango Juice 200ml",img:"./top products/beverages/Nestle Nesfruta Mango Juice 200ml.webp",subimg:[""],price:"30",oldprice:"",unit:"200 ml",tag:"",descr:`Buy Nestle Nesfruta Mango Juice 200ml Online from GrocerApp. Nestle Nesfruta Mango Juice 200ml Price in Pakistan is Rs. 30 at GrocerApp. Shop Nestle Nesfruta Mango Juice 200ml Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Juices",brand:"Nestle"},
+       {id:78641,title:"Lipton Yellow Label Pouch",img:"./top products/beverages/Lipton Yellow Label Pouch.webp",subimg:[""],price:"1247",oldprice:"1259",unit:"950 gm",tag:"",descr:`Buy Lipton Yellow Label Pouch Online from GrocerApp. Lipton Yellow Label Pouch Price in Pakistan is Rs. 1247 at GrocerApp. Shop Lipton Yellow Label Pouch Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Tea",brand:"Unilever"},
+       {id:78642,title:"Brooke Bond Supreme Pouch",img:"./top products/beverages/Brooke Bond Supreme Pouch.webp",subimg:[""],price:"560",oldprice:"",unit:"475 gm",tag:"",descr:`Buy Brooke Bond Supreme Pouch Online from GrocerApp. Brooke Bond Supreme Pouch Price in Pakistan is Rs. 559 at GrocerApp. Shop Brooke Bond Supreme Pouch Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Tea",brand:"Unilever"},
+       {id:78643,title:"Nestle Pure Life Water 1.5 Litre",img:"./top products/beverages/Nestle Pure Life Water 1.5 Litre.webp",subimg:[""],price:"70",oldprice:"",unit:"1.5 Litre",tag:"",descr:`Buy Nestle Pure Life Water 1.5 Litre Online from GrocerApp. Nestle Pure Life Water 1.5 Litre Price in Pakistan is Rs. 63 at GrocerApp. Shop Nestle Pure Life Water 1.5 Litre Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Beverages",subparent:"Mineral & Soda Water",brand:"Nestle"},  
+       //Meat
+       {id:78644,title:"Chicken Karahi Cut (چکن کراہی کٹ)",img:"./top products/meat/Chicken Karahi Cut (چکن کراہی کٹ).webp",subimg:[""],price:"530",oldprice:"590",unit:"900 gm",tag:"",descr:`Buy Chicken Karahi Cut (چکن کراہی کٹ) Online from GrocerApp. Chicken Karahi Cut (چکن کراہی کٹ) Price in Pakistan is Rs. 529 at GrocerApp. Shop Chicken Karahi Cut (چکن کراہی کٹ) Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Fresh Meat",subparent:"Chicken",brand:""},
+       {id:78645,title:"Chicken Mince - چکن قیمہ",img:"./top products/meat/Chicken Mince - چکن قیمہ.webp",subimg:[""],price:"400",oldprice:"450",unit:"500 gm",tag:"",descr:`Buy Chicken Mince - چکن قیمہ Online from GrocerApp. Chicken Mince - چکن قیمہ Price in Pakistan is Rs. 399 at GrocerApp. Shop Chicken Mince - چکن قیمہ Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Fresh Meat",subparent:"Chicken",brand:""},
+       {id:78646,title:"Chicken Breast (Fillet) (چکن بون لیس)",img:"./top products/meat/Chicken Breast (Fillet) (چکن بون لیس).webp",subimg:[""],price:"820",oldprice:"870",unit:"1 kg",tag:"",descr:`Buy Chicken Breast (Fillet) (چکن بون لیس) Online from GrocerApp. Chicken Breast (Fillet) (چکن بون لیس) Price in Pakistan is Rs. 819 at GrocerApp. Shop Chicken Breast (Fillet) (چکن بون لیس) Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Fresh Meat",subparent:"Chicken",brand:""},
+
+       //Fruits & Vegetables
+       {id:78647,title:"Tomato",img:"./top products/fruits&vegs/Tomato.webp",subimg:[""],price:"90",oldprice:"100",unit:"1000 gm",tag:"",descr:`Buy Tomato Online from GrocerApp. Tomato Price in Pakistan is Rs. 89 at GrocerApp. Shop Tomato Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Fruits & Vegetables",subparent:"Vegetables",brand:""},
+       {id:78648,title:"Onion",img:"./top products/fruits&vegs/Onion.webp",subimg:[""],price:"90",oldprice:"100",unit:"1000 gm",tag:"",descr:`Buy Onion Online from GrocerApp. Onion Price in Pakistan is Rs. 99 at GrocerApp. Shop Onion Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Fruits & Vegetables",subparent:"Vegetables",brand:""},
+       {id:78649,title:"Garlic - لہسن",img:"./top products/fruits&vegs/Garlic - لہسن.webp",subimg:[""],price:"90",oldprice:"120",unit:"250 gm",tag:"",descr:`Buy Garlic - لہسن Online from GrocerApp. Garlic - لہسن Price in Pakistan is Rs. 85 at GrocerApp. Shop Garlic - لہسن Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Fruits & Vegetables",subparent:"Vegetables",brand:""},
+       {id:78650,title:"Banana - کیلا",img:"./top products/fruits&vegs/Banana - کیلا.webp",subimg:[""],price:"99",oldprice:"150",unit:"6 unit",tag:"",descr:`Buy Tomato Online from GrocerApp. Tomato Price in Pakistan is Rs. 89 at GrocerApp. Shop Tomato Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Fruits & Vegetables",subparent:"Fruits",brand:""},
+       {id:78651,title:"Mango Anwar Ratol - انور راٹول",img:"./top products/fruits&vegs/Mango Anwar Ratol - انور راٹول.webp",subimg:[""],price:"130",oldprice:"150",unit:"1000 gm",tag:"",descr:`Buy Mango Anwar Ratol - انور راٹول Online from GrocerApp. Mango Anwar Ratol - انور راٹول Price in Pakistan is Rs. 229 at GrocerApp. Shop Mango Anwar Ratol - انور راٹول Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Fruits & Vegetables",subparent:"Fruits",brand:""},
+       
+       //Baby Care
+       {id:78652,title:"SHIELD DIAPER JUMBO PACK LARGE",img:"./top products/baby care/SHIELD DIAPER JUMBO PACK LARGE.webp",subimg:[""],price:"2040",oldprice:"2095",unit:"80 piece",tag:"",descr:`Buy SHIELD DIAPER JUMBO PACK LARGE Online from GrocerApp. SHIELD DIAPER JUMBO PACK LARGE Price in Pakistan is Rs. 2036 at GrocerApp. Shop SHIELD DIAPER JUMBO PACK LARGE Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Baby Care",subparent:"Diaper & Wipes",brand:""},
+       {id:78653,title:"Canbebe Diapers Size 3 (4-9kg) 64 Pieces",img:"./top products/baby care/Canbebe Diapers Size 3 (4-9kg) 64 Pieces.webp",subimg:[""],price:"2280",oldprice:"",unit:"64 piece",tag:"",descr:`Buy Canbebe Diapers Size 3 (4-9kg) 64 Pieces Online from GrocerApp. Canbebe Diapers Size 3 (4-9kg) 64 Pieces Price in Pakistan is Rs. 2280 at GrocerApp. Shop Canbebe Diapers Size 3 (4-9kg) 64 Pieces Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Baby Care",subparent:"Diaper & Wipes",brand:""},
+       {id:78654,title:"Nestle NAN Optipro 2 400g",img:"./top products/baby care/Nestle NAN Optipro 2 400g.webp",subimg:[""],price:"1260",oldprice:"1400",unit:"400 gm",tag:"",descr:`Buy Nestle NAN Optipro 2 400g Online from GrocerApp. Nestle NAN Optipro 2 400g Price in Pakistan is Rs. 1260 at GrocerApp. Shop Nestle NAN Optipro 2 400g Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Baby Care",subparent:"Food & Milk",brand:"Nestle"},
+       
+       //Home Care
+       {id:78655,title:"Surf Excel with Fabric Care Pearls",img:"./top products/home care/Surf Excel with Fabric Care Pearls.webp",subimg:[""],price:"200",oldprice:"",unit:"500 gm",tag:"",descr:`Buy Surf Excel with Fabric Care Pearls Online from GrocerApp. Surf Excel with Fabric Care Pearls Price in Pakistan is Rs. 199 at GrocerApp. Shop Surf Excel with Fabric Care Pearls Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Home Care",subparent:"Laundry",brand:""},
+       {id:78656,title:"Lemon Max Dishwash Paste Green 200g",img:"./top products/home care/Lemon Max Dishwash Paste Green 200g.webp",subimg:[""],price:"100",oldprice:"",unit:"200 gm",tag:"",descr:`Buy Lemon Max Dishwash Paste Green 200g Online from GrocerApp. Lemon Max Dishwash Paste Green 200g Price in Pakistan is Rs. 99 at GrocerApp. Shop Lemon Max Dishwash Paste Green 200g Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Home Care",subparent:"Kitchen Cleaning",brand:"Colgate-Palmolive"},
+       {id:78657,title:"Scotch Brite large Laminate",img:"./top products/home care/Scotch Brite large Laminate.webp",subimg:[""],price:"75",oldprice:"",unit:"1 unit",tag:"",descr:`Buy Scotch Brite large Laminate Online from GrocerApp. Scotch Brite large Laminate Price in Pakistan is Rs. 75 at GrocerApp. Shop Scotch Brite large Laminate Online & Get delivery in Lahore, Islamabad, Rawalpindi and Faisalabad.`,parent:"Home Care",subparent:"Kitchen Cleaning",brand:"Scotch-Brite"},
+       
+      
+      ]
+
+     //Take Parent Id From Above 
+     $scope.categoriesSub=[
+       {id:'3',title:'Fresh Meat',desc:'Mutton, Beef, Chicken',subcat:[{img:'./categories/chicken.webp',id:'',desc:'Chicken'},{img:'./categories/mutton.jpeg',id:'',desc:'Mutton'},{img:'./categories/beef.webp',id:'',desc:'Beef'}]},
+       {id:'2',title:'Fruits Vegetables',desc:'Fruits, Vegetables, Potato, Tomato, Brocoli, Onion, Banana',subcat:[{img:'./categories/vegetables.webp',id:'',desc:'Vegetables'},{img:'./categories/fruits.webp',id:'',desc:'Fruits'}]},
+       {id:'1',title:'Grocery',desc:'Oil, Daalain, Spices & Herbs, Flour, Jams, Sauces, Desserts, Olives, Pickels',subcat:[{img:'./categories/oil&ghee.webp',id:'',desc:'Oil & Ghee'},{img:'./categories/salt&sugar.webp',id:'',desc:'Spices, Salt & Sugar'},{img:'./categories/daalain.webp',id:'',desc:'Daalain, Rice & Flour'},{img:'./categories/sauses.webp',id:'',desc:'Sauces, Olives & Pickles'},{img:'./categories/jam&honey.webp',id:'',desc:'Jam, Honey & Spread'},{img:'./categories/baking.webp',id:'',desc:'Baking & Desserts'}]},
+       {id:'8',title:'Bakery Dairy',desc:'Milk, Butter, Cheese, Bread',subcat:[{img:'./categories/milk.webp',id:'',desc:'Milk'},{img:'./categories/breads.webp',id:'',desc:'Breads'},{img:'./categories/eggs.webp',id:'',desc:'Eggs'},{img:'./categories/butter&cream.webp',id:'',desc:'Cream & Butter'},{img:'./categories/cereals&oats.webp',id:'',desc:'Cereals & Oats'},{img:'./categories/cake&rusk.webp',id:'',desc:'Cake & Rusk'},{img:'./categories/cheese.webp',id:'',desc:'Cheese'},{img:'./categories/yogurt.webp',id:'',desc:'Yogurt'}]},
+       {id:'10',title:'Beverages',desc:'Tea, Cold Drinks, Sharbat, Juices, Energy Drinks, Instant Drinks',subcat:[{img:'./categories/sharbat.webp',id:'',desc:'Sharbat'},{img:'./categories/colddrinks.webp',id:'',desc:'Cold Drinks'},{img:'./categories/juices.webp',id:'',desc:'Juices'},{img:'./categories/tea.webp',id:'',desc:'Tea'},{img:'./categories/energydrinks.webp',id:'',desc:'Energy Drinks'},{img:'./categories/mineralwater.webp',id:'',desc:'Mineral Water'},{img:'./categories/coldtea&coffee.webp',id:'',desc:'Cold Tea, Coffee'},{img:'./categories/instantdrinks.webp',id:'',desc:'Instant Drinks'},{img:'./categories/falvouredmilk.webp',id:'',desc:'Flavoured Milk'}]},
+       {id:'9',title:'Frozen Chilled',desc:'Burger Pattie, Nuggets, Kabab',subcat:[{img:'./categories/kabab.webp',id:'',desc:'Kabab & Kofta'},{img:'./categories/burgerpatties.webp',id:'',desc:'Burger Patties'},{img:'./categories/nuggets.webp',id:'',desc:'Nuggets & Snacks'},{img:'./categories/samosa.webp',id:'',desc:'Samosa & Rolls'}]},
+       {id:'5',title:'Home Care',desc:'Cleaners, Detergents, Tissue, Repellents, Laundry',subcat:[{img:'./categories/floorcleaning.webp',id:'',desc:'Floor, Bath Cleaning'},{img:'./categories/laundry.webp',id:'',desc:'Laundry'},{img:'./categories/kitchencleaning.webp',id:'',desc:'Kitchen Cleaning'},{img:'./categories/cleaners.webp',id:'',desc:'Other Cleaners'},{img:'./categories/repellents.webp',id:'',desc:'Repellents Mosquito Killers'},{img:'./categories/airfreshers.webp',id:'',desc:'Air Fresheners'},{img:'./categories/tissues.webp',id:'',desc:'Tissue Papers'},{img:'./categories/cleaning accessaries.webp',id:'',desc:'Cleaning Accessories'}]},
+       {id:'4',title:'Baby Care',desc:'Diapers, Lotions, Baby Food',subcat:[{img:'./categories/diaper.webp',id:'',desc:'Diaper & Wipes'},{img:'./categories/foodmilk.webp',id:'',desc:'Food & Milk'},{img:'./categories/bath.webp',id:'',desc:'Bath & Toothpaste'},{img:'./categories/utensilsaccessaries.webp',id:'',desc:'Utensils & Accessories'}]},
+
+     ]
+    
+     
+     //Search Products Function 
+
+      let typingTimer; //timer identifier
+      let doneTypingInterval = 2000;  //time in ms (5 seconds)
+      let myInput = document.getElementById('search');
+
+      //on keyup, start the countdown
+      myInput.addEventListener('keyup', () => {
+          clearTimeout(typingTimer);
+          if (myInput.value) {
+              typingTimer = setTimeout(doneTyping, doneTypingInterval);
+          }
+      });
+
+      //user is "finished typing," do something
+      function doneTyping () {
+      window.location.href="./search.html?q="+document.getElementById("search").value;
+      }
+ 
+  
+     
+ 
+   });
+   </script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+
+  body{
+    font-family:  'Sora', sans-serif;
+    background-color: #F9F9F9;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    font-weight: 400px;
+    scroll-behavior: smooth;
+  }
+  html{
+    scroll-behavior: smooth;
+  }
+  .scroll-y{
+      max-height: 350px;
+      overflow: auto;
+      display:inline-block;
+  }
+  .card-custom{
+    padding: 20px 16px;
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+.headwrap{
+white-space: nowrap; 
+width: 250px; 
+overflow: hidden;
+text-overflow: ellipsis;
+
+}
+  .numberinput{
+    max-width: 35%;
+  }
+  .closeicon{
+    border:1px solid #f1f1f1;
+    border-radius:50% ;
+  }
+  .closeicon:hover{
+    background:rgba(0, 0, 0, 0.08)
+  }
+  .fa-close{
+    font-size: 20px
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .pricechanger{
+    font-size: 100%;
+    background-color: #EE7E25;
+  }
+
+  p,a{
+    margin:0px;
+  }
+  .container{
+    background-color: #fff;
+  }
+  .fixed-nav{
+    position: fixed;
+    left: 55%;
+    border: 1px solid;
+  }
+  .cat-img{
+    width: 100px;
+    max-width: 100%;
+    margin: auto;
+ 
+  }
+  .cat2-img{
+    width: 150px;
+    max-width: 100%;
+    
+  }
+  .prod-img{
+    width:150px;
+    max-width: 150px;
+  }
+  
+  .d-inline-block{
+    float:left;
+    height:100%;
+  }
+  .location-top{
+    padding: 5px
+  }
+  img{
+    width: 52px;
+  }
+  
+  .circular-icons{
+    padding: 19px;
+    height: 100%;
+    border-radius: 50%;
+    font-size: 18px;
+    
+  }
+  .circular-icons i{
+    padding: 5px;
+    
+  }
+  .circular-icons:hover{
+    background:rgba(0, 0, 0, 0.08)
+  }
+  
+  .btns{
+    width: 100%;
+    height: 100%;
+  }
+  .category-btn{
+    box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 3px 1px -2px rgb(0 0 0 / 12%);
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    border:none;
+    padding:10px 1px;
+    border-radius: 2px;
+    width: 100%;
+  }
+  .category-btn:hover{
+   
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  }
+  .cartbadge{
+    position: absolute;
+    right: 20px;
+    top: 5px
+  }
+  .search{
+    border:1px solid #EE7E25;
+    outline: none;
+    height:40px;
+    box-shadow: none;
+  }
+  .search-icon{
+    background-color: #EE7E25;
+    border:solid #EE7E25;
+    color:#fff
+  }
+  .search:focus{
+    border:1px solid #EE7E25;
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  }
+
+  
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.slick-slider{
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+.slide {
+  width:300px;
+  margin:10px;
+}
+
+.product{
+  border:1px solid #e7e7e7;
+  border-radius: 5px;
+  padding: 10px;
+}
+.single-item img{
+  max-width: 100%;
+  width: 100%;
+}
+.slick-dots{
+  bottom: 0;
+}
+.slick-dotted.slick-slider{
+  margin-bottom: 0px;
+}
+.border-rad{
+  border-radius: 5px;
+}
+.slick-prev{
+ 
+  left:0;
+  z-index: 1;
+}
+.badge-red{
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+.card-shadow{
+  box-shadow: 0 1px 1px rgb(0 0 0 / 15%), -1px 0 0 rgb(0 0 0 / 3%), 1px 0 0 rgb(0 0 0 / 3%), 0 1px 0 rgb(0 0 0 / 12%);;
+}
+.addcartbtn{
+  padding: 8px 16px;
+  border:1px solid #EE7E25
+}
+.addcartbtn:hover{
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  color: #fff;
+  background-color: #EE7E25;
+}
+
+.slick-next{
+  right:0;
+  z-index:1;
+}
+.cart-badge{
+  position: absolute;
+    top: 15%;
+    right: 10%;
+    cursor: pointer;
+}
+
+.cart-count{
+  font-size: 12px;
+    border-radius: 50%;
+    padding: 5px 6px;
+}
+.slick-prev:before, .slick-next:before{
+  color: #EE7E25;
+}
+.alert-warning{
+  background-color: #fffbc7;
+}
+.footer-icon{
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: 100%;
+}
+/*Color*/
+.color-black{
+  color: #1C2223;
+}
+.color-rgba{
+  color:rgba(0, 0, 0, 0.87);
+}
+.color-rgba-gray{
+  color:rgba(0, 0, 0, 0.54)
+}
+.color-white{
+  color:#fff
+}
+.color-orange{
+  color:#EE7E25
+}
+.cursor-  pointer{
+  cursor: pointer;
+}
+/*Font Size*/
+.text-12{
+  font-size: 12px;
+}
+.text-14{
+  font-size: 14px;
+}
+.text-16{
+  font-size: 16px !important;
+}
+.text-20{
+  font-size: 20px !important;
+}
+/*Background Color*/
+.bg-red{
+  background-color: #ff0000;
+}
+.bg-orange{
+  background-color: #EE7E25;
+}
+/*Font Wegiht*/
+.font-600{
+  font-weight: 600;
+}
+.font-400{
+  font-weight: 400;
+}
+.font-500{
+  font-weight:500;
+}
+.font-700{
+  font-weight: 700;;
+}
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #EE7E25; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 2px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+#myBtn i{
+  font-size: 20px;
+}
+
+#myBtn:hover {
+  background-color: rgb(169, 89, 28); /* Add a dark-grey background on hover */
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 250px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: -250px;
+  background-color: #FFFFFF; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+a{
+  cursor: pointer !important;
+  text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+  cursor: pointer !important;
+  
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: rgba(0, 0, 0, 0.54);
+}
+.noLinkStyle{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+    
+}
+.noLinkStyle:hover{
+    text-decoration: none;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  
+}
+.gray-img{
+    filter: grayscale(100%)
+}
+a.footer-link {
+    text-decoration: none;
+    
+    font-size: 13px;
+}
+a.footer-link:hover{
+  color: #1C2223;
+}
+.footerstyle a{
+  text-decoration: none;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 13px;
+}
+.footerstyle a:hover{
+  color: #1C2223;
+  text-decoration: underline;
+}
+.foo
+.normal-img{
+    filter: grayscale(0%)
+}
+.noStyleBtn{
+  color: #fff;
+}
+.noStyleBtn:hover{
+  color: #fff;
+  text-decoration: none;
+}
+.slick-slide img{
+  margin-bottom: 10px;
+}
+.pointer{
+  cursor: pointer;
+}
+.slick-track{
+  margin:0px
+}
+.slick-prev, .slick-next{
+  height: 70px;
+    border-radius: 3px;
+    top: 60px;
+    padding: 20px;
+    z-index: 1;
+    border: none;
+  
+  
+  cursor: pointer;
+  color: white;
+ 
+  box-shadow: 0 0 4px #999;
+  outline: none;
+  background-position: center;
+  transition: background 0.8s;
+   
+}
+
+.slick-prev:hover,.slick-next:hover {
+  background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;
+}
+.slick-prev:active,.slick-next:active {
+  background-color: gray;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.slick-prev{
+  box-shadow:4px 0px 7px -2px #888;
+}
+
+.loadMoreIcon{
+  font-size: 40px;
+  color: #EE7E25;
+}
+
+.outerWrapper{
+  position: fixed;
+  z-index: 5;
+  background-color: #e7e7e7;
+  height: 100%;
+  width: 100%;
+}
+.outerWrapper .w-100{
+margin-top: 15%;
+}
+ .slick-next{
+  
+  box-shadow:-5px 0px 7px -2px #888;
+  
+}
+.slick-prev:before, .slick-next:before{
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display:flex;
+
+}
+.noarrow button.slick-prev{
+  display: none !important;
+}
+.noarrow button.slick-next{
+  display: none !important;
+}
+.slider-multi.productRamdaan.slick-initialized.slick-slider .slick-next,.slider-multi.productRamdaan.slick-initialized.slick-slider .slick-prev{
+top:45%
+}
+
+.text-move{
+  white-space: nowrap;
+    /*width: 100px;*/
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+  @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  
+  
+  .prod-img{
+    width: 130px;
+    max-width: 130px;
+  }
+ 
+  .cat2-img{
+    width: 100px;
+    max-width: 100px;
+  }
+  .cart-count{
+    
+      
+      padding: 5px 8px;
+  }
+  .headwrap{
+    width:auto
+  }
+ 
+  .list{
+    padding: 5px;
+  }
+
+}

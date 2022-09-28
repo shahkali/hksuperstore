@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Foree Delivery | Just Order Now</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!---Bootstrap 4--->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  <!--Font Family-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+
+  <!---Font Icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"  crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick.css"  crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<style>
+  body{
+    font-family:  'Sora', sans-serif;
+    background-color: #F9F9F9;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    font-weight: 400px;
+    scroll-behavior: smooth;
+  }
+  p,a{
+    margin:0px;
+  }
+  .container{
+    background-color: #fff;
+  }
+  .fixed-nav{
+    position: fixed;
+    left: 55%;
+    border: 1px solid;
+  }
+  .cat-img{
+    width: 100px;
+    max-width: 100%;
+    margin: auto;
+  }
+  .prod-img{
+    width:60px;
+    max-width: 60px;
+  }
+  .d-inline-block{
+    float:left;
+    height:100%;
+  }
+  .location-top{
+    padding: 5px
+  }
+  img{
+    width: 52px;
+  }
+  
+  .circular-icons{
+    padding: 19px;
+    height: 100%;
+    border-radius: 50%;
+    font-size: 18px;
+    
+  }
+  .circular-icons i{
+    padding: 5px;
+    
+  }
+  .circular-icons:hover{
+    background:rgba(0, 0, 0, 0.08)
+  }
+  
+  .btns{
+    width: 100%;
+    height: 100%;
+  }
+  .category-btn{
+    box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 3px 1px -2px rgb(0 0 0 / 12%);
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    border:none;
+    padding:10px 16px;
+    border-radius: 2px;
+    width: auto;
+  }
+  .category-btn:hover{
+   
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  }
+  .search{
+    border:1px solid #EE7E25;
+    outline: none;
+    height:40px;
+    box-shadow: none;
+  }
+  .search-icon{
+    background-color: #EE7E25;
+    border:solid #EE7E25;
+    color:#fff
+  }
+  .search:focus{
+    border:1px solid #EE7E25;
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  }
+
+  
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+.border-rad{
+  border-radius: 5px;
+}
+
+.badge-red{
+  padding: 4px 8px;
+  border-radius: 20px;
+  background-color: #ff0000;
+}
+.card-shadow{
+  box-shadow: 0 1px 1px rgb(0 0 0 / 15%), -1px 0 0 rgb(0 0 0 / 3%), 1px 0 0 rgb(0 0 0 / 3%), 0 1px 0 rgb(0 0 0 / 12%);;
+}
+.addcartbtn{
+  padding: 15px;
+  border:1px solid #EE7E25;
+}
+.addcartbtn:hover{
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  color: #fff;
+  background-color: #EE7E25;
+}
+
+
+.cart-badge{
+  position: absolute;
+    top: 15%;
+    right: 10%;
+    cursor: pointer;
+}
+
+.cart-count{
+  font-size: 12px;
+    border-radius: 50%;
+    padding: 5px 9px;
+}
+
+.alert-warning{
+  background-color: #fffbc7;
+}
+.footer-icon{
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: 100%;
+}
+.btn-count{
+    padding: 4px 8px;
+    border:1px solid #EE7E25;
+    border-radius: 3px;
+    background-color: #EE7E25;
+    color: #fff;
+}
+/*Color*/
+.color-black{
+  color: #1C2223;
+}
+.color-rgba{
+  color:rgba(0, 0, 0, 0.87);
+}
+.color-rgba-gray{
+  color:rgba(0, 0, 0, 0.54)
+}
+.color-white{
+  color:#fff
+}
+.color-orange{
+  color:#EE7E25
+}
+/*Font Size*/
+.text-12{
+  font-size: 12px;
+}
+.text-14{
+  font-size: 14px;
+}
+.text-16{
+  font-size: 16px;
+}
+.text-20{
+  font-size: 20px;
+}
+/*Background Color*/
+.bg-red{
+  background-color: #ff0000;
+}
+.bg-orange{
+  background-color: #EE7E25;
+}
+/*Font Wegiht*/
+.font-600{
+  font-weight: 600;
+}
+.font-400{
+  font-weight: 400;
+}
+.font-500{
+  font-weight:500;
+}
+.font-700{
+  font-weight: 700;;
+}
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #EE7E25; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 2px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+#myBtn i{
+  font-size: 20px;
+}
+.prod-img-cell{
+    max-width: 12%;
+    width: 12%;
+}
+.prod-action-cell{
+    max-width: 12%;
+    width: 12%;
+}
+.btn-close{
+    font-size: 22px;
+}
+.table-bordered,.table-bordered tr,.table-bordered th,.table-bordered td{
+    border:none;
+}
+#myBtn:hover {
+  background-color: rgb(169, 89, 28); /* Add a dark-grey background on hover */
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+.text-capital{
+    text-transform: capitalize;
+}
+.text-upper{
+    text-transform: uppercase;
+}
+
+  @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  
+    [class*="col"] {
+    padding: 2px;
+  }
+
+}
+</style>
+<body >
+
+  <div>
+ <!---Header--> 
+<div class="container ">
+  
+    <div class="row">
+      <div class="col-10">
+       
+        <div class="d-inline-block">
+         <i class="fa fa-solid fa-bars circular-icons"></i>
+        </div>
+  
+       <div class="d-inline-block">
+         <img src="https://pictures.grocerapps.com/original/grocerapp-large-logo-5e6d96218036a.png" />
+        </div>
+  
+       <div class="d-inline-block">
+        <div class="location-top">
+          <div  class="text-12  color-black">Online Store</div>
+          <div class="font-600 text-14 color-black">Foree Delivery</div>
+        </div>
+       </div>
+      
+      </div>
+     
+      <div class="col-2 text-right">
+        <i class="fa fa-shopping-cart circular-icons" id="cartid"></i>
+        <sup class="cart-badge"><i class="badge badge-danger bg-orange cart-count">1</i></sup>
+      </div>
+      
+    </div>
+
+    <div class="row mt-3 ">
+      <div class="col-5 col-md-2 text-right">
+        <button type="button" class="btns category-btn"><i class="fa fa-list color-orange"></i>&nbsp;&nbsp;Categories</button>
+      </div>
+      <div class="col-7 col-md-10 pl-2 pl-md-0">
+        <form>
+          <div class="input-group ">
+            <input type="text" class="form-control search" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text search-icon"><i class="fa fa-search"></i></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row mt-4 pt-2 pb-4 border-rad card-shadow">
+    
+      <div class="col-12 ">
+        <h6 class="text-20 font-600">My Cart<span class="text-16 font-400">&nbsp;(Item 1)</span></h6>
+        <hr>
+      </div>
+      <div class="col-12 ">
+        <div class="row">
+            <div class="col text-16 color-rgba">Sub Total</div>
+            <div class="col text-16 color-rgba text-right">Rs. 1779</div>
+        </div>
+        <hr>
+      </div>
+      <div class="col-12 ">
+        <div class="row">
+            <div class="col text-16 color-rgba">Delivery Charges</div>
+            <div class="col text-16 color-rgba text-right">Calculated at next step</div>
+        </div>
+        <hr>
+      </div>
+      <div class="col-12 ">
+        <div class="row">
+            <div class="col text-16 color-rgba">Total bill</div>
+            <div class="col text-16 color-rgba text-right">Rs. 1779</div>
+        </div>
+       
+      </div>
+
+
+
+
+    </div>
+
+</div>
+
+<!---Cart Items-->
+<div class="container mt-3">
+    <div class="row pt-4 pb-4 ">
+    
+  <div class="col-12">
+    <table class="table table-bordered">
+       
+        <tbody>
+          <tr>
+            <td class="prod-img-cell text-center">
+                <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-olper-milk-15-litre-carton-5e6cec4d516f1.png">
+            </td>
+            <td class="prod-details-cell">
+            <p class="text-16 color-rgba">1.5LtrX8 Olpers Milk Carton</p>
+            <div class="mt-0"><small class="text-12 color-rgba-gray">1 Unit</small></div>
+            <p class="mt-2"><span class="text-14 color-rgba font-600">Rs. 1918</span>&nbsp;&nbsp;<del><small class="text-12 color-rgba-gray"> Rs. 2040</small></del>&nbsp;&nbsp;<span class="text-14 color-rgba font-600">x 4</span></p>
+            <div class="mt-2"><span class="text-14 color-rgba font-600">Rs. 1918</span>&nbsp;<span class="badge badge-danger text-12 font-600 badge-red">6% off</span></div>
+             </td>
+            <td class="prod-action-cell">
+               
+        <div class="d-block text-right color-rgba-gray">
+            <i class="fa fa-close circular-icons"></i>
+           </div>
+                <div class="text-right mt-4">
+                    <button class="btn-count" type="button"><i class="fa fa-minus"></i></button>
+                    &nbsp;&nbsp;<span class="text-14 font-500  color-rgba-gray">1</span>&nbsp;&nbsp;
+                    <button class="btn-count" type="button"><i class="fa fa-plus"></i></button>
+                </div>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+  
+  </div>
+  
+  </div>
+  <div class="row pt-1 pb-1 border-rad card-shadow">
+    
+    <div class="col-12">
+      <table class="table table-bordered p-0 m-0" >
+         
+          <tbody>
+            <tr>
+              <td >
+              <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn text-upper color-white text-14 font-600 text-left">Proceed To Checkout<span class="float-right">RS 1758</span></button>
+              
+              </td>
+            
+             
+            </tr>
+            
+          </tbody>
+        </table>
+    
+    </div>
+    
+    </div>
+  </div>
+
+
+
+
+
+
+
+</div>
+<!---Move To Top-->
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+  <script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  $('html, body').animate({scrollTop:0}, 'slow');
+}
+
+</script>
+
+
+</body>
+</html>

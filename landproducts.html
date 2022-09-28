@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HK Halal Food | Search Products </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!---FavIcon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+
+  <!---Bootstrap 4--->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  <!--Font Family-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+
+  <!---Font Icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"  crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick.css"  crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!---Angular CDN-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<style>
+  body{
+    font-family:  'Sora', sans-serif;
+    background-color: #F9F9F9;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    font-weight: 400px;
+    scroll-behavior: smooth;
+  }
+  #main {
+  transition: margin-left .5s;
+  
+}
+  p,a{
+    margin:0px;
+  }
+  .container{
+    background-color: #fff;
+  }
+  .fixed-nav{
+    position: fixed;
+    left: 55%;
+    border: 1px solid;
+  }
+  .cat-img{
+    width: 100px;
+    max-width: 100%;
+    margin: auto;
+  }
+  .prod-img{
+    width:150px;
+    max-width: 150px;
+  }
+  .d-inline-block{
+    float:left;
+    height:100%;
+  }
+  .location-top{
+    padding: 5px
+  }
+  img{
+    width: 52px;
+  }
+  
+  .circular-icons{
+    padding: 19px;
+    height: 100%;
+    border-radius: 50%;
+    font-size: 18px;
+    
+  }
+  .circular-icons i{
+    padding: 5px;
+    
+  }
+  .circular-icons:hover{
+    background:rgba(0, 0, 0, 0.08)
+  }
+  
+  .btns{
+    width: 100%;
+    height: 100%;
+  }
+  .category-btn{
+    box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 3px 1px -2px rgb(0 0 0 / 12%);
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    border:none;
+    padding:10px 10px;
+    border-radius: 2px;
+    width: 100%;
+  }
+  .category-btn:hover{
+   
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  }
+  .search{
+    border:1px solid #EE7E25;
+    outline: none;
+    height:40px;
+    box-shadow: none;
+  }
+  .search-icon{
+    background-color: #EE7E25;
+    border:solid #EE7E25;
+    color:#fff
+  }
+  .search:focus{
+    border:1px solid #EE7E25;
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  }
+
+  
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.slick-slider{
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+.slide {
+  width:300px;
+  margin:10px;
+}
+
+.product{
+  border:1px solid #e7e7e7;
+  border-radius: 5px;
+  padding: 10px;
+}
+.single-item img{
+  max-width: 100%;
+  width: 100%;
+}
+.slick-dots{
+  bottom: 0;
+}
+.slick-dotted.slick-slider{
+  margin-bottom: 0px;
+}
+.border-rad{
+  border-radius: 5px;
+}
+.slick-prev{
+ 
+  left:0;
+  z-index: 1;
+}
+.badge-red{
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+.card-shadow{
+  box-shadow: 0 1px 1px rgb(0 0 0 / 15%), -1px 0 0 rgb(0 0 0 / 3%), 1px 0 0 rgb(0 0 0 / 3%), 0 1px 0 rgb(0 0 0 / 12%);;
+}
+.addcartbtn{
+  padding:10px 16px;
+  border:1px solid #EE7E25
+}
+.addcartbtn:hover{
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  color: #fff;
+  background-color: #EE7E25;
+}
+
+.addcartbtn-long{
+  padding:15px;
+  border:1px solid #EE7E25
+}
+.addcartbtn-long:hover{
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  color: #fff;
+  background-color: #EE7E25;
+}
+.table-bordered,.table-bordered tr,.table-bordered th,.table-bordered td{
+    border:none;
+    padding: 0px;
+}
+
+.slick-next{
+  right:0;
+  z-index:1;
+}
+.cart-badge{
+  position: absolute;
+    top: 15%;
+    right: 10%;
+    cursor: pointer;
+   
+}
+.cartbadge{
+    position: absolute;
+    right: 20px;
+    top: 5px
+}
+
+.cart-count{
+  font-size: 12px;
+    border-radius: 50%;
+    padding: 5px 9px;
+}
+.slick-prev:before, .slick-next:before{
+  color: #EE7E25;
+}
+.alert-warning{
+  background-color: #fffbc7;
+}
+.footer-icon{
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: 100%;
+}
+/*Color*/
+.color-black{
+  color: #1C2223;
+}
+.color-rgba{
+  color:rgba(0, 0, 0, 0.87);
+}
+.color-rgba-gray{
+  color:rgba(0, 0, 0, 0.54)
+}
+.color-white{
+  color:#fff
+}
+.color-orange{
+  color:#EE7E25
+}
+/*Font Size*/
+.text-12{
+  font-size: 12px;
+}
+.text-14{
+  font-size: 14px;
+}
+.text-16{
+  font-size: 16px;
+}
+.text-20{
+  font-size: 20px;
+}
+/*Background Color*/
+.bg-red{
+  background-color: #ff0000;
+}
+.bg-orange{
+  background-color: #EE7E25;
+}
+.text-capital{
+    text-transform: capitalize;
+}
+.text-upper{
+    text-transform: uppercase;
+}
+/*Font Wegiht*/
+.font-600{
+  font-weight: 600;
+}
+.font-400{
+  font-weight: 400;
+}
+.font-500{
+  font-weight:500;
+}
+.font-700{
+  font-weight: 700;;
+}
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #EE7E25; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 14px 17px; /* Some padding */
+  border-radius: 2px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  border-radius:50%;
+}
+#myBtn i{
+  font-size: 20px;
+}
+.single-item-class{
+    overflow: hidden;border: 1px solid #e7e7e7;
+}
+#myBtn:hover {
+  background-color: rgb(169, 89, 28); /* Add a dark-grey background on hover */
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+.single-slider-img{
+    max-width: 35% !important;
+    width:35% !important;
+    margin: auto;
+}
+.page-sub-head{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.54);
+}
+.page-sub-head:hover{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.54);
+    text-decoration: underline;
+}
+
+.card-custom{
+    padding: 20px 16px;
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+.noLinkStyle{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+    
+}
+.noLinkStyle:hover{
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.87)
+}
+.no-bg{
+    background-color: transparent !important;
+}
+a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+}
+a:hover{
+   color: rgba(0, 0, 0, 0.87);
+   text-decoration: underline;
+}
+.headwrap{
+white-space: nowrap; 
+width: 250px; 
+overflow: hidden;
+text-overflow: ellipsis;
+
+}
+
+.visiblehidden{
+    visibility: hidden;
+}
+.visibleshow{
+    visibility: visible;
+}
+.notfound{
+    width:200px;
+    max-width: 200px;
+}
+a.footer-link {
+    text-decoration: none;
+  
+    font-size: 13px;
+}
+a.footer-link:hover{
+  color: #1C2223;
+}
+.footerstyle a{
+  text-decoration: none;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 13px;
+}
+.footerstyle a:hover{
+  color: #1C2223;
+  text-decoration: underline;
+}
+.loadMoreIcon{
+  font-size: 40px;
+  color: #EE7E25;
+  display: none;
+
+}
+.searchprods{
+    width:25%
+  }
+  .sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 250px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: -250px;
+  background-color: #FFFFFF; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+a{
+  cursor: pointer !important;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+  cursor: pointer !important;
+  
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: rgba(0, 0, 0, 0.54);
+}
+  @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  
+    
+  .searchprods{
+    width:100%
+  }
+
+  .headwrap{
+    width:auto
+  }
+  .prod-img{
+    width:130px;
+    max-width: 130px;
+  }
+  .list{
+    padding: 5px;
+  }
+  /* The side navigation menu */
+
+
+}
+</style>
+<body  ng-app="myApp" ng-controller="myCtrl">
+
+<div  class="innerWrapper">
+
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <a href="#" class="text-16 color-black"><i class="fa fa-solid fa-upload"></i>&nbsp;&nbsp;Upload List</a>
+    <a href="#" class="text-16 hr"><hr style="margin: 0px;"></a>
+    <a href="#"  class="text-16 color-black"><i class="fa fa-file"></i>&nbsp;&nbsp;Track Order</a>
+    <a href="#" class="text-16 hr"><hr style="margin: 0px;"></a>
+    <a href="#"  class="text-16 color-black"><i class="fa fa-phone"></i>&nbsp;&nbsp;Call us</a>
+    <a href="#" class="text-16 hr"><hr style="margin: 0px;"></a>
+    <a href="#"  class="text-16 color-black"><i class="fa fa-question-circle"></i>&nbsp;&nbsp;FAQ</a>
+    <a href="#" class="text-16 hr"><hr style="margin: 0px;"></a>
+    <a href="#"  class="text-16 color-black d-none"><i class="fa fa-gavel" aria-hidden="true"></i>&nbsp;&nbsp;Foree Policy</a>
+    <a href="#" class="text-16 hr d-none"><hr style="margin: 0px;"></a>
+    <a href="#"  class="text-16 color-black"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;&nbsp
+      <i class="fa fa-instagram" aria-hidden="true"></i>&nbsp;&nbsp;
+      <i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp;&nbsp;Quick Chat</a>
+  </div>
+
+
+<div id="main">
+
+
+
+ <!---Header--> 
+<div class="container border-rad card-shadow pt-2 ">
+  
+    <div class="row ">
+      <div class="col-10">
+       
+        <div class="d-inline-block">
+         <i class="fa fa-solid fa-bars circular-icons" onclick="openNav()"></i>
+        </div>
+  
+       <div class="d-inline-block ml-1">
+         <img src="./flogo.png" style="border-radius: 8px" />
+        </div>
+  
+       <div class="d-inline-block">
+        <div class="location-top">
+          <div  class="text-12  color-black">Fatest Delivery Service</div>
+          <div class="dropdown">
+            <div class="font-600 text-14 color-black dropdown-toggle pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">HK Halal Food</div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item text-14 color-rgba"  ng-repeat="cat in places">{{cat.city}}</a>
+              
+            </div>
+          </div>
+        </div>
+       </div>
+      
+      </div>
+     
+      <div class="col-2 text-right">
+        <i class="fa fa-shopping-cart circular-icons"  style="float:right" id="cartid"></i>
+        <sup class="cart-badge cartbadge"><i class="badge badge-danger bg-orange cart-count">1</i></sup>
+      </div>
+      
+    </div>
+
+    <div class="row mt-3 ">
+      <div class="col-5 col-md-2 text-right">
+        <button type="button" class="btns category-btn"><i class="fa fa-list color-orange"></i>&nbsp;&nbsp;<a href="./categories.html" class="text-decoration-none color-black noLinkStyle">Categories</a></button>
+      </div>
+      <div class="col-7 col-md-10 pl-2 pl-md-0">
+        <form>
+          <div class="input-group ">
+            <input type="text"  id="search" class="form-control search" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text search-icon" ><i class="fa fa-search"></i></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row mt-4 pt-2 pl-4 pb-4 ">
+    
+        <div class="col-12 ">
+            <div class="mt-0"><small class="text-14 color-rgba-gray"><a class="page-sub-head" href="./index.html">Home</a></small>&nbsp;<i class="fa fa-angle-right color-rgba-gray"></i>&nbsp;<small class="text-14 color-rgba-gray"><a  class="page-sub-head noLinkStyle">{{searchQuery}}</a></small>&nbsp;</div>
+        
+        </div>
+       
+  
+  
+  
+  
+      </div>
+     
+
+</div>
+
+
+
+
+
+  <!---Top Sellers-->
+<div class="container mt-4 border-rad card-shadow">
+
+    <div class="w-100 pt-4 justify-content-end d-none" ng-if="allProducts.length!=0">
+      <input type="text" ng-model="searchText"  ng-change="searchProd()" id="srch" class="form-control search searchprods" placeholder="Search in products..." /></div>
+    <div class="row pt-2 pb-4 "  id="divID">
+  
+    <div class="col-md-4 col-6 mt-3 list" ng-repeat="item in allProducts" ng-if="$index<itemShow">
+        <div class="text-center card-shadow border-rad card-custom">
+            <div class="text-left" ng-class="item.discount.length>0 ? 'visibleshow':'visiblehidden'" ><span class="badge badge-danger text-12 font-600 badge-red bg-red text-upper">{{item.discount}}% off</span></div>
+            <a class="img-href" href=""><img class="prod-img" ng-src="{{item.img}}"></a>
+            <a class="title-href" href=""><h5 class="text-16 text-left mt-3 headwrap text-capital">{{item.title}}</h5></a>
+            <div class="mt-2 text-left"><small class="text-12 color-rgba-gray text-capital">{{item.unit}}</small></div>
+            <div class="mt-2 text-left"><span class="text-14 color-rgba font-600 text-upper">Rs. {{item.price}}</span>&nbsp;&nbsp;<del ng-class="item.oldprice.length>0 ? 'visibleshow':'visiblehidden'"><small class="text-12 text-upper color-rgba-gray"> Rs. {{item.oldprice}}</small></del></div>
+            <div class="mt-4 d-none"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600 text-upper"><i class="fa fa-cart"></i>&nbsp;Add to Cart</button></div>
+            <div class="mt-4"><a href="https://api.whatsapp.com/send?phone=03478981363&text=Hi,Want To Buy- {{item.title}} having Code- {{item.id}}"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600 text-upper"><i class="fa fa-cart"></i>&nbsp;BUY Now</button></a></div>
+        </div>
+    </div>
+    <div class="w-100">
+      <button ng-click="loadMore()" style="display: none;" id="load"></button>
+      <div class="text-center mt-3"><i class="fa fa-circle-o-notch fa-spin loadMoreIcon" ></i></div>
+    </div>
+   
+    <div class="text-left w-100  pt-2 pl-4 pb-4 font-400 text-16" ng-if=" allProducts.length==0" style="color:#EE7E25;">
+      Couldn't find what you are looking, add it in order comments and we'll get it for you!
+   </div>
+   
+
+    
+  
+  </div>
+  
+  </div>
+
+<!---Footer-->
+ <!---Footer-->
+ <div class="container mt-3">
+  <div class="row  border-rad" >
+
+    <div class="col-12 pt-4 pl-4 pr-4 pb-2">
+      
+      <h5 class="text-16 font-600">Foree Delivery aims to deliver all your favouite products by trying to be the best in following 3 things.</h5>
+      <hr>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-md-1 col-2 text-center">
+          <i class="fa fa-dollar footer-icon"></i>
+        </div>
+        <div class="col-md-11 col-9">
+          <h6 class="text-16 font-600">Best Prices & Offers</h6>
+          <p class="text-14 color-rgba-gray">
+            Cheaper prices than your local supermarket, great cashback offers to top it off.</p>
+        </div>
+
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-1 col-2 text-center">
+          <i class="fa fa-clock-o footer-icon"></i>
+        </div>
+        <div class="col-md-11 col-9">
+          <h6 class="text-16 font-600">Fast & Foree Delivery</h6>
+          <p class="text-14 color-rgba-gray">
+          We delivered your favourite products in fast & foree manners.</p>
+        </div>
+
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-1 col-2 text-center">
+          <i class="fa fa-caret-square-o-down footer-icon" aria-hidden="true"></i>
+        </div>
+        <div class="col-md-11 col-9">
+          <h6 class="text-16 font-600">Easy Returns</h6>
+          <p class="text-14 color-rgba-gray">
+            Not satisfied with a product? Return it at the doorstep & get a refund within hours.</p>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12"><hr></div>
+      </div>
+    
+    </div>
+    
+  </div>
+  <div class="row border-rad " >
+
+  <div class="col-12  pl-4 pr-4 pb-2">
+
+  <h5 class="text-16 font-600">Categories</h5>
+  <hr>
+  </div>
+  <div class="col-12 footerstyle">
+  <div class="row pl-4 pl-4">
+    <div class="col-md-4 col-12 mt-md-0 mt-2">
+      <b class="text-14 color-rgba-gray font-700">Grocery</b>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Oil & Ghee</a></p>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Spices, Salt & Sugar</a></p>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Daalain, Rice & Flour</a></p>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Sauces, Olives & Pickles</a></p>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Jam, Honey & Spread</a></p>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=1&title=Grocery" >- Baking & Desserts</a></p>
+
+      
+    </div>
+    <div class="col-md-4 col-12 mt-md-0 mt-2">
+      <b class="text-14 color-rgba-gray font-700">Bakery & Dairy</b>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=8&title=Bakery & Dairy" >- Milk</a></p>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=8&title=Bakery & Dairy" >- Breads</a></p> 
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=8&title=Bakery & Dairy" >- Eggs</a></p> 
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=8&title=Bakery & Dairy" >- Cheese</a></p>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=8&title=Bakery & Dairy" >- Yogurt & Lassi</a></p>
+    </div>
+    <div class="col-md-4 col-12 mt-md-0 mt-2">
+      <b class="text-14 color-rgba-gray font-700">Frozen & Chilled</b>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=9&title=Frozen & Chilled" >- Kabab & Kofta</a></p>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=9&title=Frozen & Chilled" >- Burger Patties</a></p>  
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=9&title=Frozen & Chilled" >- Nuggets & Snacks</a></p> 
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=9&title=Frozen & Chilled" >- Samosa & Rolls</a></p>
+      
+    </div>
+
+
+
+  </div>
+  <div class="row pl-4 pl-4 mt-2">
+
+    <div class="col-md-4 col-12 mt-md-0 mt-2">
+      <b class="text-14 color-rgba-gray font-700">Beverages</b>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=10&title=Beverages" >- Sharbat</a></p>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=10&title=Beverages" >- Cold Drinks</a></p>  
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=10&title=Beverages" >- Juices</a></p> 
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=10&title=Beverages" >- Tea</a></p> 
+      
+    </div>
+    <div class="col-md-4 col-12 mt-md-0 mt-2">
+      <b class="text-14 color-rgba-gray font-700">Fresh Meat</b>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=3&title=Fresh Meat" >- Chicken</a></p>
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=3&title=Fresh Meat" >- Mutton</a></p> 
+      <p class="text-14 color-rgba-gray"><a href="./landproducts.html?catid=3&title=Fresh Meat" >- Beef</a></p>
+      
+    </div>
+
+    <div class="col-md-4 col-12 mt-md-0 mt-2">
+      <b class="text-14 color-rgba-gray font-700">Fruits & Vegetables</b>
+      <p class="text-14 color-rgba-gray">
+        <a href="./landproducts.html?catid=2&title=Fruits & Vegetables" >- Vegetables</a>
+    </p>
+    <p class="text-14 color-rgba-gray">
+      <a href="./landproducts.html?catid=2&title=Fruits & Vegetables" >- Fruits</a>
+  </p>
+    </div>
+  </div>
+
+
+  <div class="row mb-2">
+    
+  </div>
+
+  </div>
+
+  </div>
+
+  <div class="row border-rad d-none" >
+
+  <div class="col-12  pl-4 pr-4 pb-2">
+
+  <h5 class="text-200 font-600 ">GrocerApp - Online Grocery Shopping</h5>
+  <hr>
+  </div>
+  <div class="col-12">
+
+  <div class="row pl-4 pl-4">
+    <div class="col-12">
+
+      <h6 class="text-14 color-rgba-gray">GrocerApp makes shopping easier and more convenient than ever.</h6>
+    
+    </div>
+    </div>
+
+  <div class="row pl-4 pl-4 mt-4">
+
+    <div class="col-12">
+      <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+      <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+    </div>
+  </div>
+  <div class="row pl-4 pl-4 mt-4">
+
+    <div class="col-12">
+      <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+      <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+    </div>
+  </div>
+  <div class="row pl-4 pl-4 mt-4">
+
+    <div class="col-12">
+      <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+      <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+    </div>
+  </div>
+  <div class="row pl-4 pl-4 mt-4">
+
+    <div class="col-12">
+      <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+      <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+    </div>
+  </div>
+
+
+ 
+
+  </div>
+
+  </div>
+
+  <div class="row border-rad ">
+
+
+  <div class="col-12">
+
+
+
+  <div class="row pl-4 pl-4 mt-0 pt-3 pb-3 " style="background-color:#EE7E25">
+
+    <div class="col-12 col-md-6 text-12 color-rgba-gray">
+    
+      <p class="d-none">Info@foreedelivery.com</p>
+      <p class="text-14 color-white ">Al-Noor Plaza Dina, District Jhelum, Punjab Pakistan</p>
+      <a class="footer-link text-14 color-white " href="https://web.facebook.com/ForeeDelivery" target="_blank"><i class="fa fa-facebook " style="font-size:18px"></i>&nbsp;</a>
+      <a class="footer-link text-14 color-white " href="https://www.instagram.com/foreedelivery/" target="_blank"><i class="fa fa-instagram" style="font-size:18px"></i>&nbsp;</a>
+      <a class="footer-link text-14 color-white " href="https://api.whatsapp.com/send?phone=03478981363&text=Hi%20There!" target="_blank" style="font-size:18px"><i class="fa fa-whatsapp"></i>&nbsp;</a> 
+      <a class="footer-link text-14 color-white " href="tel:+923478981363" target="_blank"><i class="fa fa-phone" style="font-size:18px"></i>&nbsp;03478981363</a> 
+    
+    
+    </div>
+    <div class="col-md-6 col-12  text-12 text-md-right mt-md-0 mt-2 color-rgba-gray">
+    
+      <p class="text-14 color-white ">We Accept Your Payment Via</p>
+      <p class="text-14 color-white ">Cash On Delivery, Easypaisa, Jazz Cash</p>
+
+    
+    
+    </div>
+    <div class="col-12 text-12 color-white
+    pb-3">
+    <hr>
+      <p>© Foree Delivery Pakistan Pvt. Ltd., 2022</p>
+      
+    </div>
+  </div>
+ 
+
+
+
+
+
+  </div>
+
+  </div>
+
+
+
+  </div>
+</div>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+
+</div>
+<!---Move To Top-->
+
+
+  <script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  $('html, body').animate({scrollTop:0}, 'slow');
+}
+
+</script>
+<script src="https://kenwheeler.github.io/slick/slick/slick.js"  crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+	$('.slider-multi').slick({
+  
+  dots: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  arrows:true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        
+      }
+    }
+  ]
+  });
+  $('.single-item').slick({
+  dots:true
+  
+});
+	
+});
+  </script>
+  <script type="text/javascript">
+   
+    
+    
+    
+   
+    </script>
+<script>
+    //Angular Modules
+   var app = angular.module('myApp', []);
+   app.controller('myCtrl', function($scope,$http) {
+    $scope.searchQuery="";
+    $scope.searchid="";
+    $scope.searchText="";
+
+    $scope.itemShow=3;
+    $(document).ready(function(){
+        $scope.windowOnScroll();
+    });
+       $scope.windowOnScroll=function() {
+        
+            $(window).on("scroll", function(e){
+              if ($(window).scrollTop() >= (($(document).height() - $(window).height()) - $('#divID').innerHeight() )) {
+                
+                  $(window).off("scroll");
+                   $scope.getMoreData();
+                
+              }
+          });
+      }
+
+      $scope.getMoreData=function(){
+        let elem=document.getElementsByClassName("loadMoreIcon")[0];
+        if($scope.allProducts.length>$scope.itemShow){
+          elem.style.display="block";
+        }
+       
+        setTimeout(() => {
+          
+            if($scope.allProducts.length>$scope.itemShow){
+
+              document.getElementById("load").click();
+             
+            }
+            
+            elem.style.display="none";
+            
+            $scope.windowOnScroll();
+
+          }, 1500);
+      }
+    
+      $scope.loadMore=function(){
+      
+        $scope.itemShow=$scope.itemShow+3;
+        $scope.allProducts=[...$scope.allProducts];
+         
+      }
+    const params = new URLSearchParams(window.location.search);
+    let paraVal="";
+     if(params.has('catid')){
+       $scope.searchQuery=params.get('title');
+       $scope.searchid=params.get("catid")
+     }
+     $scope.places=[
+        {"id":1,"city":"Kowloon Tong"},
+        {"id":1,"city":"Shek Kip Mei"},
+        {"id":1,"city":"Fo Tan"},
+        {"id":1,"city":"Sham Shui Po"},
+        {"id":1,"city":"Lok Fo"}
+
+      ]
+     $scope.allProducts=[
+        
+         /*Fresh Meat*/
+         {"id":"1","title":"Chicken Karahi Cut","catid":"3","cattitle":"Fresh Meat","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fresh meat/chicken karrahi cut.webp","brand":"CHK Meat"},
+         {"id":"2","title":"Chicken Mince","catid":"3","cattitle":"Fresh Meat","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fresh meat/Chicken Mince.webp","brand":"CHK Meat"},
+         {"id":"3","title":"Chicken Breast (Fillet)","catid":"3","cattitle":"Fresh Meat","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fresh meat/Chicken Breast (Fillet).webp","brand":"CHK Meat"},
+         {"id":"4","title":"Chicken Biryani Cut","catid":"3","cattitle":"Fresh Meat","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fresh meat/Chicken Biryani Cut.webp","brand":"CHK Meat"},
+         {"id":"5","title":"Whole Chicken","catid":"3","cattitle":"Fresh Meat","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fresh meat/Whole Chicken.webp","brand":"CHK Meat"},
+         {"id":"6","title":"Beef Mince","catid":"3","cattitle":"Fresh Meat","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fresh meat/Beef Mince (بیف قیمہ).webp","brand":"CHK Meat"},
+         {"id":"7","title":"Mutton Mix ","catid":"3","cattitle":"Fresh Meat","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fresh meat/Mutton Mix.webp","brand":"CHK Meat"},
+         {"id":"8","title":"Mutton Mince","catid":"3","cattitle":"Fresh Meat","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fresh meat/mutton mince.webp","brand":"CHK Meat"},
+         {"id":"9","title":"Beef Boneless Cubes","catid":"3","cattitle":"Fresh Meat","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fresh meat/Beef Boneless Cubes.webp","brand":"CHK Meat"},
+        
+         /*Fruits/Vegetables */
+         {"id":"10","title":"Onion","catid":"2","cattitle":"Fruits & Vegetables","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fruits/onion.webp","brand":""},
+         {"id":"11","title":"Cucumber","catid":"2","cattitle":"Fruits & Vegetables","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fruits/Cucumber.webp","brand":""},
+         {"id":"12","title":"Ginger","catid":"2","cattitle":"Fruits & Vegetables","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fruits/Ginger.webp","brand":""},
+         {"id":"13","title":"Garlic","catid":"2","cattitle":"Fruits & Vegetables","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fruits/Garlic.webp","brand":""},
+         {"id":"14","title":"Tomato","catid":"2","cattitle":"Fruits & Vegetables","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fruits/Tomato.webp","brand":""},
+         {"id":"15","title":"Cabbage","catid":"2","cattitle":"Fruits & Vegetables","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fruits/Cabbage.webp","brand":""},
+         {"id":"16","title":"Papaya","catid":"2","cattitle":"Fruits & Vegetables","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fruits/Papaya.webp","brand":""},
+         {"id":"17","title":"Mango Chaunsa","catid":"2","cattitle":"Fruits & Vegetables","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./fruits/Mango Chaunsa Box.webp","brand":""},
+
+         /*Bakery & Diary*/
+         {"id":"18","title":"Eggs Box","catid":"8","cattitle":"Bakery & Dairy","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./bakery/Omega 3 Eggs Farm Fresh.webp","brand":""},
+         {"id":"19","title":"Bread Plain Large","catid":"8","cattitle":"Bakery & Dairy","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./bakery/bread plain large.webp","brand":""},
+
+
+         /*Grocery Products*/
+         {"id":"20","title":"National Refined Salt","catid":"1","cattitle":"Grocery","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./grocery/national refined salt.webp","brand":""},
+         
+         /*Beverages*/
+         {"id":"21","title":"Coca Cola Soft Drink","catid":"10","cattitle":"Beverages","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./beverages/coca cola soft drink small.webp","brand":""},
+         {"id":"22","title":"Coca Cola Drink Can","catid":"10","cattitle":"Beverages","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./beverages/Coca Cola Drink Can.webp","brand":""},
+         {"id":"23","title":"Sprite Drink Can","catid":"10","cattitle":"Beverages","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./beverages/Sprite Drink Can.webp","brand":""},
+         {"id":"24","title":"Red Bull (Sugar Free) Can","catid":"10","cattitle":"Beverages","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./beverages/Red Bull (Sugar Free) Can.webp","brand":""},
+         {"id":"25","title":"Milo Active-Go Drink Nestle","catid":"10","cattitle":"Beverages","price":"1755","oldprice":"","discount":"","unit":"800 gm","img":"./beverages/180ml Milo Active-Go Drink Nestle.webp","brand":""},
+       
+
+        ]
+
+     //Duplicate Products
+     $scope.dupAllProducts=[...$scope.allProducts];
+     $scope.allProducts=$scope.allProducts.filter((item)=>item.catid==$scope.searchid);
+
+    
+     $scope.searchProd=function(){
+     
+      let elem=document.getElementById("srch").value;
+      $scope.searchText=elem;
+     
+        
+        if($scope.searchText.length==0){
+         
+            $scope.allProducts=$scope.dupAllProducts.filter((item)=>item.catid==$scope.searchid);
+         }
+         else{
+            $scope.allProducts=[...$scope.dupAllProducts.filter((item)=> item.title.toUpperCase().includes($scope.searchText.toUpperCase()))];
+         }
+     }
+
+     let typingTimer;                //timer identifier
+let doneTypingInterval = 2000;  //time in ms (5 seconds)
+let myInput = document.getElementById('search');
+
+//on keyup, start the countdown
+myInput.addEventListener('keyup', () => {
+    clearTimeout(typingTimer);
+    if (myInput.value) {
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+    }
+});
+
+//user is "finished typing," do something
+function doneTyping () {
+ 
+ window.location.href="./search.html?q="+document.getElementById("search").value;
+}
+ 
+   });
+   </script>
+   <script>
+
+function openNav() {
+          
+            document.getElementById("mySidenav").style.left = "0";
+            document.getElementById("mySidenav").classList.add("open");
+            document.getElementById("mySidenav").classList.remove("close");
+            document.body.style.backgroundColor= "rgba(0, 0, 0, 0.5)";
+            document.getElementById("main").style.filter = "brightness(0.5)";   
+            document.getElementById("main").style.pointerEvents = "none";   
+    }
+    
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+    document.getElementById("mySidenav").style.left = "-250px";
+    document.body.style.backgroundColor= "#F9F9F9";
+            document.getElementById("main").style.filter = "brightness(1)";
+            document.getElementById("mySidenav").classList.remove("open");
+            document.getElementById("mySidenav").classList.add("close");
+            document.getElementById("main").style.pointerEvents = "";   
+    }
+   </script>
+</body>
+</html>
