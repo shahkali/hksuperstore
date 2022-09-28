@@ -431,7 +431,7 @@
                   </td>
                 </tr>
                 <tr   ng-repeat="cat in cart">
-                  <td><img class="w-100" ng-src={{cat.img}} /></td>
+                  <td><img class="" ng-src={{cat.img}} /></td>
                   <td>{{cat.title}} <br><sub>{{cat.unit}} </sub><br><br>{{currency}} {{cat.price}} x {{cat.quantity}}</td>
                   <td>{{currency}} {{cat.price * cat.quantity }}<br><br>
                     <span ng-click="reducequan(cat.id,0)" class="badge badge-secondary pricechanger mr-1"><i class="fa fa-minus"></i></span>
@@ -648,10 +648,17 @@ function topFunction() {
           });
           //info("Please Wait.Your Order Is In Processing")
           usersRef.push(obj, function () {
-          success("Order Placed & Added In Queue. Our Team Will Contact You Shortly")
+          success("Order Placed & Added In Queue. Our Team Will Contact You Shortly");
+		setTimeout(myGreeting, 500);
+		
           })
       
     }
+	   
+function myGreeting(){
+	
+	window.location.reload(false);
+}
     $scope.backtocart=function(){
       $scope.step=1;
     }
