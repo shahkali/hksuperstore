@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Foree Delivery | Just Order Now</title>
+  
+  <title>HK HK Super Store: Online & Fastest Grocery Delivery</title>
   <meta charset="utf-8">
+  <meta name="description" content="Hong Kong best and largest online grocery website: Shop from a wide range of desi halal food, fast halal food,grocery,medicines, vegetables, beauty & wellness, household care, baby care, pet care, meats & more.">
+  <meta name="keywords" content="HK Super store, hongkong super store, best super store, sales, discount, online store hk, online, buy online,food,food service,food processor,food and drink,foodpanda,restaurants near me,food near me,halal food,halal food near me,halal restaurants , pakistani food,desi food, indian food, places to eat near me,italian restaurants,mexican restaurants,food places near me,vegan restaurants,vegetarian, fast food, halal hk , halal food hongkong,halal food hk, kowloon,breakfast restaurants,restaurants near my location,online store,online business,shopping cart,shopping,buy ,online,cheap hotels,free delivery,fast delivery,grocery,beverages,drinks,pharmacy,fruits,vegetables,bakery,fresh meat,halal hotel near me,halal restaurants near me">
+  <meta name="author" content="HK Super Store">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!---FavIcon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   
 
   <!---Bootstrap 4--->
@@ -23,320 +34,95 @@
   <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"  crossorigin="anonymous" />
   <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick.css"  crossorigin="anonymous" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!---Angular CDN-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+
+  <!---External Style Sheets-->
+  <link rel="stylesheet" href="./styles.css">
+
+
 </head>
 
-<style>
-  body{
-    font-family:  'Sora', sans-serif;
-    background-color: #F9F9F9;
-    color: rgba(0, 0, 0, 0.87);
-    font-size: 14px;
-    font-weight: 400px;
-    scroll-behavior: smooth;
-  }
-  p,a{
-    margin:0px;
-  }
-  .container{
-    background-color: #fff;
-  }
-  .fixed-nav{
-    position: fixed;
-    left: 55%;
-    border: 1px solid;
-  }
-  .cat-img{
-    width: 100px;
-    max-width: 100%;
-    margin: auto;
-  }
-  .prod-img{
-    width:150px;
-    max-width: 150px;
-  }
-  .d-inline-block{
-    float:left;
-    height:100%;
-  }
-  .location-top{
-    padding: 5px
-  }
-  img{
-    width: 52px;
-  }
-  
-  .circular-icons{
-    padding: 19px;
-    height: 100%;
-    border-radius: 50%;
-    font-size: 18px;
-    
-  }
-  .circular-icons i{
-    padding: 5px;
-    
-  }
-  .circular-icons:hover{
-    background:rgba(0, 0, 0, 0.08)
-  }
-  
-  .btns{
-    width: 100%;
-    height: 100%;
-  }
-  .category-btn{
-    box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 3px 1px -2px rgb(0 0 0 / 12%);
-    background-color: #fff;
-    color: rgba(0, 0, 0, 0.87);
-    font-size: 14px;
-    border:none;
-    padding:10px 16px;
-    border-radius: 2px;
-    width: auto;
-  }
-  .category-btn:hover{
-   
-    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
-  }
-  .search{
-    border:1px solid #EE7E25;
-    outline: none;
-    height:40px;
-    box-shadow: none;
-  }
-  .search-icon{
-    background-color: #EE7E25;
-    border:solid #EE7E25;
-    color:#fff
-  }
-  .search:focus{
-    border:1px solid #EE7E25;
-    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
-  }
 
-  
+<body ng-app="myApp" ng-controller="myCtrl">
 
-::-webkit-scrollbar {
-  width: 5px;
-  height: 8px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius: 10px !important;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
-.slick-slider{
-  overflow-x: auto;
-  padding-bottom: 5px;
-}
-.slide {
-  width:300px;
-  margin:10px;
-}
-
-.product{
-  border:1px solid #e7e7e7;
-  border-radius: 5px;
-  padding: 10px;
-}
-.single-item img{
-  max-width: 100%;
-  width: 100%;
-}
-.slick-dots{
-  bottom: 0;
-}
-.slick-dotted.slick-slider{
-  margin-bottom: 0px;
-}
-.border-rad{
-  border-radius: 5px;
-}
-.slick-prev{
- 
-  left:0;
-  z-index: 1;
-}
-.badge-red{
-  padding: 4px 8px;
-  border-radius: 20px;
-}
-.card-shadow{
-  box-shadow: 0 1px 1px rgb(0 0 0 / 15%), -1px 0 0 rgb(0 0 0 / 3%), 1px 0 0 rgb(0 0 0 / 3%), 0 1px 0 rgb(0 0 0 / 12%);;
-}
-.addcartbtn{
-  padding: 8px 16px;
-  border:1px solid #EE7E25
-}
-.addcartbtn:hover{
-  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
-  color: #fff;
-  background-color: #EE7E25;
-}
-
-.slick-next{
-  right:0;
-  z-index:1;
-}
-.cart-badge{
-  position: absolute;
-    top: 15%;
-    right: 10%;
-    cursor: pointer;
-}
-
-.cart-count{
-  font-size: 12px;
-    border-radius: 50%;
-    padding: 5px 9px;
-}
-.slick-prev:before, .slick-next:before{
-  color: #EE7E25;
-}
-.alert-warning{
-  background-color: #fffbc7;
-}
-.footer-icon{
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: top;
-  height: 100%;
-}
-/*Color*/
-.color-black{
-  color: #1C2223;
-}
-.color-rgba{
-  color:rgba(0, 0, 0, 0.87);
-}
-.color-rgba-gray{
-  color:rgba(0, 0, 0, 0.54)
-}
-.color-white{
-  color:#fff
-}
-.color-orange{
-  color:#EE7E25
-}
-/*Font Size*/
-.text-12{
-  font-size: 12px;
-}
-.text-14{
-  font-size: 14px;
-}
-.text-16{
-  font-size: 16px;
-}
-.text-20{
-  font-size: 20px;
-}
-/*Background Color*/
-.bg-red{
-  background-color: #ff0000;
-}
-.bg-orange{
-  background-color: #EE7E25;
-}
-/*Font Wegiht*/
-.font-600{
-  font-weight: 600;
-}
-.font-400{
-  font-weight: 400;
-}
-.font-500{
-  font-weight:500;
-}
-.font-700{
-  font-weight: 700;;
-}
-#myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: #EE7E25; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 2px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-}
-#myBtn i{
-  font-size: 20px;
-}
-
-#myBtn:hover {
-  background-color: rgb(169, 89, 28); /* Add a dark-grey background on hover */
-  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
-}
-
-  @media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  
-    [class*="col"] {
-    padding: 2px;
-  }
-
-}
-</style>
-<body >
-
-  <div>
- <!---Header--> 
-<div class="container ">
-  
-    <div class="row">
-      <div class="col-10">
-       
-        <div class="d-inline-block">
-         <i class="fa fa-solid fa-bars circular-icons"></i>
-        </div>
-  
-       <div class="d-inline-block">
-         <img src="https://pictures.grocerapps.com/original/grocerapp-large-logo-5e6d96218036a.png" />
-        </div>
-  
-       <div class="d-inline-block">
-        <div class="location-top">
-          <div  class="text-12  color-black">Online Store</div>
-          <div class="font-600 text-14 color-black">Foree Delivery</div>
-        </div>
-       </div>
+    <div class="outerWrapper">
+    <!---Loader-->
+    <div class="w-100">
+      <div class="text-center mt-3">
+        <i class="fa fa-circle-o-notch fa-spin loadMoreIcon" ></i><br>
+        <sub>Please wait. Preparing Products For You...</sub>
       
       </div>
-     
-      <div class="col-2 text-right">
-        <i class="fa fa-shopping-cart circular-icons" id="cartid"></i>
-        <sup class="cart-badge"><i class="badge badge-danger bg-orange cart-count">1</i></sup>
+    </div>
+    </div>
+
+
+    <div class="innerWrapper">
+    <!---Sidebar-->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="Tel: +85253397843"  class="text-16 color-black"><i class="fa fa-phone"></i>&nbsp;&nbsp;Call us</a>
+      
+      <a href="#" class="text-16 hr"><hr style="margin: 0px;"></a>
+      <a href="#"  class="text-16 color-black d-none"><i class="fa fa-gavel" aria-hidden="true"></i>&nbsp;&nbsp;Foree Policy</a>
+      <a href="#" class="text-16 hr d-none"><hr style="margin: 0px;"></a>
+      <a href="https://api.whatsapp.com/send?phone=+85253397843&text=Hi HK Super Store Team! Say Welcome To Me..."  class="text-16 color-black">
+      <i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp;&nbsp;Quick Chat</a>
+    </div>
+
+    <!---Main Content-->
+    <div id="main">
+    <!---Header--> 
+    <div class="container border-rad card-shadow pt-2">
+
+    <div class="row">
+      <div class="col-10 ">
+        <div class="d-inline-block">
+        <i class="fa fa-solid fa-bars circular-icons" onclick="openNav()"></i>
+        </div>
+
+      <div class="d-inline-block ml-1">
+        <img src="./flogo.png" alt="HK Super Store logo - Halal Food" style="border-radius: 8px">
+        </div>
+
+      <div class="d-inline-block">
+        <div class="location-top">
+          <div  class="text-12  color-black">Fatest Delivery Service</div>
+          <div class="dropdown">
+            <div class="font-600 text-14 color-black dropdown-toggle pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">HK Super Store</div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item text-14 color-rgba"  >Anywhere in HK</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+
+      <div class="col-2 text-right" >
+        <span data-toggle="modal" data-target="#myModal" class="cursor-pointer"><i class="fa fa-shopping-cart circular-icons"  style="float:right" id="cartid"></i>
+          <sup class="cart-badge cartbadge"><i class="badge badge-danger bg-orange cart-count">{{cart.length}}</i></sup></span>
       </div>
       
     </div>
 
     <div class="row mt-3 ">
       <div class="col-5 col-md-2 text-right">
-        <button type="button" class="btns category-btn"><i class="fa fa-list color-orange"></i>&nbsp;&nbsp;Categories</button>
+        <a href="#cat" class="text-decoration-none color-black noLinkStyle"><button type="button" class="btns category-btn"><i class="fa fa-list color-orange"></i>&nbsp;&nbsp;Categories</button></a>
       </div>
       <div class="col-7 col-md-10 pl-2 pl-md-0">
         <form>
           <div class="input-group ">
-            <input type="text" class="form-control search" placeholder="Search...">
+            <input type="text" id="search" ng-model="searchingText" ng-keyup="filterme()" class="form-control search" placeholder="Search...">
             <div class="input-group-append">
               <span class="input-group-text search-icon"><i class="fa fa-search"></i></span>
             </div>
@@ -345,323 +131,135 @@
       </div>
     </div>
 
-    <div class="row pt-2 pb-4 border-rad card-shadow">
-    
-      <div class="col-12">
+   
 
-        <div class='slider-multi '>
-          
-          <div class='slide '>
-           <div class="text-center">
-            <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-            <p class="text-14 color-rgba">Fruits & Vegetables</p>
-           </div>
-             
-          </div>
-          <div class='slide '>
-            <div class="text-center">
-              <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-              <p class="text-14 color-rgba">Fruits & Vegetables</p>
-             </div>
-          </div>
-          <div class='slide '>
-            <div class="text-center">
-              <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-              <p class="text-14 color-rgba">Fruits & Vegetables</p>
-             </div>
-          </div>
-          <div class='slide '>
-            <div class="text-center">
-              <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-              <p class="text-14 color-rgba">Fruits & Vegetables</p>
-             </div>
-          </div>
-          <div class='slide '>
-            <div class="text-center">
-              <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-              <p class="text-14 color-rgba">Fruits & Vegetables</p>
-             </div>
-          </div>
-          <div class='slide '>
-            <div class="text-center">
-              <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-              <p class="text-14 color-rgba">Fruits & Vegetables</p>
-             </div>
-          </div>
-          <div class='slide '>
-            <div class="text-center">
-              <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-              <p class="text-14 color-rgba">Fruits & Vegetables</p>
-             </div>
-          </div>
-          <div class='slide '>
-            <div class="text-center">
-              <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-              <p class="text-14 color-rgba">Fruits & Vegetables</p>
-             </div>
-          </div>
-          <div class='slide '>
-            <div class="text-center">
-              <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-              <p class="text-14 color-rgba">Fruits & Vegetables</p>
-             </div>
-          </div>
-          <div class='slide '>
-            <div class="text-center">
-              <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-              <p class="text-14 color-rgba">Fruits & Vegetables</p>
-             </div>
-          </div>
-          <div class='slide '>
-            <div class="text-center">
-              <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-              <p class="text-14 color-rgba">Fruits & Vegetables</p>
-             </div>
-          </div>
-         
-          
-      </div>
+    <div class="alert mt-3 alert-info alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Info!</strong> You are using Beta version of HK Halal Website.
     </div>
-
-
-
-
+    <!---Ramdaan Specials-->
+    <div class="container mt-3">
+    <div class="row pt-4 pb-4 border-rad card-shadow">
+    <div class="col-12  pl-4">
+    <h6 class="text-20 font-600">Top Products</h6>
     </div>
-
-</div>
-
-
-<!---Top Sellers-->
-<div class="container mt-3">
-  <div class="row pt-4 pb-4 border-rad card-shadow">
-  <div class="col-12  pl-4">
-    <h6 class="text-20 font-600">Top Sellers</h6>
-  </div>
-<div class="col-12">
-  <div class='slider-multi'>
-    <div class='slide product card-shadow'>
-     <div class="">
-      <div class=""><span class="badge badge-danger text-12 font-600 badge-red">6% off</span></div>
-      <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-      <h5 class="text-16">Fruits & Vegetables</h5>
-      <div class="mt-2"><small class="text-12 color-rgba-gray">1 Unit</small></div>
-      <div class="mt-2"><span class="text-14 color-rgba font-600">Rs. 1918</span>&nbsp;&nbsp;<del><small class="text-12 color-rgba-gray"> Rs. 2040</small></del></div>
-      <div class="mt-2"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Add to Cart</button></div>
-     </div>
-    </div>
-    <div class='slide product'>
-      <div class="">
-        <div class=""><span class="badge badge-danger text-12 font-600 badge-red">6% off</span></div>
-        <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-        <h5 class="text-16">Fruits & Vegetables</h5>
-        <div class="mt-2"><small class="text-12 color-rgba-gray">1 Unit</small></div>
-        <div class="mt-2"><span class="text-14 color-rgba font-600">Rs. 1918</span>&nbsp;&nbsp;<del><small class="text-12 color-rgba-gray"> Rs. 2040</small></del></div>
-        <div class="mt-2"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Add to Cart</button></div>
-       </div>
-     </div>
-     <div class='slide product'>
-      <div class="">
-        <div class=""><span class="badge badge-danger text-12 font-600 badge-red">6% off</span></div>
-        <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-        <h5 class="text-16">Fruits & Vegetables</h5>
-        <div class="mt-2"><small class="text-12 color-rgba-gray">1 Unit</small></div>
-        <div class="mt-2"><span class="text-14 color-rgba font-600">Rs. 1918</span>&nbsp;&nbsp;<del><small class="text-12 color-rgba-gray"> Rs. 2040</small></del></div>
-        <div class="mt-2"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Add to Cart</button></div>
-       </div>
-     </div>
-     <div class='slide product'>
-      <div class="">
-        <div class=""><span class="badge badge-danger text-12 font-600 badge-red">6% off</span></div>
-        <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-        <h5 class="text-16">Fruits & Vegetables</h5>
-        <div class="mt-2"><small class="text-12 color-rgba-gray">1 Unit</small></div>
-        <div class="mt-2"><span class="text-14 color-rgba font-600">Rs. 1918</span>&nbsp;&nbsp;<del><small class="text-12 color-rgba-gray"> Rs. 2040</small></del></div>
-        <div class="mt-2"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Add to Cart</button></div>
-       </div>
-     </div>
-     <div class='slide product'>
-      <div class="">
-        <div class=""><span class="badge badge-danger text-12 font-600 badge-red">6% off</span></div>
-        <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-        <h5 class="text-16">Fruits & Vegetables</h5>
-        <div class="mt-2"><small class="text-12 color-rgba-gray">1 Unit</small></div>
-        <div class="mt-2"><span class="text-14 color-rgba font-600">Rs. 1918</span>&nbsp;&nbsp;<del><small class="text-12 color-rgba-gray"> Rs. 2040</small></del></div>
-        <div class="mt-2"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Add to Cart</button></div>
-       </div>
-     </div>
-     <div class='slide product'>
-      <div class="">
-        <div class=""><span class="badge badge-danger text-12 font-600 badge-red">6% off</span></div>
-        <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-        <h5 class="text-16">Fruits & Vegetables</h5>
-        <div class="mt-2"><small class="text-12 color-rgba-gray">1 Unit</small></div>
-        <div class="mt-2"><span class="text-14 color-rgba font-600">Rs. 1918</span>&nbsp;&nbsp;<del><small class="text-12 color-rgba-gray"> Rs. 2040</small></del></div>
-        <div class="mt-2"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Add to Cart</button></div>
-       </div>
-     </div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-<!---Image Single Item Slider-->
-<div class="container mt-3 pt-3 pb-3 card-shadow border-rad">
-  <div class="row">
     <div class="col-12">
-      <div class="slider single-item" style="overflow: hidden;">
-				<div>
-				<img src="https://pictures.grocerapps.com/original/grocerapp-fruits-vegetables-62514fffe9c19.jpeg">
-				</div>
-				<div>
-          <img src="https://pictures.grocerapps.com/original/grocerapp-fruits-vegetables-62514fffe9c19.jpeg">
-				</div>
-				<div>
-          <img src="https://pictures.grocerapps.com/original/grocerapp-fruits-vegetables-62514fffe9c19.jpeg">
-				</div>
-				<div>
-					<img src="https://pictures.grocerapps.com/original/grocerapp-fruits-vegetables-62514fffe9c19.jpeg">
-				</div>
-			</div>
+    <div class='slider-multi productRamdaan'>
+    <div class='slide product card-shadow' ng-repeat="item in slidprodu">
+    <div class="">
+      <div class="">
+      <span class="badge badge-danger text-12 font-600 badge-red">{{item.tag}}</span></div>
+      <img class="prod-img" loading="lazy" alt="{{item.title}}" title="{{item.title}}" ng-src="{{item.img}}">
+      <h5 class="text-16 text-move" title="item.title">{{item.title}}</h5>
+      <div class="mt-2"><small class="text-12 color-rgba-gray">{{item.unit}}</small></div>
+      <div class="mt-2"><span class="text-14 color-rgba font-600">$ {{item.price}}</span>&nbsp;&nbsp;<del ng-if="item.oldprice.length>0"><small class="text-12 color-rgba-gray"> $ {{item.oldprice}}</small></del></div>
+      <div class="mt-2 d-none"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Buy Now</button></div>
+      <div class="mt-2 ">
+         <a class="noStyleBtn" ng-click="addItem(item.id,item.title,item.price,item.img,item.unit,1)"><button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Buy Now</button></a></div>
+
     </div>
-  </div>
-</div>
-<!---Young people-->
-<div class="container mt-3">
-  <div class="row border-rad pt-4 pl-4 pr-4 pb-2 card-shadow">
-    
-      <div class="col-12 ">
-        <h6 class="text-20 font-600">Young People buy</h6>
-      </div>
-    
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    <!---Image Single Item Slider-->
+    <div class="container mt-3 pt-3 pb-3 card-shadow border-rad">
+    <div class="row">
     <div class="col-12">
-      <div class='slider-multi '>
-        <div class='slide '>
-         <div class="text-center">
-          <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-          <p class="text-14 color-rgba-gray">Fruits & Vegetables</p>
-         </div>
-           
+      <div class="slider single-item noarrow" style="overflow: hidden;">
+        <div>
+        <img src="./categories/slide1.webp" title="" alt="HK Super Store Grocery">
         </div>
-        <div class='slide '>
-          <div class="text-center">
-           <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-           <p class="text-14 color-rgba-gray">Fruits & Vegetables</p>
-          </div>
-            
-         </div>
-         <div class='slide '>
-          <div class="text-center">
-           <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-           <p class="text-14 color-rgba-gray">Fruits & Vegetables</p>
-          </div>
-            
-         </div>
-         <div class='slide '>
-          <div class="text-center">
-           <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-           <p class="text-14 color-rgba-gray">Fruits & Vegetables</p>
-          </div>
-            
-         </div>
-         <div class='slide '>
-          <div class="text-center">
-           <img class="cat-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-           <p class="text-14 color-rgba-gray">Fruits & Vegetables</p>
-          </div>
-            
-         </div>
+        <div>
+          <img src="./categories/slide2.webp" title="" alt="HK Super Store Beverages">
+        </div>
+        <div>
+          <img src="./categories/slide3.webp" title="" alt="HK Super Store Beauty & Care">
+        </div>
+        <div>
+          <img src="./categories/slide4.webp" title="" alt="HK Super Store Products">
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+   
+
+    <div class="container mt-4 border-rad card-shadow">
+
+        
+        <div class="row pt-2 pb-4 "  id="divID">
       
-     
-       
-       
-        
-    </div>
-  </div>
-
-
-
-
-</div>
-
-</div>
-<!---Categories Listed-->
-<div class="container mt-3">
-  <div class="row border-rad pt-3 pl-0 pr-0 pb-3 border-rad card-shadow"  >
-    
-      <div class="col-12 ">
-        <div class="alert alert-warning">
-         <h5 class="text-20 font-600 color-rgba">Fruits & Vegetables</h5>
-         <p class="text-14 color-rgba-gray">
-          Fruits, Vegetables, Potato, Tomato, Brocoli, Onion, Banana
-         </p>
+        <div class="col-md-4 col-6 mt-3 list" ng-repeat="item in ramdaan" >
+            <div class="text-center card-shadow border-rad card-custom">
+                <div class="text-left" ng-class="item.discount.length>0 ? 'visibleshow':'visiblehidden'" ><span class="badge badge-danger text-12 font-600 badge-red bg-red text-upper">{{((item.oldprice - item.price) / item.oldprice)*100 | number :0}}% off</span></div>
+                <a class="img-href" href=""><img class="prod-img" ng-src="{{item.img}}"></a>
+                <a class="title-href" href=""><h5 class="text-16 text-left mt-3 headwrap text-capital">{{item.title}}</h5></a>
+                <div class="mt-2 text-left"><small class="text-12 color-rgba-gray text-capital">{{item.unit}}</small></div>
+                <div class="mt-2 text-left"><span class="text-14 color-rgba font-600 text-upper">$ {{item.price}}</span>&nbsp;&nbsp;<del ng-class="item.oldprice.length>0 ? 'visibleshow':'visiblehidden'"><small class="text-12 text-upper color-rgba-gray"> $ {{item.oldprice}}</small></del></div>
+                <div class="mt-4 d-none"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600 text-upper"><i class="fa fa-cart"></i>&nbsp;Add to Cart</button></div>
+                <div class="mt-4"><a > <button type="button" ng-click="addItem(item.id,item.title,item.price,item.img,item.unit,1)" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600 text-upper"><i class="fa fa-cart"></i>&nbsp;BUY Now</button></a></div>
+            </div>
         </div>
+       
+       
+      
+       
+    
         
+      
       </div>
-    
-    <div class="col-12">
-      <div class='slider-multi '>
-        <div class='slide '>
-         <div class="text-center">
-          <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-          <p class="text-14 color-rgba-gray">Fruits & Vegetables</p>
-         </div>
-        </div>
-        <div class='slide '>
-          <div class="text-center">
-           <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-           <p class="text-14 color-rgba-gray">Fruits & Vegetables</p>
-          </div>
-         </div>
-         <div class='slide '>
-          <div class="text-center">
-           <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-           <p class="text-14 color-rgba-gray">Fruits & Vegetables</p>
-          </div>
-         </div>
-         <div class='slide '>
-          <div class="text-center">
-           <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-           <p class="text-14 color-rgba-gray">Fruits & Vegetables</p>
-          </div>
-         </div>
-         <div class='slide '>
-          <div class="text-center">
-           <img class="prod-img" src="https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg">
-           <p class="text-14 color-rgba-gray">Fruits & Vegetables</p>
-          </div>
-         </div>
-       
-       
-       
-       
-       
-        
+      
+      </div>
+      <div class="container mt-3" id="cat">
+        <div class="row pt-4 pb-4 border-rad card-shadow">
+        <div class="col-12  pl-4">
+        <h6 class="text-20 font-600">Categories <small class="text-gray">(Coming Soon)</small></h6>
+        </div></div></div>
+ <!---Categories Listed-->
+ <div class="container mt-3" ng-repeat="subitem in categoriesSub">
+  <div class="row border-rad pt-3 pl-0 pr-0 pb-3 border-rad card-shadow"  >
+    <div class="col-12 ">
+      <div class="alert alert-warning">
+      <h5 class="text-20 font-600 color-rgba">{{subitem.title}}</h5>
+      <p class="text-14 color-rgba-gray">
+        {{subitem.desc}}
+      </p>
+      </div>
     </div>
+  <div class="col-12">
+    <div class='slider-multi '>
+      <div class='slide' ng-repeat="item in subitem.subcat">
+      <div class="text-center">
+        <img class="cat2-img m-auto" title="{{item.desc}}" alt="{{item.desc}}" ng-src="{{item.img}}">
+        <p class="text-14 color-rgba-gray">{{item.desc}}</p>
+      </div>
+      </div>
   </div>
+  </div>
+  </div>
+  </div>
+    <!---Footer-->
+    <div class="container mt-3">
+    <div class="row  border-rad" >
 
-
-
-
-</div>
-
-</div>
-<!---Footer-->
-<div class="container mt-3">
-  <div class="row  border-rad" >
-    
       <div class="col-12 pt-4 pl-4 pr-4 pb-2">
         
-        <h5 class="text-16 font-600">GrocerApp aims to deliver household happiness by trying to be the best in following 3 things.</h5>
+        <h5 class="text-16 font-600">HK Super Store aims to deliver all your favouite products by trying to be the best in following 3 things.</h5>
         <hr>
       </div>
       <div class="col-12">
         <div class="row">
-          <div class="col-1 text-center">
+          <div class="col-md-1 col-2 text-center">
             <i class="fa fa-dollar footer-icon"></i>
           </div>
-          <div class="col-11">
+          <div class="col-md-11 col-9">
             <h6 class="text-16 font-600">Best Prices & Offers</h6>
             <p class="text-14 color-rgba-gray">
               Cheaper prices than your local supermarket, great cashback offers to top it off.</p>
@@ -669,21 +267,21 @@
 
         </div>
         <div class="row mt-4">
-          <div class="col-1 text-center">
+          <div class="col-md-1 col-2 text-center">
             <i class="fa fa-clock-o footer-icon"></i>
           </div>
-          <div class="col-11">
+          <div class="col-md-11 col-9">
             <h6 class="text-16 font-600">Fast & Foree Delivery</h6>
             <p class="text-14 color-rgba-gray">
-             We delivered your favourite products in fast & foree manners.</p>
+            We delivered your favourite products in fast & foree manners.</p>
           </div>
 
         </div>
         <div class="row mt-4">
-          <div class="col-1 text-center">
+          <div class="col-md-1 col-2 text-center">
             <i class="fa fa-caret-square-o-down footer-icon" aria-hidden="true"></i>
           </div>
-          <div class="col-11">
+          <div class="col-md-11 col-9">
             <h6 class="text-16 font-600">Easy Returns</h6>
             <p class="text-14 color-rgba-gray">
               Not satisfied with a product? Return it at the doorstep & get a refund within hours.</p>
@@ -693,205 +291,213 @@
         <div class="row">
           <div class="col-12"><hr></div>
         </div>
-       
+      
       </div>
       
-</div>
-<div class="row border-rad " >
+    </div>
     
-  <div class="col-12  pl-4 pr-4 pb-2">
-    
-    <h5 class="text-16 font-600">Categories</h5>
-    <hr>
-  </div>
-  <div class="col-12">
-    <div class="row pl-4 pl-4">
-      <div class="col-4">
-        <b class="text-14 color-rgba-gray font-700">Fruits & Vegetables</b>
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-       <p class="text-14 color-rgba-gray">- Fruits</p> 
-      </div>
-      <div class="col-4">
-        <b class="text-14 color-rgba-gray font-700">Fruits & Vegetables</b>
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-      </div>
-      <div class="col-4">
-        <b class="text-14 color-rgba-gray font-700">Fruits & Vegetables</b>
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-        <p class="text-14 color-rgba-gray">- Fruits</p> 
-      </div>
 
-    </div>
-    <div class="row pl-4 pl-4 mt-5">
-      <div class="col-4">
-        <b class="text-14 color-rgba-gray font-700">Fruits & Vegetables</b>
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-        <p class="text-14 color-rgba-gray">- Fruits</p> 
-        <p class="text-14 color-rgba-gray">- Fruits</p> 
-      </div>
-      <div class="col-4">
-        <b class="text-14 color-rgba-gray font-700">Fruits & Vegetables</b>
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-        <p class="text-14 color-rgba-gray">- Fruits</p>  <p class="text-14 color-rgba-gray">- Fruits</p> 
-      </div>
-      <div class="col-4">
-        <b class="text-14 color-rgba-gray font-700">Fruits & Vegetables</b>
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-        <p class="text-14 color-rgba-gray">- Fruits</p>  <p class="text-14 color-rgba-gray">- Fruits</p> 
-      </div>
+    <div class="row border-rad d-none" >
 
-    </div>
-    
-    
-    <div class="row">
-      <div class="col-12"><hr></div>
-    </div>
-   
-  </div>
-  
-</div>
-<div class="row border-rad" >
-    
-  <div class="col-12  pl-4 pr-4 pb-2">
-    
-    <h5 class="text-16 font-600">Useful Links</h5>
-    <hr>
-  </div>
-  <div class="col-12">
-    <div class="row pl-4 pl-4">
-      <div class="col-3">
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-      </div>
-      <div class="col-3">
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-       </div>
+    <div class="col-12  pl-4 pr-4 pb-2">
 
-     <div class="col-3">
-      <p class="text-14 color-rgba-gray">- Vegetables</p>
-      </div>
-      <div class="col-3">
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-       </div>
-
-    </div>
-    <div class="row pl-4 pl-4 mt-1">
-      <div class="col-3">
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-       </div>
-       <div class="col-3">
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-        </div>
- 
-      <div class="col-3">
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-       </div>
-       <div class="col-3">
-        <p class="text-14 color-rgba-gray">- Vegetables</p>
-        </div>
-
-    </div>
-    
-    
-    <div class="row">
-      <div class="col-12"><hr></div>
-    </div>
-   
-  </div>
-  
-</div>
-<div class="row border-rad" >
-    
-  <div class="col-12  pl-4 pr-4 pb-2">
-    
     <h5 class="text-200 font-600 ">GrocerApp - Online Grocery Shopping</h5>
     <hr>
-  </div>
-  <div class="col-12">
+    </div>
+    <div class="col-12">
 
     <div class="row pl-4 pl-4">
       <div class="col-12">
+
         <h6 class="text-14 color-rgba-gray">GrocerApp makes shopping easier and more convenient than ever.</h6>
-       
+      
       </div>
       </div>
-    
+
     <div class="row pl-4 pl-4 mt-4">
-     
+
       <div class="col-12">
         <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
         <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
-       </div>
+      </div>
     </div>
     <div class="row pl-4 pl-4 mt-4">
-     
+
       <div class="col-12">
         <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
         <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
-       </div>
+      </div>
     </div>
     <div class="row pl-4 pl-4 mt-4">
-     
+
       <div class="col-12">
         <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
         <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
-       </div>
+      </div>
     </div>
     <div class="row pl-4 pl-4 mt-4">
-     
+
       <div class="col-12">
         <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
         <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
-       </div>
+      </div>
     </div>
-    
-    
-    <div class="row">
-      <div class="col-12"><hr></div>
-    </div>
+
+
    
-  </div>
-  
-</div>
 
-<div class="row border-rad pb-3">
-    
-  
-  <div class="col-12">
-
-    
-    
-    <div class="row pl-4 pl-4 mt-0">
-     
-      <div class="col-12 text-12 color-rgba-gray">
-      
-        <p>Info@foreedelivery.com</p>
-        <p>Peco Rd, 110 - M Quaid e Azam Industrial Estate, Lahore, Punjab</p>
-        <i class="fa fa-facebook"></i>&nbsp; <i class="fa fa-instagram"></i>&nbsp; <i class="fa fa-whatsapp"></i>&nbsp;- +923478981363
-       </div>
     </div>
-    <div class="row pl-4 pl-4 mt-2">
-     
-      <div class="col-12 text-12 color-rgba-gray">
+
+    </div>
+
+    <div class="row border-rad ">
+
+
+    <div class="col-12">
+
+
+
+    <div class="row pl-4 pl-4 mt-0 pt-3 pb-3 " style="background-color:#EE7E25">
+
+      <div class="col-12 col-md-6 text-12 color-rgba-gray">
       
-        <p>© GrocerApp Pakistan Pvt. Ltd., 2016-2021</p>
+        <p class="d-none">Info@hksuperstore.com</p>
+        <p class="text-14 color-white ">Kowloon, Hong Kong</p>
         
-       </div>
+        <a class="footer-link text-14 color-white " href="https://api.whatsapp.com/send?phone=+85253397843&text=Hi HK Super Store Team! Say Welcome To Me..." target="_blank" style="font-size:18px"><i class="fa fa-whatsapp"></i>&nbsp;</a> 
+        <a class="footer-link text-14 color-white " href="tel:+923478981363" target="_blank"><i class="fa fa-phone" style="font-size:18px"></i>&nbsp;53397843</a> 
+      
+      
+      </div>
+      <div class="col-md-6 col-12  text-12 text-md-right mt-md-0 mt-2 color-rgba-gray">
+      
+        <p class="text-14 color-white ">We Accept Your Payment Via</p>
+        <p class="text-14 color-white ">Cash On Delivery, Master Card,Visa Card,Octopus</p>
+
+      
+      
+      </div>
+      <div class="col-12 text-12 color-white
+      pb-3">
+      <hr>
+        <p>© HK Halal Food HK , 2022</p>
+        
+      </div>
     </div>
-    
-    
-    
-  
    
-  </div>
-  
-</div>
 
 
 
-</div>
-</div>
-<!---Move To Top-->
-<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+
+    </div>
+
+    </div>
+
+
+
+    </div>
+
+   
+    <!---Move To Top-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+    </div>
+    <button type="button" style="display: none;" id="btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      Open modal
+    </button>
+
+        <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">My Cart ({{cart.length}}) - <b class="text-danger">{{currency}} {{getsum()}}</b></h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body scroll-y" >
+            <table class="table table-striped" ng-if="step==1">
+              
+              <tbody >
+                <tr ng-if="cart.length==0">  
+                  <td>
+                    <div class="text-left w-100  pt-2 pl-4 pb-4 font-400 text-14" ngstyle="color:#EE7E25;">
+                      <span class="text-20">No items in your cart</span><br>
+                      Your favourite items are just a click away
+                   </div>
+                  </td>
+                </tr>
+                <tr   ng-repeat="cat in cart">
+                  <td><img class="w-100" ng-src={{cat.img}} /></td>
+                  <td>{{cat.title}} <br><sub>{{cat.unit}} </sub><br><br>{{currency}} {{cat.price}} x {{cat.quantity}}</td>
+                  <td>{{currency}} {{cat.price * cat.quantity }}<br><br>
+                    <span ng-click="reducequan(cat.id,0)" class="badge badge-secondary pricechanger mr-1"><i class="fa fa-minus"></i></span>
+                    <input type="number" class="numberinput text-center" ng-model="cat.quantity" readonly />
+                    <span ng-click="increasequan(cat.id,1)" class="badge badge-secondary pricechanger ml-1"><i class="fa fa-plus"></i></span></td>
+                  <td><span class="badge  closeiconfc"  ng-click="delItem(cat.id)"><i class="fa fa-close"></i></span></td>
+                
+              </tr>
+              <tr ng-if="cart.length>0">
+                <td class="text-20" colspan="2">Total</td>
+                <td class="text-20 text-right" colspan="20"><b class="text-danger">{{currency}} {{getsum()}}</b></td>
+              </tr>
+              
+              
+                
+              </tbody>
+            </table>
+
+
+            <table class="table table-striped" ng-if="step==2">
+              <tbody>
+                <tr >
+                  <td class="text-20" colspan="4">User Info</td>
+                
+                </tr>
+                
+                <tr>
+                  <td colspan="4">
+                    <div class="input-group ">
+                      <input type="text" id="fn"  ng-model="name" class="form-control search" placeholder="Full Name...">
+                     
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="input-group ">
+                      <input type="text" id="add" ng-model="address" class="form-control search" placeholder="Address/Location Link...">
+                     
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="input-group ">
+                      <input type="text" id="no" ng-model="number"  class="form-control search" placeholder="Number/Whatsapp Number">
+                     
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn color-orange border border-1" ng-if="step==1" data-dismiss="modal">Close</button>
+            <button type="button" class="btn color-orange border border-1" ng-click="backtocart()" ng-if="step==2" >Back</button>
+            <button type="button" ng-click="placeOrder()" class="btn color-white bg-orange"> Order Now</button>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
 
   <script>
 //Get the button
@@ -913,52 +519,329 @@ function topFunction() {
   $('html, body').animate({scrollTop:0}, 'slow');
 }
 
+
 </script>
 <script src="https://kenwheeler.github.io/slick/slick/slick.js"  crossorigin="anonymous"></script>
+<script src="./slickslide.js"></script>
+<script src="./nav.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script>
-  $(document).ready(function(){
-	$('.slider-multi').slick({
+  function info(text){
+    Toastify({
+  text: text,
+  duration: 3000,
+  close: true,
+  gravity: "bottom", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+  }
+  function danger(text){
+    Toastify({
+  text: text,
+  duration: 3000,
+  close: true,
+  gravity: "bottom", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+  }
+  function warning(text){
+    
+    Toastify({
+  text: text,
+  duration: 3000,
+  close: true,
+  gravity: "bottom", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "inear-gradient(to right, #ff5f6d, #ffc371)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+  }
+  function success(text){
+    Toastify({
+  text: text,
+  duration: 3000,
+  close: true,
+  gravity: "bottom", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+  }
   
-  dots: false,
-  infinite: false,
-  speed: 300,
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  arrows:true,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true
+</script>
+<script>
+    //Angular Modules
+   var app = angular.module('myApp', []);
+   app.controller('myCtrl', function($scope,$http) {
+   
+    //For Storing Products
+    $scope.cart=[];
+    $scope.currency="HK";
+    $scope.step=1
+    const firebaseConfig = {
+        apiKey: "AIzaSyBzO65a1IT1pyOvFsqRDHNewvE2FzFYg4o",
+        authDomain: "hksuperstore-863b7.firebaseapp.com",
+        databaseURL: "https://hksuperstore-863b7-default-rtdb.firebaseio.com",
+        projectId: "hksuperstore-863b7",
+        storageBucket: "hksuperstore-863b7.appspot.com",
+        messagingSenderId: "53236614225",
+        appId: "1:53236614225:web:7524d65d7d6eb7b7596470",
+        measurementId: "G-0CCVNXT5DF"
+      };
+    
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const dbRef = firebase.database().ref();
+      const usersRef = dbRef.child('users');
+
+
+    $scope.reducequan=function(id,flag){
+      updateproduct(id,flag,0)
+    }
+    $scope.increasequan=function(id,flag){
+      updateproduct(id,flag,0)
+    }
+    $scope.placeOrder=function(){
+      if ($scope.cart.length==0){
+        danger("Please Add Items Into Cart")
       }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
+      else{
+        $scope.step= 2;
+        let names =document.getElementById("fn") ? document.getElementById("fn").value : ""
+        let address=document.getElementById("add") ? document.getElementById("add").value: "";
+        let number=document.getElementById("no") ? document.getElementById("no").value : "";
+        if(names.length >0 && address.length>0 && number.length>0){
+          $scope.order(names,address,number);
+        }
         
       }
+     
     }
-  ]
-  });
-  $('.single-item').slick({
-  dots:true
-  
-});
+    $scope.order=function(nm,add,no){
+          obj={
+              "Name": nm,
+              "Address": add,
+              "Number": no,
+              "Total Bill":$scope.getsum()
+          }
+          obj["Sum"]=""
+           $scope.cart.forEach(element => {
+            obj[element.title]=element.title+" x "+element.quantity+" x  " + element.price +" = " +element.quantity*element.price;
+            obj["Sum"]=obj["Sum"]+" + "+(element.quantity*element.price).toString();
+          });
+          //info("Please Wait.Your Order Is In Processing")
+          usersRef.push(obj, function () {
+          success("Order Placed & Added In Queue. Our Team Will Contact You Shortly")
+          })
+      
+    }
+    $scope.backtocart=function(){
+      $scope.step=1;
+    }
 	
-});
-  </script>
+    $scope.getsum = function(){
+    var total = 0;
+    for(var i = 0; i < $scope.cart.length; i++){
+        var product = $scope.cart[i];
+        total += (product.price * product.quantity);
+    }
+    return total;
+}
 
+    
+    $scope.addItem=function(id,title,price,img,unit,quantity){
+    
+
+        if(!checkproduct(id)){
+          let prod={
+          "id":id,
+          "title":title,
+          "price":price,
+          "img":img,
+          "quantity":quantity,
+          "unit":unit
+        }
+        $scope.cart.push(prod);
+       // document.getElementById("btn").click();
+       success(prod.title+" added to cart")
+
+      }
+      else {
+        updateproduct(id,1,1);
+      }
+
+      //document.getElementById("btn").click();
+    }
+    
+	$scope.delItem=function(id){
+	$scope.cart=$scope.cart.filter(item=>Number(item.id) != Number(id));
+	}
+	
+	//Function that returns false when item found
+    
+	function checkproduct(id){
+      //find function returns undefined when get nothing 
+      let status=$scope.cart.find(item=>Number(item.id)==Number(id));
+      return status==undefined ? false : true
+    }
+    //Update Quantity Function
+    function updateproduct(id,flag,modelshow){
+     
+      let status=$scope.cart.find(item=>Number(item.id)==Number(id));
+      //Products Found 
+      if(status!=undefined){
+
+        //If Add More Item
+        if(flag==1){
+       
+        status.quantity=(Number(status.quantity)+1);
+        success(status.title+" added to cart")
+        if(modelshow==1){
+          //document.getElementById("btn").click();
+          
+        }
+       
+        
+
+        }
+        else if(flag==0){
+
+        if(Number(status.quantity)-1==0){
+          $scope.cart=$scope.cart.filter(item=>Number(item.id) != Number(id));
+        }
+
+        else{
+          status.quantity=(Number(status.quantity)-1);
+          success(status.title+" removed from cart")
+          if(modelshow==1){
+          //document.getElementById("btn").click();
+        
+        }
+        }
+       
+        
+        }
+        
+      }
+      else{
+        warning("Something going wrong. Report it")
+      }
+
+
+    }
+   
+
+      $scope.places=[
+        {"id":1,"city":"Kowloon Tong"},
+        {"id":1,"city":"Shek Kip Mei"},
+        {"id":1,"city":"Fo Tan"},
+        {"id":1,"city":"Sham Shui Po"},
+        {"id":1,"city":"Lok Fo"}
+
+      ]
+      
+      $scope.categories=[
+         {"id":1,"title":"Grocery","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-grocery-61e9620ce82bd.jpeg","status":"1","titlesub":"Browse Grocery"},
+         {"id":8,"title":"Bakery Dairy","img":" https://pictures.grocerapps.com/lgthumb/grocerapp-bakery-dairy-61eab95d92b7a.jpeg","status":"1","titlesub":"Browse Bakery & Dairy "},
+         {"id":3,"title":"Fresh Meat","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-fresh-meat-61eab6cd051b0.jpeg","status":"1","titlesub":"Browse Fresh Meat"},
+         {"id":2,"title":"Fruits Vegetables","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg","status":"1","titlesub":"Browse Fruits & Vegetables"}, 
+         {"id":10,"title":"Beverages","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-beverages-61eab9642ec81.jpeg","status":"1","titlesub":"Browse Beverages"},
+         {"id":9,"title":"Frozen Chilled","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-frozen-chilled-61eab714bcb1c.jpeg","status":"0","titlesub":"Frozen & Chilled Coming Soon"},
+         {"id":4,"title":"Baby Care","img":"./categories/babycare.webp","status":"0","titlesub":"Baby Care Coming Soon"},
+         {"id":5,"title":"Home Care","img":"./categories/homecare.webp","status":"0","titlesub":"Home Care Coming Soon"}, 
+     ]
+
+     $scope.ramdaan=[
+       //Grocery Products
+       {id:7861,title:"Balocco Sfogliatine Pastry Puffs",img:"./landingimgs/sfogliatine.jpeg",subimg:[""],price:"12",oldprice:"16",unit:"200 g",tag:"",descr:``,parent:"",subparent:"",brand:"Balocco"},
+       {id:7863,title:"Kinder Bueno 3-Pack",img:"./landingimgs/buenokinder.jpg",subimg:[""],price:"15",oldprice:"17.5",unit:"129 g",tag:"",descr:``,parent:"",subparent:"",brand:"Kinder"},
+       {id:7864,title:"Kinder Chocolate 8-Small Bars ",img:"./landingimgs/Kinder Chocolate T8 100g  .jpeg",subimg:[""],price:"13.9",oldprice:"16",unit:"100 g",tag:"",descr:``,parent:"",subparent:"",brand:"Kinder"},
+       {id:7865,title:"Mars Chocolate 4s Pack",img:"./landingimgs/Mars Chocolate Bars.jpeg",subimg:[""],price:"12",oldprice:"14",unit:"100 g",tag:"",descr:``,parent:"",subparent:"",brand:"Mars"},
+       {id:7866,title:"Nescafé - Rich Blend Coffee",img:"./landingimgs/nescafe.jpeg",subimg:[""],price:"57",oldprice:"60",unit:"200 g",tag:"",descr:``,parent:"",subparent:"",brand:"Nescafe"},
+       {id:7867,title:"Coca Cola - 8 Cans ",img:"./landingimgs/cocacola 8 cans.webp",subimg:[""],price:"38",oldprice:"40",unit:"300 ml",tag:"",descr:``,parent:"",subparent:"",brand:"Coca cola"},
+       {id:7868,title:"Kelloggs Coco Chex Giant",img:"./landingimgs/COCO-CHEX.jpeg",subimg:[""],price:"34",oldprice:"40",unit:"300 g",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
+       {id:7869,title:"Kelloggs Frosties",img:"./landingimgs/kelloggs frosties.jpeg",subimg:[""],price:"37",oldprice:"40.9",unit:"420 g",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
+       {id:78610,title:"Lipton Mix Milk Tea Gold 34-PC",img:"./landingimgs/Lipton Hong Kong Style Gold.jpeg",subimg:[""],price:"46",oldprice:"63",unit:"16.5g  x 34 (34'S)",tag:"",descr:``,parent:"",subparent:"",brand:"Lipton"},
+       {id:78611,title:"Lipton Yellow Label  TeaBags 100 PC",img:"./landingimgs/lipton yellow label tea.jpeg",subimg:[""],price:"42.9",oldprice:"45",unit:"200 g",tag:"",descr:``,parent:"",subparent:"",brand:"Lipton"},
+       {id:78612,title:"Lipton Milk Mix Gold Tea",img:"./landingimgs//Lipton (Milk Tea Gold) Lipton Gold Milk Tea .jpeg",subimg:[""],price:"25",oldprice:"31",unit:"165 g",tag:"",descr:``,parent:"",subparent:"",brand:"Lipton"},
+       {id:78613,title:"Lipton Milk Tea Light ",img:"./landingimgs/LIPTON MILK TEA LIGHT .jpeg",subimg:[""],price:"25",oldprice:"31",unit:"175 g",tag:"",descr:``,parent:"",subparent:"",brand:"Lipton"},
+       {id:786114,title:"Emmi Swiss Premium Yogurt Blueberry",img:"./landingimgs/Emmi-Swiss-Blueberry.png",subimg:[""],price:"57",oldprice:"72",unit:"450 g",tag:"",descr:``,parent:"",subparent:"",brand:"Emmi"},
+       {id:786115,title:"Emmi Swiss Premium Yogurt Natural",img:"./landingimgs/Emmi-Swiss Natural.png",subimg:[""],price:"57",oldprice:"72",unit:"450 g",tag:"",descr:``,parent:"",subparent:"",brand:"Emmi"},
+       {id:786116,title:"Emmi Swiss Premium Yogurt Strawberry",img:"./landingimgs/Emmi-Swiss Strawberry.png",subimg:[""],price:"57",oldprice:"72",unit:"450 g",tag:"",descr:``,parent:"",subparent:"",brand:"Emmi"},
+       {id:786117,title:"Olper Milk 1L",img:"./landingimgs/olpers.jpg",subimg:[""],price:"14",oldprice:"20",unit:"1L",tag:"",descr:``,parent:"",subparent:"",brand:"Olpers"},
+       {id:786118,title:"Olper Milk Carton 12L",img:"./landingimgs/olpers.jpg",subimg:[""],price:"165",oldprice:"230",unit:"12L",tag:"",descr:``,parent:"",subparent:"",brand:"Olpers"},
+       {id:786119,title:"Garden Thick Toast Bread - 6 Slices",img:"./landingimgs/THICK TOAST SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"6 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
+	   {id:786120,title:"Extra Thick Sandwich Bread - 4 Slices",img:"./landingimgs/EXTRATHICKSANDWICHBREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"4 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
+	   {id:786121,title:"Sandwich Bread",img:"./landingimgs/SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"8 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
+	   {id:786122,title:"Thin Sliced Sandwich Bread",img:"./landingimgs/THIN SLICED SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"10 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
+	   {id:786123,title:"Strawberry Jam",img:"./landingimgs/Strawberry Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
+	   {id:786124,title:"Blue Berry Jam",img:"./landingimgs/Blueberry Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
+       {id:786125,title:"Apricot Jam",img:"./landingimgs/Apricot Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
+	   {id:786126,title:"Nutella Hazelnut Spread 350gm",img:"./landingimgs/HAZELNUT SPREAD WITH COCOA.jpg",subimg:[""],price:"44",oldprice:"50",unit:"350 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nutella"},
+       {id:786127,title:"Nutella Hazelnut Spread 180gm",img:"./landingimgs/nutella 180.jpg",subimg:[""],price:"25",oldprice:"28",unit:"180 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nutella"},
+       {id:786128,title:"Apricot Jam",img:"./landingimgs/Apricot Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"12L",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
+	   {id:786129,title:"Creamy Peanut Butter",img:"./landingimgs/PEANUT BUTTER CREAMY.jpg",subimg:[""],price:"34",oldprice:"45",unit:"462 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Skippy"},
+       {id:786130,title:"Crunch Peanut Butter",img:"./landingimgs/PEANUT BUTTER SUPER CHUNK.png",subimg:[""],price:"34",oldprice:"45",unit:"462 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Skippy"},
+       {id:786131,title:"Digestive 2-Pack ",img:"./landingimgs/digestive extra.jpg",subimg:[""],price:"30",oldprice:"40",unit:"1000 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Digestive"},
+	   {id:786129,title:"Pringles Sour Cream & Onion",img:"./landingimgs/SOUR CREAM&ONION FLV POTATO CHIPS.jpg",subimg:[""],price:"20",oldprice:"25",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
+	   {id:786129,title:"Pringles Cheesy Cheese",img:"./landingimgs/cheesy cheese.jpg",subimg:[""],price:"20",oldprice:"25",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
+	   {id:786129,title:"Pringles BBQ",img:"./landingimgs/pringles bbq.jpg",subimg:[""],price:"27",oldprice:"30",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
+	 
+
+	 ]
+      $scope.dupicate=[...$scope.ramdaan];
+      $scope.slidprodu=[...$scope.ramdaan]
+	  
+	   
+      $scope.filterme=function(val){
+        $scope.ramdaan=[...$scope.dupicate.filter((item)=> item.title.toUpperCase().includes($scope.searchingText.toUpperCase()))];
+      }
+	function myStopFunction() {
+
+  clearTimeout($scope.fnct);
+  
+}
+     //Take Parent Id From Above 
+     $scope.categoriesSub=[
+       {id:'3',title:'Fresh Meat',desc:'Mutton, Beef, Chicken',subcat:[{img:'./categories/chicken.webp',id:'',desc:'Chicken'},{img:'./categories/mutton.jpeg',id:'',desc:'Mutton'},{img:'./categories/beef.webp',id:'',desc:'Beef'}]},
+       {id:'2',title:'Fruits Vegetables',desc:'Fruits, Vegetables, Potato, Tomato, Brocoli, Onion, Banana',subcat:[{img:'./categories/vegetables.webp',id:'',desc:'Vegetables'},{img:'./categories/fruits.webp',id:'',desc:'Fruits'}]},
+       {id:'1',title:'Grocery',desc:'Oil, Daalain, Spices & Herbs, Flour, Jams, Sauces, Desserts, Olives, Pickels',subcat:[{img:'./categories/oil&ghee.webp',id:'',desc:'Oil & Ghee'},{img:'./categories/salt&sugar.webp',id:'',desc:'Spices, Salt & Sugar'},{img:'./categories/daalain.webp',id:'',desc:'Daalain, Rice & Flour'},{img:'./categories/sauses.webp',id:'',desc:'Sauces, Olives & Pickles'},{img:'./categories/jam&honey.webp',id:'',desc:'Jam, Honey & Spread'},{img:'./categories/baking.webp',id:'',desc:'Baking & Desserts'}]},
+       {id:'8',title:'Bakery Dairy',desc:'Milk, Butter, Cheese, Bread',subcat:[{img:'./categories/milk.webp',id:'',desc:'Milk'},{img:'./categories/breads.webp',id:'',desc:'Breads'},{img:'./categories/eggs.webp',id:'',desc:'Eggs'},{img:'./categories/butter&cream.webp',id:'',desc:'Cream & Butter'},{img:'./categories/cereals&oats.webp',id:'',desc:'Cereals & Oats'},{img:'./categories/cake&rusk.webp',id:'',desc:'Cake & Rusk'},{img:'./categories/cheese.webp',id:'',desc:'Cheese'},{img:'./categories/yogurt.webp',id:'',desc:'Yogurt'}]},
+       {id:'10',title:'Beverages',desc:'Tea, Cold Drinks, Sharbat, Juices, Energy Drinks, Instant Drinks',subcat:[{img:'./categories/sharbat.webp',id:'',desc:'Sharbat'},{img:'./categories/colddrinks.webp',id:'',desc:'Cold Drinks'},{img:'./categories/juices.webp',id:'',desc:'Juices'},{img:'./categories/tea.webp',id:'',desc:'Tea'},{img:'./categories/energydrinks.webp',id:'',desc:'Energy Drinks'},{img:'./categories/mineralwater.webp',id:'',desc:'Mineral Water'},{img:'./categories/coldtea&coffee.webp',id:'',desc:'Cold Tea, Coffee'},{img:'./categories/instantdrinks.webp',id:'',desc:'Instant Drinks'},{img:'./categories/falvouredmilk.webp',id:'',desc:'Flavoured Milk'}]},
+       {id:'9',title:'Frozen Chilled',desc:'Burger Pattie, Nuggets, Kabab',subcat:[{img:'./categories/kabab.webp',id:'',desc:'Kabab & Kofta'},{img:'./categories/burgerpatties.webp',id:'',desc:'Burger Patties'},{img:'./categories/nuggets.webp',id:'',desc:'Nuggets & Snacks'},{img:'./categories/samosa.webp',id:'',desc:'Samosa & Rolls'}]},
+       {id:'5',title:'Home Care',desc:'Cleaners, Detergents, Tissue, Repellents, Laundry',subcat:[{img:'./categories/floorcleaning.webp',id:'',desc:'Floor, Bath Cleaning'},{img:'./categories/laundry.webp',id:'',desc:'Laundry'},{img:'./categories/kitchencleaning.webp',id:'',desc:'Kitchen Cleaning'},{img:'./categories/cleaners.webp',id:'',desc:'Other Cleaners'},{img:'./categories/repellents.webp',id:'',desc:'Repellents Mosquito Killers'},{img:'./categories/airfreshers.webp',id:'',desc:'Air Fresheners'},{img:'./categories/tissues.webp',id:'',desc:'Tissue Papers'},{img:'./categories/cleaning accessaries.webp',id:'',desc:'Cleaning Accessories'}]},
+       {id:'4',title:'Baby Care',desc:'Diapers, Lotions, Baby Food',subcat:[{img:'./categories/diaper.webp',id:'',desc:'Diaper & Wipes'},{img:'./categories/foodmilk.webp',id:'',desc:'Food & Milk'},{img:'./categories/bath.webp',id:'',desc:'Bath & Toothpaste'},{img:'./categories/utensilsaccessaries.webp',id:'',desc:'Utensils & Accessories'}]},
+       {id:'15',title:'Desi Halal Food',desc:'Desi Food, Beryani, Shawarma, Sabzi, Daal, Tandorie Tikka,Chicken Pieces, Kabab',subcat:[{img:'./unknown.png',id:'',desc:'Desi Food'},{img:'./unknown.png',id:'',desc:'Beryani'},{img:'./unknown.png',id:'',desc:'Shawarma'},{img:'./unknown.png',id:'',desc:'Sabzi'},{img:'./unknown.png',id:'',desc:'Daal'},{img:'./unknown.png',id:'',desc:'Tandorie Tikka'},{img:'./unknown.png',id:'',desc:'Chicken Pieces'},{img:'./unknown.png',id:'',desc:'Kabab'}]},
+
+     ]
+    
+     
+     //Search Products Function 
+
+      
+      
+     
+ 
+   });
+   </script>
+   
+   
 </body>
 </html>
