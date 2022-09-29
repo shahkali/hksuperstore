@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -200,7 +201,7 @@
             <div class="text-center card-shadow border-rad card-custom">
                 <div class="text-left" ng-class="item.discount.length>0 ? 'visibleshow':'visiblehidden'" ><span class="badge badge-danger text-12 font-600 badge-red bg-red text-upper">{{((item.oldprice - item.price) / item.oldprice)*100 | number :0}}% off</span></div>
                 <a class="img-href" href=""><img class="prod-img" ng-src="{{item.img}}"></a>
-                <a class="title-href" href=""><h5 class="text-16 text-left mt-3 headwrap text-capital">{{item.title}}</h5></a>
+                <a class="title-href" href="" data-toggle="modal" data-target="#myModalimg" ng-click="showImg(item.title,item.img)"><h5 class="text-16 text-left mt-3 headwrap text-capital">{{item.title}}</h5></a>
                 <div class="mt-2 text-left"><small class="text-12 color-rgba-gray text-capital">{{item.unit}}</small></div>
                 <div class="mt-2 text-left"><span class="text-14 color-rgba font-600 text-upper">$ {{item.price}}</span>&nbsp;&nbsp;<del ng-class="item.oldprice.length>0 ? 'visibleshow':'visiblehidden'"><small class="text-12 text-upper color-rgba-gray"> $ {{item.oldprice}}</small></del></div>
                 <div class="mt-4 d-none"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600 text-upper"><i class="fa fa-cart"></i>&nbsp;Add to Cart</button></div>
@@ -402,6 +403,7 @@
     <!---Move To Top-->
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
     </div>
+    </div>
     <button type="button" style="display: none;" id="btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
       Open modal
     </button>
@@ -461,7 +463,7 @@
                 <tr>
                   <td colspan="4">
                     <div class="input-group ">
-                      <input type="text" id="fn"  ng-model="name" class="form-control search" placeholder="Full Name...">
+                      <input type="text" id="fn"  ng-model="name" maxlength="30" class="form-control search" placeholder="Full Name i.e M Mustafa">
                      
                     </div>
                   </td>
@@ -469,7 +471,7 @@
                 <tr>
                   <td colspan="4">
                     <div class="input-group ">
-                      <input type="text" id="add" ng-model="address" class="form-control search" placeholder="Address/Location Link...">
+                      <input type="text" id="add" ng-model="address" maxlength="50" class="form-control search" placeholder="Address i.e Cheung Sha Wan, Streat 5">
                      
                     </div>
                   </td>
@@ -477,7 +479,7 @@
                 <tr>
                   <td colspan="4">
                     <div class="input-group ">
-                      <input type="text" id="no" ng-model="number"  class="form-control search" placeholder="Number/Whatsapp Number">
+                      <input type="text" id="no" ng-model="number" maxlength="8" class="form-control search" placeholder="Number/Whatsapp Number i.e 53397843">
                      
                     </div>
                   </td>
@@ -491,6 +493,37 @@
             <button type="button" class="btn color-orange border border-1" ng-if="step==1" data-dismiss="modal">Close</button>
             <button type="button" class="btn color-orange border border-1" ng-click="backtocart()" ng-if="step==2" >Back</button>
             <button type="button" ng-click="placeOrder()" class="btn color-white bg-orange"> Order Now</button>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="modal fade" id="myModalimg">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title" id="mtitle"></h4> 
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body scroll-y" >
+           <img title="Product Image" class="w-75 img-thumbnail" id="mimg"/>
+          
+
+           
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn color-white bg-orange border border-1" data-dismiss="modal">Close</button>
+            
           </div>
 
         </div>
@@ -594,6 +627,7 @@ function topFunction() {
     $scope.cart=[];
     $scope.currency="HK";
     $scope.step=1
+
     const firebaseConfig = {
         apiKey: "AIzaSyBzO65a1IT1pyOvFsqRDHNewvE2FzFYg4o",
         authDomain: "hksuperstore-863b7.firebaseapp.com",
@@ -617,6 +651,10 @@ function topFunction() {
     }
     $scope.increasequan=function(id,flag){
       updateproduct(id,flag,0)
+    }
+    $scope.showImg=function(title,srcimg){
+      document.getElementById("mtitle").innerHTML=title;
+      document.getElementById("mimg").src=srcimg
     }
     $scope.placeOrder=function(){
       if ($scope.cart.length==0){
@@ -795,22 +833,45 @@ function myGreeting(){
        {id:786117,title:"Olper Milk 1L",img:"./landingimgs/olpers.jpg",subimg:[""],price:"14",oldprice:"20",unit:"1L",tag:"",descr:``,parent:"",subparent:"",brand:"Olpers"},
        {id:786118,title:"Olper Milk Carton 12L",img:"./landingimgs/olpers.jpg",subimg:[""],price:"165",oldprice:"230",unit:"12L",tag:"",descr:``,parent:"",subparent:"",brand:"Olpers"},
        {id:786119,title:"Garden Thick Toast Bread - 6 Slices",img:"./landingimgs/THICK TOAST SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"6 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
-	   {id:786120,title:"Extra Thick Sandwich Bread - 4 Slices",img:"./landingimgs/EXTRATHICKSANDWICHBREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"4 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
-	   {id:786121,title:"Sandwich Bread",img:"./landingimgs/SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"8 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
-	   {id:786122,title:"Thin Sliced Sandwich Bread",img:"./landingimgs/THIN SLICED SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"10 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
-	   {id:786123,title:"Strawberry Jam",img:"./landingimgs/Strawberry Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
-	   {id:786124,title:"Blue Berry Jam",img:"./landingimgs/Blueberry Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
-       {id:786125,title:"Apricot Jam",img:"./landingimgs/Apricot Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
+      {id:786120,title:"Extra Thick Sandwich Bread - 4 Slices",img:"./landingimgs/EXTRATHICKSANDWICHBREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"4 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
+      {id:786121,title:"Sandwich Bread",img:"./landingimgs/SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"8 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
+      {id:786122,title:"Thin Sliced Sandwich Bread",img:"./landingimgs/THIN SLICED SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"10 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
+      {id:786123,title:"Strawberry Jam",img:"./landingimgs/Strawberry Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
+      {id:786124,title:"Blue Berry Jam",img:"./landingimgs/Blueberry Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
+      {id:786125,title:"Apricot Jam",img:"./landingimgs/Apricot Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
 	   {id:786126,title:"Nutella Hazelnut Spread 350gm",img:"./landingimgs/HAZELNUT SPREAD WITH COCOA.jpg",subimg:[""],price:"44",oldprice:"50",unit:"350 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nutella"},
        {id:786127,title:"Nutella Hazelnut Spread 180gm",img:"./landingimgs/nutella 180.jpg",subimg:[""],price:"25",oldprice:"28",unit:"180 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nutella"},
        {id:786128,title:"Apricot Jam",img:"./landingimgs/Apricot Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"12L",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
 	   {id:786129,title:"Creamy Peanut Butter",img:"./landingimgs/PEANUT BUTTER CREAMY.jpg",subimg:[""],price:"34",oldprice:"45",unit:"462 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Skippy"},
        {id:786130,title:"Crunch Peanut Butter",img:"./landingimgs/PEANUT BUTTER SUPER CHUNK.png",subimg:[""],price:"34",oldprice:"45",unit:"462 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Skippy"},
        {id:786131,title:"Digestive 2-Pack ",img:"./landingimgs/digestive extra.jpg",subimg:[""],price:"30",oldprice:"40",unit:"1000 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Digestive"},
-	   {id:786129,title:"Pringles Sour Cream & Onion",img:"./landingimgs/SOUR CREAM&ONION FLV POTATO CHIPS.jpg",subimg:[""],price:"20",oldprice:"25",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
-	   {id:786129,title:"Pringles Cheesy Cheese",img:"./landingimgs/cheesy cheese.jpg",subimg:[""],price:"20",oldprice:"25",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
-	   {id:786129,title:"Pringles BBQ",img:"./landingimgs/pringles bbq.jpg",subimg:[""],price:"27",oldprice:"30",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
+	   {id:786132,title:"Pringles Sour Cream & Onion",img:"./landingimgs/SOUR CREAM&ONION FLV POTATO CHIPS.jpg",subimg:[""],price:"20",oldprice:"25",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
+	   {id:786133,title:"Pringles Cheesy Cheese",img:"./landingimgs/cheesy cheese.jpg",subimg:[""],price:"20",oldprice:"25",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
+	   {id:786134,title:"Pringles BBQ",img:"./landingimgs/pringles bbq.jpg",subimg:[""],price:"27",oldprice:"30",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
 	 
+     {id:786135,title:"Dettol Disinfecting Surface Wipes",img:"./landingimgs/Dettol disinfecting surface wipes -Lemon 80s .jpeg",subimg:[""],price:"47",oldprice:"55",unit:"80 pc",tag:"",descr:``,parent:"",subparent:"",brand:"Dettol"},
+     {id:786136,title:"Fairy Orginal",img:"./landingimgs/ORIGINAL LIQUID.jpeg",subimg:[""],price:"40",oldprice:"45",unit:"500 ml",tag:"",descr:``,parent:"",subparent:"",brand:"Fairy"},
+     {id:786137,title:"Fab Conc Laundry Powder",img:"./landingimgs/fab laundry.webp",subimg:[""],price:"39.5",oldprice:"40.99",unit:"2 kg",tag:"",descr:``,parent:"",subparent:"",brand:"Fab"},
+
+
+     {id:786138,title:"Nestle Cheerios",img:"./landingimgs/nestle cheerios 300g.webp",subimg:[""],price:"33",oldprice:"35",unit:"300 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nestle"},
+     {id:786139,title:"Nestle School Pack",img:"./landingimgs/NESTLE-SCHOOL-PACK-135G.jpeg",subimg:[""],price:"20",oldprice:"23",unit:"170 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
+     {id:786140,title:"Kelloggs Fun Pack",img:"./landingimgs/fun pack kelloggs.jpeg",subimg:[""],price:"39.5",oldprice:"40.99",unit:"2 kg",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
+     {id:786141,title:"Kellogggs Corn Flakes",img:"./landingimgs/corn flakes kelloggs.jpeg",subimg:[""],price:"18",oldprice:"20",unit:"170 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
+     {id:786142,title:"Kellogggs Choco Magic",img:"./landingimgs/chcoco magic kelloggs.jpeg",subimg:[""],price:"26",oldprice:"31.5",unit:"300 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
+     {id:786143,title:"Kelloggs Cocoa Frosties",img:"./landingimgs/cocoa frosties kelloggs.png",subimg:[""],price:"19",oldprice:"25",unit:"200 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
+     {id:786144,title:"Nestle Koko Krunch Cookie",img:"./landingimgs/koko crunch nestle.jpeg",subimg:[""],price:"34",oldprice:"36.5",unit:"330 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nestle"},
+     {id:786145,title:"Nestle Koko Krunch Pack Gift",img:"./landingimgs/nestle koko krunch offer.webp",subimg:[""],price:"60",oldprice:"66",unit:"660 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nestle"},
+
+     {id:786146,title:"Nestle Koko Krunch Maxx",img:"./landingimgs/koko krunch maxx.webp",subimg:[""],price:"34",oldprice:"36.5",unit:"250 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nestle"},
+
+
+
+
+
+
+
+
 
 	 ]
       $scope.dupicate=[...$scope.ramdaan];
