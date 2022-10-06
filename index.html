@@ -1,869 +1,2368 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-  <title>HK Super Store: Online & Fastest Delivery Service</title>
-  <meta charset="utf-8">
-  <meta name="description" content="Hong Kong best and largest online grocery website: Shop from a wide range of desi halal food, fast halal food,grocery,medicines, vegetables, beauty & wellness, household care, baby care, pet care, meats & more.">
-  <meta name="keywords" content="HK Super store, hongkong super store, best super store, sales, discount, online store hk, online, buy online,food,food service,food processor,food and drink,foodpanda,restaurants near me,food near me,halal food,halal food near me,halal restaurants , pakistani food,desi food, indian food, places to eat near me,italian restaurants,mexican restaurants,food places near me,vegan restaurants,vegetarian, fast food, halal hk , halal food hongkong,halal food hk, kowloon,breakfast restaurants,restaurants near my location,online store,online business,shopping cart,shopping,buy ,online,cheap hotels,free delivery,fast delivery,grocery,beverages,drinks,pharmacy,fruits,vegetables,bakery,fresh meat,halal hotel near me,halal restaurants near me">
-  <meta name="author" content="HK Super Store">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!---FavIcon-->
-  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-  <link rel="manifest" href="./favicon/site.webmanifest">
+    <title>HK Super Store: Online & Fastest Delivery Service</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Hong Kong best and largest online grocery website: Shop from a wide range of desi halal food, fast halal food,grocery,medicines, vegetables, beauty & wellness, household care, baby care, pet care, meats & more.">
+    <meta name="keywords" content="HK Super store, hongkong super store, best super store, sales, discount, online store hk, online, buy online,food,food service,food processor,food and drink,foodpanda,restaurants near me,food near me,halal food,halal food near me,halal restaurants , pakistani food,desi food, indian food, places to eat near me,italian restaurants,mexican restaurants,food places near me,vegan restaurants,vegetarian, fast food, halal hk , halal food hongkong,halal food hk, kowloon,breakfast restaurants,restaurants near my location,online store,online business,shopping cart,shopping,buy ,online,cheap hotels,free delivery,fast delivery,grocery,beverages,drinks,pharmacy,fruits,vegetables,bakery,fresh meat,halal hotel near me,halal restaurants near me">
+    <meta name="author" content="HK Super Store">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-  
+    <!---FavIcon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
 
-  <!---Bootstrap 4--->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
- 
-  <!--Font Family-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
-  <!---Font Icons-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"  crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick.css"  crossorigin="anonymous" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!---Angular CDN-->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!---Bootstrap 4--->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+    <!--Font Family-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
 
+    <!---Font Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick-theme.css" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick.css" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!---Angular CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
-  <!---External Style Sheets-->
-  <link rel="stylesheet" href="./styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+           https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
 
+    <!---External Style Sheets-->
+    <link rel="stylesheet" href="./styles.css">
 
 </head>
 
-
 <body ng-app="myApp" ng-controller="myCtrl">
 
-
     <div class="outerWrapper">
-    <!---Loader-->
-    <div class="w-100">
-      <div class="text-center mt-3">
-        <i class="fa fa-circle-o-notch fa-spin loadMoreIcon" ></i><br>
-        <sub>Please wait. Preparing Products For You...</sub>
-      
-      </div>
-    </div>
-    </div>
+        <!---Loader-->
+        <div class="w-100">
+            <div class="text-center mt-3">
+                <i class="fa fa-circle-o-notch fa-spin loadMoreIcon"></i>
+                <br>
+                <sub>Please wait. Preparing Products For You...</sub>
 
+            </div>
+        </div>
+    </div>
 
     <div class="innerWrapper">
-    <!---Sidebar-->
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="Tel: +85253397843"  class="text-16 color-black"><i class="fa fa-phone"></i>&nbsp;&nbsp;Call us</a>
-      
-      <a href="#" class="text-16 hr"><hr style="margin: 0px;"></a>
-      <a href="#"  class="text-16 color-black d-none"><i class="fa fa-gavel" aria-hidden="true"></i>&nbsp;&nbsp;Foree Policy</a>
-      <a href="#" class="text-16 hr d-none"><hr style="margin: 0px;"></a>
-      <a href="https://api.whatsapp.com/send?phone=+85253397843&text=Hi HK Super Store Team! Say Welcome To Me..."  class="text-16 color-black">
-      <i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp;&nbsp;Quick Chat</a>
-    </div>
+        <!---Sidebar-->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="Tel: +85253397843" class="text-16 color-black">
+                <i class="fa fa-phone"></i>
+                &nbsp;&nbsp;Call us
+            </a>
 
-    <!---Main Content-->
-    <div id="main">
-    <!---Header--> 
-    <div class="container border-rad card-shadow pt-2">
+            <a href="#" class="text-16 hr">
+                <hr style="margin: 0px;">
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=+85253397843&text=Hi HK Super Store Team! I Want To Sell My Products..." class="text-16 color-black">
+                <i class="fa fa-user"></i>
+                &nbsp;&nbsp;Become Seller
+            </a>
 
-    <div class="row">
-      <div class="col-10 ">
-        <div class="d-inline-block">
-        <i class="fa fa-solid fa-bars circular-icons" onclick="openNav()"></i>
+            <a href="#" class="text-16 hr">
+                <hr style="margin: 0px;">
+            </a>
+            <a href="#" class="text-16 color-black d-none">
+                <i class="fa fa-gavel" aria-hidden="true"></i>
+                &nbsp;&nbsp;Foree Policy
+            </a>
+            <a href="#" class="text-16 hr d-none">
+                <hr style="margin: 0px;">
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=+85253397843&text=Hi HK Super Store Team! Say Welcome To Me..." class="text-16 color-black">
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                &nbsp;&nbsp;Quick Chat
+            </a>
         </div>
 
-      <div class="d-inline-block ml-1">
-        <img src="./flogo.png" alt="HK Super Store logo - Halal Food" style="border-radius: 8px">
-        </div>
+        <!---Main Content-->
+        <div id="main">
+            <!---Header-->
+            <div class="container border-rad card-shadow pt-2">
 
-      <div class="d-inline-block">
-        <div class="location-top">
-          <div  class="text-12  color-black">Fatest Delivery Service</div>
-          <div class="dropdown">
-            <div class="font-600 text-14 color-black dropdown-toggle pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">HK Super Store</div>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item text-14 color-rgba"  >Anywhere in HK</a>
+                <div class="row">
+                    <div class="col-10 ">
+                        <div class="d-inline-block">
+                            <i class="fa fa-solid fa-bars circular-icons" onclick="openNav()"></i>
+                        </div>
+
+                        <div class="d-inline-block ml-1">
+                            <img src="./flogo.png" alt="HK Super Store logo - Halal Food" style="border-radius: 8px">
+                        </div>
+
+                        <div class="d-inline-block">
+                            <div class="location-top">
+                                <div class="text-12  color-black">Fatest Delivery Service</div>
+                                <div class="dropdown">
+                                    <div class="font-600 text-14 color-black dropdown-toggle pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">HK Super Store</div>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item text-14 color-rgba">Anywhere in HK</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2 text-right">
+                        <span data-toggle="modal" data-target="#myModal" class="cursor-pointer">
+                            <i class="fa fa-shopping-cart circular-icons" style="float:right" id="cartid"></i>
+                            <sup class="cart-badge cartbadge">
+                                <i class="badge badge-danger bg-orange cart-count">{{cart.length}}</i>
+                            </sup>
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="row mt-3 ">
+                    <div class="col-5 col-md-2 text-right">
+                        <a href="#cat" class="text-decoration-none color-black noLinkStyle">
+                            <button type="button" class="btns category-btn">
+                                <i class="fa fa-list color-orange"></i>
+                                &nbsp;&nbsp;Categories
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-7 col-md-10 pl-2 pl-md-0">
+                        <form>
+                            <div class="input-group ">
+                                <input type="text" id="search" ng-model="searchingText" ng-keyup="filterme()" class="form-control search" placeholder="Search...">
+                                <div class="input-group-append">
+                                    <span class="input-group-text search-icon">
+                                        <i class="fa fa-search"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="alert mt-3 alert-info alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Info!</strong>
+                     You are using Beta version of HK Super Store Website.
+                        
+                </div>
+                <!---Ramdaan Specials-->
+                <div class="container mt-3">
+                    <div class="row pt-4 pb-4 border-rad card-shadow">
+                        <div class="col-12  pl-4">
+                            <h6 class="text-20 font-600">Top Products</h6>
+                        </div>
+                        <div class="col-12">
+                            <div class='slider-multi productRamdaan'>
+                                <div class='slide product card-shadow' ng-repeat="item in slidprodu">
+                                    <div class="">
+                                        <div class="">
+                                            <span class="badge badge-danger text-12 font-600 badge-red">{{item.tag}}</span>
+                                        </div>
+                                        <img class="prod-img" loading="lazy" alt="{{item.title}}" title="{{item.title}}" ng-src="{{ replaceUrl(item.img) }}">
+                                        <h5 class="text-16 text-move" title="item.title">{{item.title}}</h5>
+                                        <div class="mt-2">
+                                            <small class="text-12 color-rgba-gray">{{item.unit}}</small>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="text-14 color-rgba font-600">$ {{item.price}}</span>
+                                            &nbsp;&nbsp;
+                                            <del ng-if="item.oldprice.length>0">
+                                                <small class="text-12 color-rgba-gray"> $ {{item.oldprice}}</small>
+                                            </del>
+                                        </div>
+                                        <div class="mt-2 d-none">
+                                            <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Buy Now</button>
+                                        </div>
+                                        <div class="mt-2 ">
+                                            <a class="noStyleBtn" ng-click="addItem(item.id,item.title,item.price,item.img,item.unit,1)">
+                                                <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Buy Now</button>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!---Image Single Item Slider-->
+                <div class="container mt-3 pt-3 pb-3 card-shadow border-rad">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="slider single-item noarrow" style="overflow: hidden;">
+                                <div>
+                                    <img src="https://shahkali.github.io/hksuperstore/categories/slide1.webp" title="" alt="HK Super Store Grocery">
+                                </div>
+                                <div>
+                                    <img src="https://shahkali.github.io/hksuperstore/categories/slide2.webp" title="" alt="HK Super Store Beverages">
+                                </div>
+                                <div>
+                                    <img src="https://shahkali.github.io/hksuperstore/categories/slide3.webp" title="" alt="HK Super Store Beauty & Care">
+                                </div>
+                                <div>
+                                    <img src="https://shahkali.github.io/hksuperstore/categories/slide4.webp" title="" alt="HK Super Store Products">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mt-4 border-rad card-shadow">
+
+                    <div class="row pt-2 pb-4 " id="divID">
+
+                        <div class="col-md-4 col-6 mt-3 list" ng-repeat="item in ramdaan">
+                            <div class="text-center card-shadow border-rad card-custom">
+                                <div class="text-left" ng-class="item.discount.length>0 ? 'visibleshow':'visiblehidden'">
+                                    <span class="badge badge-danger text-12 font-600 badge-red bg-red text-upper">{{((item.oldprice - item.price) / item.oldprice)*100 | number :0}}% off</span>
+                                </div>
+                                <a class="img-href" href="">
+                                    <img class="prod-img" data-toggle="modal" data-target="#myModalimg" ng-click="showImg(item.title,item.img)" ng-src="{{replaceUrl(item.img)}}">
+                                </a>
+                                <a class="title-href" href="" data-toggle="modal" data-target="#myModalimg" ng-click="showImg(item.title,item.img)">
+                                    <h5 class="text-16 text-left mt-3 headwrap text-capital">{{item.title}}</h5>
+                                </a>
+                                <div class="mt-2 text-left">
+                                    <small class="text-12 color-rgba-gray text-capital">{{item.unit}}</small>
+                                </div>
+                                <div class="mt-2 text-left">
+                                    <span class="text-14 color-rgba font-600 text-upper">$ {{item.price}}</span>
+                                    &nbsp;&nbsp;
+                                    <del ng-class="item.oldprice.length>0 ? 'visibleshow':'visiblehidden'">
+                                        <small class="text-12 text-upper color-rgba-gray"> $ {{item.oldprice}}</small>
+                                    </del>
+                                </div>
+                                <div class="mt-4 d-none">
+                                    <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600 text-upper">
+                                        <i class="fa fa-cart"></i>
+                                        &nbsp;Add to Cart
+                                    </button>
+                                </div>
+                                <div class="mt-4">
+                                    <a>
+                                        <button type="button" ng-click="addItem(item.id,item.title,item.price,item.img,item.unit,1)" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600 text-upper">
+                                            <i class="fa fa-cart"></i>
+                                            &nbsp;BUY Now
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="container mt-3" id="cat">
+                    <div class="row pt-4 pb-4 border-rad card-shadow">
+                        <div class="col-12  pl-4">
+                            <h6 class="text-20 font-600">
+                                Categories 
+                                <small class="text-gray">(Coming Soon)</small>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <!---Categories Listed-->
+                <div class="container mt-3" ng-repeat="subitem in categoriesSub">
+                    <div class="row border-rad pt-3 pl-0 pr-0 pb-3 border-rad card-shadow">
+                        <div class="col-12 ">
+                            <div class="alert alert-warning">
+                                <h5 class="text-20 font-600 color-rgba">{{subitem.title}}</h5>
+                                <p class="text-14 color-rgba-gray">
+                                        {{subitem.desc}}
+                                      </p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class='slider-multi '>
+                                <div class='slide' ng-repeat="item in subitem.subcat">
+                                    <div class="text-center">
+                                        <img class="cat2-img m-auto" title="{{item.desc}}" alt="{{item.desc}}" ng-src="{{replaceUrl(item.img)}}">
+                                        <p class="text-14 color-rgba-gray">{{item.desc}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---Footer-->
+                <div class="container mt-3">
+                    <div class="row  border-rad">
+
+                        <div class="col-12 pt-4 pl-4 pr-4 pb-2">
+
+                            <h5 class="text-16 font-600">HK Super Store aims to deliver all your favouite products by trying to be the best in following 3 things.</h5>
+                            <hr>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-md-1 col-2 text-center">
+                                    <i class="fa fa-dollar footer-icon"></i>
+                                </div>
+                                <div class="col-md-11 col-9">
+                                    <h6 class="text-16 font-600">Best Prices & Offers</h6>
+                                    <p class="text-14 color-rgba-gray">
+                                                  Cheaper prices than your local supermarket, great cashback offers to top it off.</p>
+                                </div>
+
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-1 col-2 text-center">
+                                    <i class="fa fa-clock-o footer-icon"></i>
+                                </div>
+                                <div class="col-md-11 col-9">
+                                    <h6 class="text-16 font-600">Fast & Foree Delivery</h6>
+                                    <p class="text-14 color-rgba-gray">
+                                                We delivered your favourite products in fast & foree manners.</p>
+                                </div>
+
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-1 col-2 text-center">
+                                    <i class="fa fa-caret-square-o-down footer-icon" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-md-11 col-9">
+                                    <h6 class="text-16 font-600">Easy Returns</h6>
+                                    <p class="text-14 color-rgba-gray">
+                                                  Not satisfied with a product? Return it at the doorstep & get a refund within hours.</p>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <hr>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row border-rad d-none">
+
+                        <div class="col-12  pl-4 pr-4 pb-2">
+
+                            <h5 class="text-200 font-600 ">GrocerApp - Online Grocery Shopping</h5>
+                            <hr>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="row pl-4 pl-4">
+                                <div class="col-12">
+
+                                    <h6 class="text-14 color-rgba-gray">GrocerApp makes shopping easier and more convenient than ever.</h6>
+
+                                </div>
+                            </div>
+
+                            <div class="row pl-4 pl-4 mt-4">
+
+                                <div class="col-12">
+                                    <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+                                    <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+                                </div>
+                            </div>
+                            <div class="row pl-4 pl-4 mt-4">
+
+                                <div class="col-12">
+                                    <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+                                    <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+                                </div>
+                            </div>
+                            <div class="row pl-4 pl-4 mt-4">
+
+                                <div class="col-12">
+                                    <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+                                    <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+                                </div>
+                            </div>
+                            <div class="row pl-4 pl-4 mt-4">
+
+                                <div class="col-12">
+                                    <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
+                                    <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row border-rad ">
+
+                        <div class="col-12">
+
+                            <div class="row pl-4 pl-4 mt-0 pt-3 pb-3 " style="background-color:#EE7E25">
+
+                                <div class="col-12 col-md-6 text-12 color-rgba-gray">
+
+                                    <p class="d-none">Info@hksuperstore.com</p>
+                                    <p class="text-14 color-white ">Kowloon, Hong Kong</p>
+
+                                    <a class="footer-link text-14 color-white " href="https://api.whatsapp.com/send?phone=+85253397843&text=Hi HK Super Store Team! Say Welcome To Me..." target="_blank" style="font-size:18px">
+                                        <i class="fa fa-whatsapp"></i>
+                                        &nbsp;
+                                    </a>
+                                    <a class="footer-link text-14 color-white " href="tel:+923478981363" target="_blank">
+                                        <i class="fa fa-phone" style="font-size:18px"></i>
+                                        &nbsp;53397843
+                                    </a>
+
+                                </div>
+                                <div class="col-md-6 col-12  text-12 text-md-right mt-md-0 mt-2 color-rgba-gray">
+
+                                    <p class="text-14 color-white ">We Accept Your Payment Via</p>
+                                    <p class="text-14 color-white ">Cash On Delivery, Master Card,Visa Card,Octopus</p>
+
+                                </div>
+                                <div class="col-12 text-12 color-white
+                                      pb-3">
+                                    <hr>
+                                    <p>© HK Halal Food HK , 2022</p>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!---Move To Top-->
+                <button onclick="topFunction()" id="myBtn" title="Go to top">
+                    <i class="fa fa-arrow-up"></i>
+                </button>
             </div>
-          </div>
         </div>
-      </div>
-      
-      </div>
-
-      <div class="col-2 text-right" >
-        <span data-toggle="modal" data-target="#myModal" class="cursor-pointer"><i class="fa fa-shopping-cart circular-icons"  style="float:right" id="cartid"></i>
-          <sup class="cart-badge cartbadge"><i class="badge badge-danger bg-orange cart-count">{{cart.length}}</i></sup></span>
-      </div>
-      
-    </div>
-
-    <div class="row mt-3 ">
-      <div class="col-5 col-md-2 text-right">
-        <a href="#cat" class="text-decoration-none color-black noLinkStyle"><button type="button" class="btns category-btn"><i class="fa fa-list color-orange"></i>&nbsp;&nbsp;Categories</button></a>
-      </div>
-      <div class="col-7 col-md-10 pl-2 pl-md-0">
-        <form>
-          <div class="input-group ">
-            <input type="text" id="search" ng-model="searchingText" ng-keyup="filterme()" class="form-control search" placeholder="Search...">
-            <div class="input-group-append">
-              <span class="input-group-text search-icon"><i class="fa fa-search"></i></span>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-
-   
-
-    <div class="alert mt-3 alert-info alert-dismissible fade show">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <strong>Info!</strong> You are using Beta version of HK Super Store Website.
-    </div>
-    <!---Ramdaan Specials-->
-    <div class="container mt-3">
-    <div class="row pt-4 pb-4 border-rad card-shadow">
-    <div class="col-12  pl-4">
-    <h6 class="text-20 font-600">Top Products</h6>
-    </div>
-    <div class="col-12">
-    <div class='slider-multi productRamdaan'>
-    <div class='slide product card-shadow' ng-repeat="item in slidprodu">
-    <div class="">
-      <div class="">
-      <span class="badge badge-danger text-12 font-600 badge-red">{{item.tag}}</span></div>
-      <img class="prod-img" loading="lazy" alt="{{item.title}}" title="{{item.title}}" ng-src="{{item.img}}">
-      <h5 class="text-16 text-move" title="item.title">{{item.title}}</h5>
-      <div class="mt-2"><small class="text-12 color-rgba-gray">{{item.unit}}</small></div>
-      <div class="mt-2"><span class="text-14 color-rgba font-600">$ {{item.price}}</span>&nbsp;&nbsp;<del ng-if="item.oldprice.length>0"><small class="text-12 color-rgba-gray"> $ {{item.oldprice}}</small></del></div>
-      <div class="mt-2 d-none"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Buy Now</button></div>
-      <div class="mt-2 ">
-         <a class="noStyleBtn" ng-click="addItem(item.id,item.title,item.price,item.img,item.unit,1)"><button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600">Buy Now</button></a></div>
-
-    </div>
-    </div>
-
-    </div>
-
-    </div>
-
-    </div>
-    </div>
-
-    <!---Image Single Item Slider-->
-    <div class="container mt-3 pt-3 pb-3 card-shadow border-rad">
-    <div class="row">
-    <div class="col-12">
-      <div class="slider single-item noarrow" style="overflow: hidden;">
-        <div>
-        <img src="./categories/slide1.webp" title="" alt="HK Super Store Grocery">
-        </div>
-        <div>
-          <img src="./categories/slide2.webp" title="" alt="HK Super Store Beverages">
-        </div>
-        <div>
-          <img src="./categories/slide3.webp" title="" alt="HK Super Store Beauty & Care">
-        </div>
-        <div>
-          <img src="./categories/slide4.webp" title="" alt="HK Super Store Products">
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-
-   
-
-    <div class="container mt-4 border-rad card-shadow">
-
-        
-        <div class="row pt-2 pb-4 "  id="divID">
-      
-        <div class="col-md-4 col-6 mt-3 list" ng-repeat="item in ramdaan" >
-            <div class="text-center card-shadow border-rad card-custom">
-                <div class="text-left" ng-class="item.discount.length>0 ? 'visibleshow':'visiblehidden'" ><span class="badge badge-danger text-12 font-600 badge-red bg-red text-upper">{{((item.oldprice - item.price) / item.oldprice)*100 | number :0}}% off</span></div>
-                <a class="img-href" href=""><img class="prod-img" ng-src="{{item.img}}"></a>
-                <a class="title-href" href="" data-toggle="modal" data-target="#myModalimg" ng-click="showImg(item.title,item.img)"><h5 class="text-16 text-left mt-3 headwrap text-capital">{{item.title}}</h5></a>
-                <div class="mt-2 text-left"><small class="text-12 color-rgba-gray text-capital">{{item.unit}}</small></div>
-                <div class="mt-2 text-left"><span class="text-14 color-rgba font-600 text-upper">$ {{item.price}}</span>&nbsp;&nbsp;<del ng-class="item.oldprice.length>0 ? 'visibleshow':'visiblehidden'"><small class="text-12 text-upper color-rgba-gray"> $ {{item.oldprice}}</small></del></div>
-                <div class="mt-4 d-none"> <button type="button" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600 text-upper"><i class="fa fa-cart"></i>&nbsp;Add to Cart</button></div>
-                <div class="mt-4"><a > <button type="button" ng-click="addItem(item.id,item.title,item.price,item.img,item.unit,1)" class="btn btn-warning w-100 bg-orange addcartbtn color-white text-14 font-600 text-upper"><i class="fa fa-cart"></i>&nbsp;BUY Now</button></a></div>
-            </div>
-        </div>
-       
-       
-      
-       
-    
-        
-      
-      </div>
-      
-      </div>
-      <div class="container mt-3" id="cat">
-        <div class="row pt-4 pb-4 border-rad card-shadow">
-        <div class="col-12  pl-4">
-        <h6 class="text-20 font-600">Categories <small class="text-gray">(Coming Soon)</small></h6>
-        </div></div></div>
- <!---Categories Listed-->
- <div class="container mt-3" ng-repeat="subitem in categoriesSub">
-  <div class="row border-rad pt-3 pl-0 pr-0 pb-3 border-rad card-shadow"  >
-    <div class="col-12 ">
-      <div class="alert alert-warning">
-      <h5 class="text-20 font-600 color-rgba">{{subitem.title}}</h5>
-      <p class="text-14 color-rgba-gray">
-        {{subitem.desc}}
-      </p>
-      </div>
-    </div>
-  <div class="col-12">
-    <div class='slider-multi '>
-      <div class='slide' ng-repeat="item in subitem.subcat">
-      <div class="text-center">
-        <img class="cat2-img m-auto" title="{{item.desc}}" alt="{{item.desc}}" ng-src="{{item.img}}">
-        <p class="text-14 color-rgba-gray">{{item.desc}}</p>
-      </div>
-      </div>
-  </div>
-  </div>
-  </div>
-  </div>
-    <!---Footer-->
-    <div class="container mt-3">
-    <div class="row  border-rad" >
-
-      <div class="col-12 pt-4 pl-4 pr-4 pb-2">
-        
-        <h5 class="text-16 font-600">HK Super Store aims to deliver all your favouite products by trying to be the best in following 3 things.</h5>
-        <hr>
-      </div>
-      <div class="col-12">
-        <div class="row">
-          <div class="col-md-1 col-2 text-center">
-            <i class="fa fa-dollar footer-icon"></i>
-          </div>
-          <div class="col-md-11 col-9">
-            <h6 class="text-16 font-600">Best Prices & Offers</h6>
-            <p class="text-14 color-rgba-gray">
-              Cheaper prices than your local supermarket, great cashback offers to top it off.</p>
-          </div>
-
-        </div>
-        <div class="row mt-4">
-          <div class="col-md-1 col-2 text-center">
-            <i class="fa fa-clock-o footer-icon"></i>
-          </div>
-          <div class="col-md-11 col-9">
-            <h6 class="text-16 font-600">Fast & Foree Delivery</h6>
-            <p class="text-14 color-rgba-gray">
-            We delivered your favourite products in fast & foree manners.</p>
-          </div>
-
-        </div>
-        <div class="row mt-4">
-          <div class="col-md-1 col-2 text-center">
-            <i class="fa fa-caret-square-o-down footer-icon" aria-hidden="true"></i>
-          </div>
-          <div class="col-md-11 col-9">
-            <h6 class="text-16 font-600">Easy Returns</h6>
-            <p class="text-14 color-rgba-gray">
-              Not satisfied with a product? Return it at the doorstep & get a refund within hours.</p>
-          </div>
-
-        </div>
-        <div class="row">
-          <div class="col-12"><hr></div>
-        </div>
-      
-      </div>
-      
-    </div>
-    
-
-    <div class="row border-rad d-none" >
-
-    <div class="col-12  pl-4 pr-4 pb-2">
-
-    <h5 class="text-200 font-600 ">GrocerApp - Online Grocery Shopping</h5>
-    <hr>
-    </div>
-    <div class="col-12">
-
-    <div class="row pl-4 pl-4">
-      <div class="col-12">
-
-        <h6 class="text-14 color-rgba-gray">GrocerApp makes shopping easier and more convenient than ever.</h6>
-      
-      </div>
-      </div>
-
-    <div class="row pl-4 pl-4 mt-4">
-
-      <div class="col-12">
-        <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
-        <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
-      </div>
-    </div>
-    <div class="row pl-4 pl-4 mt-4">
-
-      <div class="col-12">
-        <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
-        <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
-      </div>
-    </div>
-    <div class="row pl-4 pl-4 mt-4">
-
-      <div class="col-12">
-        <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
-        <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
-      </div>
-    </div>
-    <div class="row pl-4 pl-4 mt-4">
-
-      <div class="col-12">
-        <h6 class="text-16 font-600">Online grocery store in Pakistan</h6>
-        <p class="text-14 color-rgba-gray">Order online. All your favourite products from the low price online supermarket for grocery home delivery in Lahore, Pakistan. Best experience guaranteed.</p>
-      </div>
-    </div>
-
-
-   
-
-    </div>
-
-    </div>
-
-    <div class="row border-rad ">
-
-
-    <div class="col-12">
-
-
-
-    <div class="row pl-4 pl-4 mt-0 pt-3 pb-3 " style="background-color:#EE7E25">
-
-      <div class="col-12 col-md-6 text-12 color-rgba-gray">
-      
-        <p class="d-none">Info@hksuperstore.com</p>
-        <p class="text-14 color-white ">Kowloon, Hong Kong</p>
-        
-        <a class="footer-link text-14 color-white " href="https://api.whatsapp.com/send?phone=+85253397843&text=Hi HK Super Store Team! Say Welcome To Me..." target="_blank" style="font-size:18px"><i class="fa fa-whatsapp"></i>&nbsp;</a> 
-        <a class="footer-link text-14 color-white " href="tel:+923478981363" target="_blank"><i class="fa fa-phone" style="font-size:18px"></i>&nbsp;53397843</a> 
-      
-      
-      </div>
-      <div class="col-md-6 col-12  text-12 text-md-right mt-md-0 mt-2 color-rgba-gray">
-      
-        <p class="text-14 color-white ">We Accept Your Payment Via</p>
-        <p class="text-14 color-white ">Cash On Delivery, Master Card,Visa Card,Octopus</p>
-
-      
-      
-      </div>
-      <div class="col-12 text-12 color-white
-      pb-3">
-      <hr>
-        <p>© HK Halal Food HK , 2022</p>
-        
-      </div>
-    </div>
-   
-
-
-
-
-
-    </div>
-
-    </div>
-
-
-
-    </div>
-
-   
-    <!---Move To Top-->
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
-    </div>
-    </div>
-    <button type="button" style="display: none;" id="btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-      Open modal
-    </button>
+        <button type="button" style="display: none;" id="btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              Open modal
+            </button>
 
         <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">My Cart ({{cart.length}}) - <b class="text-danger">{{currency}} {{getsum()}}</b></h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-
-          <!-- Modal body -->
-          <div class="modal-body scroll-y" >
-            <table class="table table-striped" ng-if="step==1">
-              
-              <tbody >
-                <tr ng-if="cart.length==0">  
-                  <td>
-                    <div class="text-left w-100  pt-2 pl-4 pb-4 font-400 text-14" ngstyle="color:#EE7E25;">
-                      <span class="text-20">No items in your cart</span><br>
-                      Your favourite items are just a click away
-                   </div>
-                  </td>
-                </tr>
-                <tr   ng-repeat="cat in cart">
-                  <td><img class="" ng-src={{cat.img}} /></td>
-                  <td>{{cat.title}} <br><sub>{{cat.unit}} </sub><br><br>{{currency}} {{cat.price}} x {{cat.quantity}}</td>
-                  <td>{{currency}} {{cat.price * cat.quantity }}<br><br>
-                    <span ng-click="reducequan(cat.id,0)" class="badge badge-secondary pricechanger mr-1"><i class="fa fa-minus"></i></span>
-                    <input type="number" class="numberinput text-center" ng-model="cat.quantity" readonly />
-                    <span ng-click="increasequan(cat.id,1)" class="badge badge-secondary pricechanger ml-1"><i class="fa fa-plus"></i></span></td>
-                  <td><span class="badge  closeiconfc"  ng-click="delItem(cat.id)"><i class="fa fa-close"></i></span></td>
-                
-              </tr>
-              <tr ng-if="cart.length>0">
-                <td class="text-20" colspan="2">Total</td>
-                <td class="text-20 text-right" colspan="20"><b class="text-danger">{{currency}} {{getsum()}}</b></td>
-              </tr>
-              
-              
-                
-              </tbody>
-            </table>
-
-
-            <table class="table table-striped" ng-if="step==2">
-              <tbody>
-                <tr >
-                  <td class="text-20" colspan="4">User Info</td>
-                
-                </tr>
-                
-                <tr>
-                  <td colspan="4">
-                    <div class="input-group ">
-                      <input type="text" id="fn"  ng-model="name" maxlength="30" class="form-control search" placeholder="Full Name i.e M Mustafa">
-                     
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            My Cart ({{cart.length}}) - 
+                            <b class="text-danger">{{currency}} {{getsum()}}</b>
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="4">
-                    <div class="input-group ">
-                      <input type="text" id="add" ng-model="address" maxlength="50" class="form-control search" placeholder="Address i.e Cheung Sha Wan, Streat 5">
-                     
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="4">
-                    <div class="input-group ">
-                      <input type="text" id="no" ng-model="number" maxlength="8" class="form-control search" placeholder="Number/Whatsapp Number i.e 53397843">
-                     
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
 
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn color-orange border border-1" ng-if="step==1" data-dismiss="modal">Close</button>
-            <button type="button" class="btn color-orange border border-1" ng-click="backtocart()" ng-if="step==2" >Back</button>
-            <button type="button" ng-click="placeOrder()" class="btn color-white bg-orange"> Order Now</button>
-          </div>
+                    <!-- Modal body -->
+                    <div class="modal-body scroll-y">
+                        <table class="table table-striped" ng-if="step==1">
+
+                            <tbody>
+                                <tr ng-if="cart.length==0">
+                                    <td>
+                                        <div class="text-left w-100  pt-2 pl-4 pb-4 font-400 text-14" ngstyle="color:#EE7E25;">
+                                            <span class="text-20">No items in your cart</span>
+                                            <br>
+
+                                                                  Your favourite items are just a click away
+                                                               
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr ng-repeat="cat in cart">
+                                    <td>
+                                        <img class="" ng-src={{cat.img}}/>
+                                    </td>
+                                    <td>
+                                        {{cat.title}} 
+                                        <br>
+                                        <sub>{{cat.unit}} </sub>
+                                        <br>
+                                        <br>
+                                        {{currency}} {{cat.price}} x {{cat.quantity}}
+                                    </td>
+                                    <td>
+                                        {{currency}} {{cat.price * cat.quantity }}
+                                        <br>
+                                        <br>
+                                        <span ng-click="reducequan(cat.id,0)" class="badge badge-secondary pricechanger mr-1">
+                                            <i class="fa fa-minus"></i>
+                                        </span>
+                                        <input type="number" class="numberinput text-center" ng-model="cat.quantity" readonly/>
+                                        <span ng-click="increasequan(cat.id,1)" class="badge badge-secondary pricechanger ml-1">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge  closeiconfc" ng-click="delItem(cat.id)">
+                                            <i class="fa fa-close"></i>
+                                        </span>
+                                    </td>
+
+                                </tr>
+                                <tr ng-if="cart.length>0">
+                                    <td class="text-20" colspan="2">Total</td>
+                                    <td class="text-20 text-right" colspan="20">
+                                        <b class="text-danger">{{currency}} {{getsum()}}</b>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <table class="table table-striped" ng-if="step==2">
+                            <tbody>
+                                <tr>
+                                    <td class="text-20" colspan="4">User Info</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="input-group ">
+                                            <input type="text" id="fn" ng-model="name" maxlength="30" class="form-control search" placeholder="Full Name i.e M Mustafa">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="input-group ">
+                                            <input type="text" id="add" ng-model="address" maxlength="50" class="form-control search" placeholder="Address i.e Cheung Sha Wan, Streat 5">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="input-group ">
+                                            <input type="text" id="no" ng-model="number" maxlength="8" class="form-control search" placeholder="Number/Whatsapp Number i.e 53397843">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="d-none">
+                                    <td colspan="4">
+                                        <div class="input-group ">
+                                            <div class="alert alert-success alert-dismissible w-100">
+                                                <a class="close" ><i class="fa fa-refresh" ng-click="refreshcaptcha()"></i></a>
+                                                <strong id="capnumber">{{captno}}</strong> 
+                                              </div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="d-none">
+                                    <td colspan="4">
+                                        <div class="input-group ">
+                                            <input type="text" id="captcha" ng-model="capt" maxlength="5" class="form-control search" placeholder="Enter Captcha Code...">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn color-orange border border-1" ng-if="step==1" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn color-orange border border-1" ng-click="backtocart()" ng-if="step==2">Back</button>
+                        <button type="button" ng-click="placeOrder()" class="btn color-white bg-orange"> Order Now</button>
+                    </div>
+
+                </div>
+            </div>
 
         </div>
-      </div>
+
+        <div class="modal fade" id="myModalimg">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="mtitle"></h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body scroll-y">
+                        <img title="Product Image" class="w-75 img-thumbnail" id="mimg"/>
+
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn color-white bg-orange border border-1" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 'slow');
+        }
+       
+        </script>
+        <script src="https://kenwheeler.github.io/slick/slick/slick.js" crossorigin="anonymous"></script>
+        <script src="./slickslide.js"></script>
+        <script src="./nav.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script>
+        function info(text) {
+            Toastify({
+                text: text,
+                duration: 3000,
+                close: true,
+                gravity: "bottom",
+                // `top` or `bottom`
+                position: "right",
+                // `left`, `center` or `right`
+                stopOnFocus: true,
+                // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function() {} // Callback after click
+            }).showToast();
+        }
+        function danger(text) {
+            Toastify({
+                text: text,
+                duration: 3000,
+                close: true,
+                gravity: "bottom",
+                // `top` or `bottom`
+                position: "right",
+                // `left`, `center` or `right`
+                stopOnFocus: true,
+                // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+                },
+                onClick: function() {} // Callback after click
+            }).showToast();
+        }
+        function warning(text) {
+
+            Toastify({
+                text: text,
+                duration: 3000,
+                close: true,
+                gravity: "bottom",
+                // `top` or `bottom`
+                position: "right",
+                // `left`, `center` or `right`
+                stopOnFocus: true,
+                // Prevents dismissing of toast on hover
+                style: {
+                    background: "inear-gradient(to right, #ff5f6d, #ffc371)",
+                },
+                onClick: function() {} // Callback after click
+            }).showToast();
+        }
+        function success(text) {
+            Toastify({
+                text: text,
+                duration: 3000,
+                close: true,
+                gravity: "bottom",
+                // `top` or `bottom`
+                position: "right",
+                // `left`, `center` or `right`
+                stopOnFocus: true,
+                // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function() {} // Callback after click
+            }).showToast();
+        }
+        </script>
+        <script>
+        //Angular Modules
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $http) {
+
+            //For Storing Products
+            $scope.cart = [];
+            $scope.currency = "HK";
+            $scope.step = 1
+            $scope.captno=Math.floor(1000 + Math.random() * 9000).toString()
+            $scope.refreshcaptcha=function(){
+                $scope.captno=Math.floor(1000 + Math.random() * 9000).toString()
+            }
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyBzO65a1IT1pyOvFsqRDHNewvE2FzFYg4o",
+                authDomain: "hksuperstore-863b7.firebaseapp.com",
+                databaseURL: "https://hksuperstore-863b7-default-rtdb.firebaseio.com",
+                projectId: "hksuperstore-863b7",
+                storageBucket: "hksuperstore-863b7.appspot.com",
+                messagingSenderId: "53236614225",
+                appId: "1:53236614225:web:7524d65d7d6eb7b7596470",
+                measurementId: "G-0CCVNXT5DF"
+            };
+
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            const dbRef = firebase.database().ref();
+            const usersRef = dbRef.child('users');
 
 
-    </div>
+            $scope.reducequan = function(id, flag) {
+                updateproduct(id, flag, 0)
+            }
+            $scope.increasequan = function(id, flag) {
+                updateproduct(id, flag, 0)
+            }
+            $scope.showImg = function(title, srcimg) {
+                document.getElementById("mtitle").innerHTML = title;
+                document.getElementById("mimg").src = srcimg
+            }
+            $scope.placeOrder = function() {
+                if ($scope.cart.length == 0) {
+                    danger("Please Add Items Into Cart")
+                }
+                else {
+                    $scope.step = 2;
+                    let names = document.getElementById("fn") ? document.getElementById("fn").value : ""
+                    let address = document.getElementById("add") ? document.getElementById("add").value : "";
+                    let number = document.getElementById("no") ? document.getElementById("no").value : "";
+                  //  let captca=document.getElementById("captcha") ? document.getElementById("captcha").value : ""
+                    
+                    if (names.length > 0 && address.length > 0 && number.length > 0) {
+                        var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+                        var regNumber=  /^[0-9]+$/;
+                        
+                        if(!regName.test(names) || !number.match(regNumber)){
+                            if(!regName.test(names)){
+                                danger("Please Enter Your Full Name i.e M Mustafa")
+                            }
+                            else{
+                                danger("Please Enter Valid Phone Number i.e 53397843")
+                            }
+                           
+                        }
+                        else{
+                            $scope.order(names, address, number);
+                        }
+                    }
+
+                }
+
+            }
+            $scope.order = function(nm, add, no) {
+                obj = {
+                    "Name": nm,
+                    "Address": add,
+                    "Number": no,
+                    "Total Bill": $scope.getsum()
+                }
+                obj["Sum"] = ""
+                $scope.cart.forEach(element => {
+                    obj[element.title] = element.title + " x " + element.quantity + " x  " + element.price + " = " + element.quantity * element.price;
+                    obj["Sum"] = obj["Sum"] + " + " + (element.quantity * element.price).toString();
+                });
+                //info("Please Wait.Your Order Is In Processing")
+                usersRef.push(obj, function() {
+                    success("Order Placed & Added In Queue. Our Team Will Contact You Shortly");
+                    setTimeout(myGreeting, 500);
+
+                })
+
+            }
+            $scope.replaceUrl=function(val){
+              
+            return  val;
+        
+            }
+
+            function myGreeting() {
+
+                window.location.reload(false);
+            }
+            $scope.backtocart = function() {
+                $scope.step = 1;
+            }
+
+            $scope.getsum = function() {
+                var total = 0;
+                for (var i = 0; i < $scope.cart.length; i++) {
+                    var product = $scope.cart[i];
+                    total += (product.price * product.quantity);
+                }
+                return total;
+            }
 
 
-    <div class="modal fade" id="myModalimg">
-      <div class="modal-dialog">
-        <div class="modal-content">
+            $scope.addItem = function(id, title, price, img, unit, quantity) {
 
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title" id="mtitle"></h4> 
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
 
-          <!-- Modal body -->
-          <div class="modal-body scroll-y" >
-           <img title="Product Image" class="w-75 img-thumbnail" id="mimg"/>
-          
+                if (!checkproduct(id)) {
+                    let prod = {
+                        "id": id,
+                        "title": title,
+                        "price": price,
+                        "img": img,
+                        "quantity": quantity,
+                        "unit": unit
+                    }
+                    $scope.cart.push(prod);
+                    // document.getElementById("btn").click();
+                    success(prod.title + " added to cart")
 
-           
-          </div>
+                }
+                else {
+                    updateproduct(id, 1, 1);
+                }
 
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn color-white bg-orange border border-1" data-dismiss="modal">Close</button>
+
+            }//document.getElementById("btn").click();
+
+            $scope.delItem = function(id) {
+                $scope.cart = $scope.cart.filter(item => Number(item.id) != Number(id));
+            }
+            //Function that returns false when item found
+
+            function checkproduct(id) {
+                //find function returns undefined when get nothing 
+                let status = $scope.cart.find(item => Number(item.id) == Number(id));
+                return status == undefined ? false : true
+            }
+            //Update Quantity Function
+            function updateproduct(id, flag, modelshow) {
+
+                let status = $scope.cart.find(item => Number(item.id) == Number(id));
+                //Products Found 
+                if (status != undefined) {
+
+                    //If Add More Item
+                    if (flag == 1) {
+
+                        status.quantity = (Number(status.quantity) + 1);
+                        success(status.title + " added to cart")
+                        if (modelshow == 1) {
+
+
+                        }
+
+
+
+                    }
+                    else if (flag == 0) {
+
+                        if (Number(status.quantity) - 1 == 0) {
+                            $scope.cart = $scope.cart.filter(item => Number(item.id) != Number(id));
+                        }
+
+                        else {
+                            status.quantity = (Number(status.quantity) - 1);
+                            success(status.title + " removed from cart")
+                            if (modelshow == 1) {
+
+
+                            }
+                        }
+
+
+                    }
+
+                }
+                else {
+                    warning("Something going wrong. Report it")
+                }
+
+
+            }
+
+
+            $scope.places = [
+            {
+                "id": 1,
+                "city": "Kowloon Tong"
+            },
+            {
+                "id": 1,
+                "city": "Shek Kip Mei"
+            },
+            {
+                "id": 1,
+                "city": "Fo Tan"
+            },
+            {
+                "id": 1,
+                "city": "Sham Shui Po"
+            },
+            {
+                "id": 1,
+                "city": "Lok Fo"
+            }
+
+            ]
+
+            $scope.categories = [
+            {
+                "id": 1,
+                "title": "Grocery",
+                "img": "https://pictures.grocerapps.com/lgthumb/grocerapp-grocery-61e9620ce82bd.jpeg",
+                "status": "1",
+                "titlesub": "Browse Grocery"
+            },
+            {
+                "id": 8,
+                "title": "Bakery Dairy",
+                "img": " https://pictures.grocerapps.com/lgthumb/grocerapp-bakery-dairy-61eab95d92b7a.jpeg",
+                "status": "1",
+                "titlesub": "Browse Bakery & Dairy "
+            },
+            {
+                "id": 3,
+                "title": "Fresh Meat",
+                "img": "https://pictures.grocerapps.com/lgthumb/grocerapp-fresh-meat-61eab6cd051b0.jpeg",
+                "status": "1",
+                "titlesub": "Browse Fresh Meat"
+            },
+            {
+                "id": 2,
+                "title": "Fruits Vegetables",
+                "img": "https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg",
+                "status": "1",
+                "titlesub": "Browse Fruits & Vegetables"
+            },
+            {
+                "id": 10,
+                "title": "Beverages",
+                "img": "https://pictures.grocerapps.com/lgthumb/grocerapp-beverages-61eab9642ec81.jpeg",
+                "status": "1",
+                "titlesub": "Browse Beverages"
+            },
+            {
+                "id": 9,
+                "title": "Frozen Chilled",
+                "img": "https://pictures.grocerapps.com/lgthumb/grocerapp-frozen-chilled-61eab714bcb1c.jpeg",
+                "status": "0",
+                "titlesub": "Frozen & Chilled Coming Soon"
+            },
+            {
+                "id": 4,
+                "title": "Baby Care",
+                "img": "./categories/babycare.webp",
+                "status": "0",
+                "titlesub": "Baby Care Coming Soon"
+            },
+            {
+                "id": 5,
+                "title": "Home Care",
+                "img": "./categories/homecare.webp",
+                "status": "0",
+                "titlesub": "Home Care Coming Soon"
+            },
+            ]
+
+            $scope.ramdaan = [//Grocery Products
+            {
+                id: 7861,
+                title: "Balocco Sfogliatine Pastry Puffs",
+                img: "./landingimgs/sfogliatine.jpeg",
+                subimg: [""],
+                price: "12",
+                oldprice: "16",
+                unit: "200 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Balocco"
+            },
+            {
+                id: 7863,
+                title: "Kinder Bueno 3-Pack",
+                img: "./landingimgs/buenokinder.jpg",
+                subimg: [""],
+                price: "15",
+                oldprice: "17.5",
+                unit: "129 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Kinder"
+            },
+            {
+                id: 7864,
+                title: "Kinder Chocolate 8-Small Bars ",
+                img: "./landingimgs/Kinder Chocolate T8 100g  .jpeg",
+                subimg: [""],
+                price: "13.9",
+                oldprice: "16",
+                unit: "100 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Kinder"
+            },
+            {
+                id: 7865,
+                title: "Mars Chocolate 4s Pack",
+                img: "./landingimgs/Mars Chocolate Bars.jpeg",
+                subimg: [""],
+                price: "12",
+                oldprice: "14",
+                unit: "100 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Mars"
+            },
+            {
+                id: 7866,
+                title: "Nescafé - Rich Blend Coffee",
+                img: "./landingimgs/nescafe.jpeg",
+                subimg: [""],
+                price: "57",
+                oldprice: "60",
+                unit: "200 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Nescafe"
+            },
+            {
+                id: 7867,
+                title: "Coca Cola - 8 Cans ",
+                img: "./landingimgs/cocacola 8 cans.webp",
+                subimg: [""],
+                price: "38",
+                oldprice: "40",
+                unit: "300 ml",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Coca cola"
+            },
+            {
+                id: 7868,
+                title: "Kelloggs Coco Chex Giant",
+                img: "./landingimgs/COCO-CHEX.jpeg",
+                subimg: [""],
+                price: "34",
+                oldprice: "40",
+                unit: "300 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Kelloggs"
+            },
+            {
+                id: 7869,
+                title: "Kelloggs Frosties",
+                img: "./landingimgs/kelloggs frosties.jpeg",
+                subimg: [""],
+                price: "37",
+                oldprice: "40.9",
+                unit: "420 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Kelloggs"
+            },
+            {
+                id: 78610,
+                title: "Lipton Mix Milk Tea Gold 34-PC",
+                img: "./landingimgs/Lipton Hong Kong Style Gold.jpeg",
+                subimg: [""],
+                price: "46",
+                oldprice: "63",
+                unit: "16.5g  x 34 (34'S)",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Lipton"
+            },
+            {
+                id: 78611,
+                title: "Lipton Yellow Label  TeaBags 100 PC",
+                img: "./landingimgs/lipton yellow label tea.jpeg",
+                subimg: [""],
+                price: "42.9",
+                oldprice: "45",
+                unit: "200 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Lipton"
+            },
+            {
+                id: 78612,
+                title: "Lipton Milk Mix Gold Tea",
+                img: "./landingimgs//Lipton (Milk Tea Gold) Lipton Gold Milk Tea .jpeg",
+                subimg: [""],
+                price: "25",
+                oldprice: "31",
+                unit: "165 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Lipton"
+            },
+            {
+                id: 78613,
+                title: "Lipton Milk Tea Light ",
+                img: "./landingimgs/LIPTON MILK TEA LIGHT .jpeg",
+                subimg: [""],
+                price: "25",
+                oldprice: "31",
+                unit: "175 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Lipton"
+            },
+            {
+                id: 786114,
+                title: "Emmi Swiss Premium Yogurt Blueberry",
+                img: "./landingimgs/Emmi-Swiss-Blueberry.png",
+                subimg: [""],
+                price: "57",
+                oldprice: "72",
+                unit: "450 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Emmi"
+            },
+            {
+                id: 786115,
+                title: "Emmi Swiss Premium Yogurt Natural",
+                img: "./landingimgs/Emmi-Swiss Natural.png",
+                subimg: [""],
+                price: "57",
+                oldprice: "72",
+                unit: "450 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Emmi"
+            },
+            {
+                id: 786116,
+                title: "Emmi Swiss Premium Yogurt Strawberry",
+                img: "./landingimgs/Emmi-Swiss Strawberry.png",
+                subimg: [""],
+                price: "57",
+                oldprice: "72",
+                unit: "450 g",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Emmi"
+            },
+            {
+                id: 786117,
+                title: "Olper Milk 1L",
+                img: "./landingimgs/olpers.jpg",
+                subimg: [""],
+                price: "12",
+                oldprice: "20",
+                unit: "1L",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Olpers"
+            },
+            {
+                id: 786118,
+                title: "Olper Milk Carton 12L",
+                img: "./landingimgs/olpers.jpg",
+                subimg: [""],
+                price: "130",
+                oldprice: "165",
+                unit: "12L",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Olpers"
+            },
+            {
+                id: 786119,
+                title: "Garden Thick Toast Bread - 6 Slices",
+                img: "./landingimgs/THICK TOAST SANDWICH BREAD.jpg",
+                subimg: [""],
+                price: "10.5",
+                oldprice: "13",
+                unit: "6 Slices",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Garden"
+            },
+            {
+                id: 786120,
+                title: "Extra Thick Sandwich Bread - 4 Slices",
+                img: "./landingimgs/EXTRATHICKSANDWICHBREAD.jpg",
+                subimg: [""],
+                price: "10.5",
+                oldprice: "13",
+                unit: "4 Slices",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Garden"
+            },
+            {
+                id: 786121,
+                title: "Sandwich Bread",
+                img: "./landingimgs/SANDWICH BREAD.jpg",
+                subimg: [""],
+                price: "10.5",
+                oldprice: "13",
+                unit: "8 Slices",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Garden"
+            },
+            {
+                id: 786122,
+                title: "Thin Sliced Sandwich Bread",
+                img: "./landingimgs/THIN SLICED SANDWICH BREAD.jpg",
+                subimg: [""],
+                price: "10.5",
+                oldprice: "13",
+                unit: "10 Slices",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Garden"
+            },
+            {
+                id: 786123,
+                title: "Strawberry Jam",
+                img: "./landingimgs/Strawberry Jam 370g.jpg",
+                subimg: [""],
+                price: "22",
+                oldprice: "25",
+                unit: "370 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Meadows"
+            },
+            {
+                id: 786124,
+                title: "Blue Berry Jam",
+                img: "./landingimgs/Blueberry Jam 370g.jpg",
+                subimg: [""],
+                price: "22",
+                oldprice: "25",
+                unit: "370 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Meadows"
+            },
+            {
+                id: 786125,
+                title: "Apricot Jam",
+                img: "./landingimgs/Apricot Jam 370g.jpg",
+                subimg: [""],
+                price: "22",
+                oldprice: "25",
+                unit: "370 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Meadows"
+            },
+            {
+                id: 786126,
+                title: "Nutella Hazelnut Spread 350gm",
+                img: "./landingimgs/HAZELNUT SPREAD WITH COCOA.jpg",
+                subimg: [""],
+                price: "44",
+                oldprice: "50",
+                unit: "350 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Nutella"
+            },
+            {
+                id: 786127,
+                title: "Nutella Hazelnut Spread 180gm",
+                img: "./landingimgs/nutella 180.jpg",
+                subimg: [""],
+                price: "25",
+                oldprice: "28",
+                unit: "180 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Nutella"
+            },
+            {
+                id: 786128,
+                title: "Apricot Jam",
+                img: "./landingimgs/Apricot Jam 370g.jpg",
+                subimg: [""],
+                price: "22",
+                oldprice: "25",
+                unit: "12L",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Meadows"
+            },
+            {
+                id: 786129,
+                title: "Creamy Peanut Butter",
+                img: "./landingimgs/PEANUT BUTTER CREAMY.jpg",
+                subimg: [""],
+                price: "34",
+                oldprice: "45",
+                unit: "462 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Skippy"
+            },
+            {
+                id: 786130,
+                title: "Crunch Peanut Butter",
+                img: "./landingimgs/PEANUT BUTTER SUPER CHUNK.png",
+                subimg: [""],
+                price: "34",
+                oldprice: "45",
+                unit: "462 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Skippy"
+            },
+            {
+                id: 786131,
+                title: "Digestive 2-Pack ",
+                img: "./landingimgs/digestive extra.jpg",
+                subimg: [""],
+                price: "30",
+                oldprice: "40",
+                unit: "1000 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Digestive"
+            },
+            {
+                id: 786132,
+                title: "Pringles Sour Cream & Onion",
+                img: "./landingimgs/SOUR CREAM&ONION FLV POTATO CHIPS.jpg",
+                subimg: [""],
+                price: "20",
+                oldprice: "25",
+                unit: "110 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Pringles"
+            },
+            {
+                id: 786133,
+                title: "Pringles Cheesy Cheese",
+                img: "./landingimgs/cheesy cheese.jpg",
+                subimg: [""],
+                price: "20",
+                oldprice: "25",
+                unit: "110 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Pringles"
+            },
+            {
+                id: 786134,
+                title: "Pringles BBQ",
+                img: "./landingimgs/pringles bbq.jpg",
+                subimg: [""],
+                price: "27",
+                oldprice: "30",
+                unit: "110 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Pringles"
+            },
+
+            {
+                id: 786135,
+                title: "Dettol Disinfecting Surface Wipes",
+                img: "./landingimgs/Dettol disinfecting surface wipes -Lemon 80s .jpeg",
+                subimg: [""],
+                price: "47",
+                oldprice: "55",
+                unit: "80 pc",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Dettol"
+            },
+            {
+                id: 786136,
+                title: "Fairy Orginal",
+                img: "./landingimgs/ORIGINAL LIQUID.jpeg",
+                subimg: [""],
+                price: "40",
+                oldprice: "45",
+                unit: "500 ml",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Fairy"
+            },
+            {
+                id: 786137,
+                title: "Fab Conc Laundry Powder",
+                img: "./landingimgs/fab laundry.webp",
+                subimg: [""],
+                price: "39.5",
+                oldprice: "40.99",
+                unit: "2 kg",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Fab"
+            },
+
+
+            {
+                id: 786138,
+                title: "Nestle Cheerios",
+                img: "./landingimgs/nestle cheerios 300g.webp",
+                subimg: [""],
+                price: "33",
+                oldprice: "35",
+                unit: "300 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Nestle"
+            },
+            {
+                id: 786139,
+                title: "Nestle School Pack",
+                img: "./landingimgs/NESTLE-SCHOOL-PACK-135G.jpeg",
+                subimg: [""],
+                price: "20",
+                oldprice: "23",
+                unit: "170 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Kelloggs"
+            },
+            {
+                id: 786140,
+                title: "Kelloggs Fun Pack",
+                img: "./landingimgs/fun pack kelloggs.jpeg",
+                subimg: [""],
+                price: "39.5",
+                oldprice: "40.99",
+                unit: "2 kg",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Kelloggs"
+            },
+            {
+                id: 786141,
+                title: "Kellogggs Corn Flakes",
+                img: "./landingimgs/corn flakes kelloggs.jpeg",
+                subimg: [""],
+                price: "18",
+                oldprice: "20",
+                unit: "170 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Kelloggs"
+            },
+            {
+                id: 786142,
+                title: "Kellogggs Choco Magic",
+                img: "./landingimgs/chcoco magic kelloggs.jpeg",
+                subimg: [""],
+                price: "26",
+                oldprice: "31.5",
+                unit: "300 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Kelloggs"
+            },
+            {
+                id: 786143,
+                title: "Kelloggs Cocoa Frosties",
+                img: "./landingimgs/cocoa frosties kelloggs.png",
+                subimg: [""],
+                price: "19",
+                oldprice: "25",
+                unit: "200 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Kelloggs"
+            },
+            {
+                id: 786144,
+                title: "Nestle Koko Krunch Cookie",
+                img: "./landingimgs/koko crunch nestle.jpeg",
+                subimg: [""],
+                price: "34",
+                oldprice: "36.5",
+                unit: "330 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Nestle"
+            },
+            {
+                id: 786145,
+                title: "Nestle Koko Krunch Pack Gift",
+                img: "./landingimgs/nestle koko krunch offer.webp",
+                subimg: [""],
+                price: "60",
+                oldprice: "66",
+                unit: "660 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Nestle"
+            },
+
+            {
+                id: 786146,
+                title: "Nestle Koko Krunch Maxx",
+                img: "./landingimgs/koko krunch maxx.webp",
+                subimg: [""],
+                price: "34",
+                oldprice: "36.5",
+                unit: "250 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Nestle"
+            },
+            {
+                id: 786147,
+                title: "Falooda Jelly",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2F0x2NlypkioXa5kzAylNh%2F0CaznrZ0mUBUCtgyNxC9%2F62824B20.png?alt=media&token=2d5d167d-c789-4a4f-9fb1-c2a88e0025be",
+                subimg: [""],
+                price: "15",
+                oldprice: "17",
+                unit: "235 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Laziza"
+            },
+            {
+                id: 786147,
+                title: "Bombay Biryani Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2F43TMjomi2niP3Y73TodR%2FEWsYGJWWasqumUW7ands%2F6275184F.png?alt=media&token=f8e5ab51-bf81-4eb3-875a-6631217196d0",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "60 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786148,
+                title: "Chicken Biryani Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FEpKE3SLQTvQXKNRpwwSd%2FSVskqeXrEaxQNgbKxTzO%2F62739B3E.png?alt=media&token=513dce74-a805-4fea-926a-2a7fd1ebb0f4",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786149,
+                title: "Fish Fried Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FPeo71utle9M12iRTPl8g%2FmVYcfiPP0ZKzD93sp9MU%2F62565FA9.png?alt=media&token=071e8882-6e67-4648-8d98-58d12c16d0e4",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "National"
+            },
+            {
+                id: 786150,
+                title: "Vegetable Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2F27FuardSxQo8PDY5GwuZ%2FLrD63c92LBaNCgP2VGyS%2F62737DD9.png?alt=media&token=d539270c-192d-4fbe-b8ab-4a4c3e42f2f9",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "100 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786151,
+                title: "Seekh Kebab",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FFumEtdDK8ztpx9MZ1fcc%2FQ7pw1WFa5FS57vrGtcec%2F62737F76.png?alt=media&token=2bd70033-bb97-451c-8824-c2c57a1f8740",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786152,
+                title: "Surf Excel",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FFvGPhZtngs7XCxZGQ6Xc%2F5LhjIN3ZF2PnA4LqUZd2%2F627921CC.png?alt=media&token=112bb736-ed5f-4968-9d8d-aeca44872f38",
+                subimg: [""],
+                price: "20",
+                oldprice: "22",
+                unit: "1 kg",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Excel"
+            },
+            {
+                id: 786153,
+                title: "Chicken Jalfrezi Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FGCUSV9GayzbngOoLZQSI%2FFinh54SwNY3ZdQVsglbU%2F6279EAC7.png?alt=media&token=2d87b5e3-8424-4031-83cf-9eac05446623",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
             
-          </div>
+            {
+                id: 786154,
+                title: "Meat Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FGJLsjq44s38CHdyC67jm%2F32njv4S9nQ0An1RRLRkt%2F6282449C.png?alt=media&token=d235f05c-d2d8-43ff-a8c4-c5b40671c8db",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "100 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
 
-        </div>
-      </div>
+            {
+                id: 786154,
+                title: "Chili Garlic Sauce",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FIvUD0jnj2zb2Wt6puRDs%2FRqCVy9QdNuIxpRexkvzc%2F627BC95F.png?alt=media&token=b953f0cf-85c0-49de-81f5-2413bc52577b",
+                subimg: [""],
+                price: "15",
+                oldprice: "18",
+                unit: "300 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "National"
+            },
+            {
+                id: 786155,
+                title: "Mango Custard",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FJcyEe4BiLA1xnphTkmpR%2FKkW5UiRvFOJWaQkMdM2B%2F628244C0.png?alt=media&token=8d86f23b-4660-45eb-ba74-f21e31a3472c",
+                subimg: [""],
+                price: "15",
+                oldprice: "18",
+                unit: "275 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Rafhan"
+            },
+
+            {
+                id: 786156,
+                title: "Chapli Kebab",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FK7R8k5VZ7oCH1SD7y3Ri%2F4Mcm6QWKBtZuFdCPmiFv%2F6279E75C.png?alt=media&token=0b174053-ccd6-4783-aa43-26c4c5808215",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "100 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786157,
+                title: "Rooh Afza Humdard",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FLpPBRHb0Gy2gJhFXW1f0%2FXIBpIFLTlWPxtO6q7Gaz%2F6282DA3B.png?alt=media&token=a553c934-22f4-4e54-bf10-6372f4eaac25",
+                subimg: [""],
+                price: "20",
+                oldprice: "22",
+                unit: "800 ml",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Hamdard"
+            },
+            {
+                id: 786158,
+                title: "Chicken Tandoori",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FM6CG3W6NGJ8kXHlF6t7m%2F60pL0gBbKbWxhOuLvgEm%2F6279EAF6.png?alt=media&token=a75f15f2-d3d5-4ac8-80c2-318b129978d8",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "National"
+            },
+            {
+                id: 786159,
+                title: "Shan Kofta",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FNqrTD3iiaHoHSz6zSgTn%2F3uvmhMDpCL4hunShLALK%2F628245E2.png?alt=media&token=07cad779-0958-442e-ad93-70a37dd83c36",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786160,
+                title: "Custard Strawberry",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FPzIo65OqIIAyRfdocKet%2FFQVBO1IolCiSiOYuiq9B%2F627AFB6E.png?alt=media&token=fe52879a-330f-4ec0-93dd-acd51fe13bbe",
+                subimg: [""],
+                price: "15",
+                oldprice: "18",
+                unit: "275 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Rafhan"
+            },
+            {
+                id: 786161,
+                title: "Ginger Powder",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FQPFBnW88lJ13Q0Dgdpno%2Fh6viMVXm9h4qTlLXfRjM%2F62737FEC.png?alt=media&token=87ceabba-6968-4839-bc75-4e46a94a6964",
+                subimg: [""],
+                price: "10",
+                oldprice: "13",
+                unit: "100 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Mehran"
+            },
+            {
+                id: 786162,
+                title: "Young's Mayonnais",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FTf6IXLPTmn4TP51AvAvK%2FItY0bZRWrMDZ2cb3a8ta%2F627BC9BE.png?alt=media&token=dbb24853-df85-4fe9-94c0-4c0c2e3f553b",
+                subimg: [""],
+                price: "25",
+                oldprice: "30",
+                unit: "500 ml",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Youngs"
+            },
+            {
+                id: 786163,
+                title: "Knor Cubes chicken",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2F09GkHEBWExBjG252SaOu%2F5zRl692NMBc1OwzDfMFg%2F6282E46D.png?alt=media&token=3837ce66-8d9c-4fb5-965b-9e8ec11c781e",
+                subimg: [""],
+                price: "4",
+                oldprice: "5",
+                unit: "1p x 2",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Knorr"
+            },
+            {
+                id: 786164,
+                title: "Cane Sugar (Shakar)",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FRwPkqIJElnerngPodzZZ%2FfCYeWOpBEHOZL1FNSlyM%2F6277B58F.png?alt=media&token=9bed25e4-d39c-4362-9a3a-61fc1273074f",
+                subimg: [""],
+                price: "7",
+                oldprice: "9",
+                unit: "600 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "FST"
+            },
+            {
+                id: 786165,
+                title: "Saffola Gold Oil",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2F0mymxerkcqpJ2RoG9Xk0%2FVl75a4feOzEAVpt85ZmZ%2F627BC559.png?alt=media&token=0b59cf04-b4f3-467e-8d36-9e21ae821650",
+                subimg: [""],
+                price: "145",
+                oldprice: "150",
+                unit: "5 L",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Saffola"
+            },
+            {
+                id: 786166,
+                title: "Sunflower Oil",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FTKVT8W56jEebe7rVTGkJ%2Fi8d3goyCgwJE35YiPy9Y%2F6277D922.png?alt=media&token=07808af7-c762-43b4-a2e5-94ecd060d1f3",
+                subimg: [""],
+                price: "130",
+                oldprice: "140",
+                unit: "5 L",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Fortune"
+            },
+            {
+                id: 786167,
+                title: "Canola Oil",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FUKq0Ki37zCg9oagiXho7%2FuUD6hQurwsFe3QmGSK9l%2F629EE9AD.png?alt=media&token=a4cd764f-eba2-44c5-a1da-dbb27953d55f",
+                subimg: [""],
+                price: "130",
+                oldprice: "140",
+                unit: "5 L",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Yu Pin King"
+            },
+            {
+                id: 786168,
+                title: "Tikalal Chili",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2F141NmF8f0zbE7TmfvsMi%2F5mpCkc7LKnT0CoNNTdVM%2F62791948.png?alt=media&token=872e6e0b-05d5-49ab-9281-42cb71bfa720",
+                subimg: [""],
+                price: "25",
+                oldprice: "26",
+                unit: "500 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Everest"
+            },
+            {
+                id: 786169,
+                title: "Pistachio Kheer Mix",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2F9GXTQhRHqPnh2AmoHey7%2F0pIxIt8Sh4NmYSNYLwBM%2F6277B18E.png?alt=media&token=c6b38d37-5cf6-4c65-8102-e0310a61fa91",
+                subimg: [""],
+                price: "10",
+                oldprice: "12",
+                unit: "155 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Mehran"
+            },
+            {
+                id: 786170,
+                title: "Laziza Kheer Mix",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FFUYGWRNLaiNp86KJb3VY%2FrKlZZkMpAqoFNFGFlSes%2F6277B15A.png?alt=media&token=ece2d282-462b-4226-bd37-246fa8f6d774",
+                subimg: [""],
+                price: "10",
+                oldprice: "12",
+                unit: "100 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Laziza"
+            },
+            {
+                id: 786171,
+                title: "Lahori Fish",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FOgsVbOEsrMFEvgr9WCyH%2FijiJHmbGCmtKe9ksCIZg%2F62738B61.png?alt=media&token=3eb9942d-7c91-4d5f-a6cb-886b34caa3e5",
+                subimg: [""],
+                price: "7",
+                oldprice: "9",
+                unit: "100 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786172,
+                title: "Laziza Ras Malai",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FRDtrsCXY6pqniMLrSdM8%2FBgrENvkP8aZafTqjB9Ow%2F62824237.png?alt=media&token=23dc90f5-3dd9-429c-aaf8-f31152e372ac",
+                subimg: [""],
+                price: "10",
+                oldprice: "11",
+                unit: "75 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Laziza"
+            },
+            {
+                id: 786173,
+                title: "Laziza Kulfa Khoya Mix",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FaEfWsoCs14dhOqiBNZlX%2F0EKlOFOt4R3up0zJ0zUY%2F62824551.png?alt=media&token=b00c2f2c-07cb-41a3-b944-e342d6a9319a",
+                subimg: [""],
+                price: "15",
+                oldprice: "16",
+                unit: "152 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Laziza"
+            },
+            {
+                id: 786174,
+                title: "National Chat Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FdasogGiMUsPLFpXevxRa%2FGavjSRV5xoi57peJ12Af%2F6279E9BB.png?alt=media&token=d9336b6a-09af-48c6-b7d1-cc6606bf5f39",
+                subimg: [""],
+                price: "10",
+                oldprice: "11",
+                unit: "55 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "National"
+            },
+            {
+                id: 786175,
+                title: "Rafhan Banana Custard",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FeuyNw8w9THp2hIigv11N%2FDizvW69j6BLy5SM9eXaR%2F62750FC0.png?alt=media&token=ff785943-7d89-4017-a076-35c1eab4e8e2",
+                subimg: [""],
+                price: "15",
+                oldprice: "18",
+                unit: "275 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Rafhan"
+            },
+            {
+                id: 786176,
+                title: "Rafhan Vanilla Custard",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FegHzcdvnHXm0izirC4je%2FEU8iNPGSGxyZLx0L3Liz%2F627918A1.png?alt=media&token=74f734ef-95df-4a95-a048-58131979eb90",
+                subimg: [""],
+                price: "15",
+                oldprice: "18",
+                unit: "275 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Rafhan"
+            },
+            {
+                id: 786177,
+                title: "Shan Pakora Mix",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FfmNY3TISyTzxVHhA2LL8%2FWC9DaUgVqdc1vmQmzqtW%2F62824392.png?alt=media&token=f98f1241-a7bd-4b72-acda-4b4245dd6b9b",
+                subimg: [""],
+                price: "20",
+                oldprice: "23",
+                unit: "150 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786178,
+                title: "Dania Coriander powder",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FhWosAfohi56kePKIGItf%2FMigVINrrp4SrJXNliXMP%2F62824A9C.png?alt=media&token=3931cdce-6056-48b1-9ba6-5acfef76b60c",
+                subimg: [""],
+                price: "10",
+                oldprice: "12",
+                unit: "100 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Mehran"
+            },
+            {
+                id: 786179,
+                title: "Shan Nehari",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FfhbzoXESptCEo8vbnldP%2FL7mMYYyZc8AdrcRfUSyH%2F628243C8.png?alt=media&token=a8ea070d-3894-4871-93aa-812fc3a9942e",
+                subimg: [""],
+                price: "7",
+                oldprice: "10",
+                unit: "60 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786180,
+                title: "Shan Tandoori",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FfeWBXD0DjXJ4eooToXgm%2FZJKClw2tnisdYOXyCOf4%2F625CEC08.png?alt=media&token=3c682723-4bc7-4638-8bdc-00b7f367b63b",
+                subimg: [""],
+                price: "7",
+                oldprice: "10",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786181,
+                title: "Mehran Cumin Jeera Powder",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FhanMIsqu8b5KwLNIag5B%2FDe0Qh8Pnkz9XTAq9EsYw%2F627AF9D9.png?alt=media&token=23ebf1d4-becf-4c34-b3cf-143711a07227",
+                subimg: [""],
+                price: "10",
+                oldprice: "12",
+                unit: "100 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Mehran"
+            },
+            {
+                id: 786182,
+                title: "Mehran Sheer Kurma Mix",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FiCXtArwnOfWSTVoiwBbD%2FzKutH62j77XFMkPfTcgW%2F62824062.png?alt=media&token=6aaa9182-ea11-468b-9db2-ec679dcb6a00",
+                subimg: [""],
+                price: "10",
+                oldprice: "12",
+                unit: "160 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Mehran"
+            },
+            {
+                id: 786183,
+                title: "Shan Chicken Tikka",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FiV15Eji0fnPguETkclEj%2F89lsnVjodXrwrlAVV6bf%2F6279EB41.png?alt=media&token=c27e75ee-ae6f-4b9d-bc36-d8008deb9ac7",
+                subimg: [""],
+                price: "7",
+                oldprice: "10",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786184,
+                title: "Mehran Kheer Mix",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FihtYFTjt1pKThaqtxjxW%2FgR8xe6XZ6eQf76IQpVj5%2F6277B12B.png?alt=media&token=afe97808-398e-4aaa-9bb1-1b20fde8e641",
+                subimg: [""],
+                price: "10",
+                oldprice: "12",
+                unit: "155 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Mehran"
+            },
+            {
+                id: 786185,
+                title: "Shan Karahi",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FjNiIyWONKBDuYsfOiBOE%2Fw4vmbfwOpyAzXuuookhw%2F6282468D.png?alt=media&token=b445a041-adc8-4ba3-952b-72ba766b496a",
+                subimg: [""],
+                price: "7",
+                oldprice: "8",
+                unit: "45 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786186,
+                title: "Laziza Falooda Rabri",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FoQIbeMLICSoyBGF1DbcD%2FIiyrOFyHcWbFf90jSMK4%2F62824B4F.png?alt=media&token=a104c2fd-7777-4562-91e8-73141f948489",
+                subimg: [""],
+                price: "15",
+                oldprice: "17",
+                unit: "200 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Laziza"
+            },
+            {
+                id: 786187,
+                title: "National Curry Powder",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2Fp8hgkUhPCcpuhv0WuTiv%2FmrU3wH505xtiWCsDyHrV%2F627AFA90.png?alt=media&token=a2767f02-503c-43f9-b134-eec63cd40c27",
+                subimg: [""],
+                price: "10",
+                oldprice: "12",
+                unit: "110 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "National"
+            },
+            {
+                id: 786188,
+                title: "National Garam Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FlhNmkcqCuEV5PcERZV6o%2FGcb9T8058z4u0yfxNx7p%2F62824BCE.png?alt=media&token=0a15953e-094a-456e-942a-0b0e9e6ff66c",
+                subimg: [""],
+                price: "10",
+                oldprice: "12",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "National"
+            },
+            {
+                id: 786189,
+                title: "Shan Haleem",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FlUd90VtgsPew8LJ00TK5%2FcGPbyYZ1T2y1DajAvZSL%2F62824846.png?alt=media&token=90d82d78-28a1-4722-8716-92a18e583422",
+                subimg: [""],
+                price: "7",
+                oldprice: "10",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786190,
+                title: "Haleem Mix Shahi",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FpgZ2RAGejvTYl6hpvWQk%2FmUAd9tc4sQ87JQvt3trh%2F628247F8.png?alt=media&token=763cc6d2-a1f6-437a-a831-0f27805535fb",
+                subimg: [""],
+                price: "20",
+                oldprice: "25",
+                unit: "300 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786191,
+                title: "Shan Dahi Bara Mix",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FsJUAyMpxF97Dp529cOP2%2FWBGMqdmWGyX98PwSaqDf%2F62824A73.png?alt=media&token=4c79962e-0280-468f-954c-10f22c6de10e",
+                subimg: [""],
+                price: "10",
+                oldprice: "12",
+                unit: "150 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786192,
+                title: "Shan Daal Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2Fzv0JDZkHJgVAwTCvIDt6%2FCW1lzuBsAqgMIQpBQ04T%2F62824A36.png?alt=media&token=0c8ea2f7-a5d4-48c3-9152-c59e90760621",
+                subimg: [""],
+                price: "7",
+                oldprice: "9",
+                unit: "100 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "Shan"
+            },
+            {
+                id: 786193,
+                title: "National Korma Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2Fz24XQLszvYTN4RwH7kJw%2FDksfSBha8ciqfHl5SAVq%2F6273949E.png?alt=media&token=a7b8ce2b-99a9-4370-a94f-c984c45acff9",
+                subimg: [""],
+                price: "7",
+                oldprice: "9",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "National"
+            },
+            {
+                id: 786194,
+                title: "National Chicken Masala Murghi",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FyavEEtohZNJwHDU7SbGM%2FCmeyoEoXq8nUmWxjJKjX%2F62738E3C.png?alt=media&token=e2eec8f5-2164-43ec-b024-5ee2697f0d91",
+                subimg: [""],
+                price: "7",
+                oldprice: "9",
+                unit: "50 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "National"
+            },
+
+            {
+                id: 786195,
+                title: "National Mutton Biryani Masala",
+                img: "https://firebasestorage.googleapis.com/v0/b/zobaze-pos.appspot.com/o/b%2FcRAnnKGbFI66UWI4ee39%2Fi%2FWiYuQYzFPTDrSydKoggk%2FLoUqocIzEZQgVdFgcKdr%2F6282446E.png?alt=media&token=71f84a51-9254-4858-bc5a-43e2f327d515",
+                subimg: [""],
+                price: "7",
+                oldprice: "9",
+                unit: "45 gm",
+                tag: "",
+                descr: ``,
+                parent: "",
+                subparent: "",
+                brand: "National"
+            },
 
 
-    </div>
-
-  <script>
-//Get the button
-var mybutton = document.getElementById("myBtn");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  $('html, body').animate({scrollTop:0}, 'slow');
-}
-
-
-</script>
-<script src="https://kenwheeler.github.io/slick/slick/slick.js"  crossorigin="anonymous"></script>
-<script src="./slickslide.js"></script>
-<script src="./nav.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-<script>
-  function info(text){
-    Toastify({
-  text: text,
-  duration: 3000,
-  close: true,
-  gravity: "bottom", // `top` or `bottom`
-  position: "right", // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    background: "linear-gradient(to right, #00b09b, #96c93d)",
-  },
-  onClick: function(){} // Callback after click
-}).showToast();
-  }
-  function danger(text){
-    Toastify({
-  text: text,
-  duration: 3000,
-  close: true,
-  gravity: "bottom", // `top` or `bottom`
-  position: "right", // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    background: "linear-gradient(to right, #ff5f6d, #ffc371)",
-  },
-  onClick: function(){} // Callback after click
-}).showToast();
-  }
-  function warning(text){
-    
-    Toastify({
-  text: text,
-  duration: 3000,
-  close: true,
-  gravity: "bottom", // `top` or `bottom`
-  position: "right", // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    background: "inear-gradient(to right, #ff5f6d, #ffc371)",
-  },
-  onClick: function(){} // Callback after click
-}).showToast();
-  }
-  function success(text){
-    Toastify({
-  text: text,
-  duration: 3000,
-  close: true,
-  gravity: "bottom", // `top` or `bottom`
-  position: "right", // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    background: "linear-gradient(to right, #00b09b, #96c93d)",
-  },
-  onClick: function(){} // Callback after click
-}).showToast();
-  }
-  
-</script>
-<script>
-    //Angular Modules
-   var app = angular.module('myApp', []);
-   app.controller('myCtrl', function($scope,$http) {
-   
-    //For Storing Products
-    $scope.cart=[];
-    $scope.currency="HK";
-    $scope.step=1
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyBzO65a1IT1pyOvFsqRDHNewvE2FzFYg4o",
-        authDomain: "hksuperstore-863b7.firebaseapp.com",
-        databaseURL: "https://hksuperstore-863b7-default-rtdb.firebaseio.com",
-        projectId: "hksuperstore-863b7",
-        storageBucket: "hksuperstore-863b7.appspot.com",
-        messagingSenderId: "53236614225",
-        appId: "1:53236614225:web:7524d65d7d6eb7b7596470",
-        measurementId: "G-0CCVNXT5DF"
-      };
-    
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-      const dbRef = firebase.database().ref();
-      const usersRef = dbRef.child('users');
-
-
-    $scope.reducequan=function(id,flag){
-      updateproduct(id,flag,0)
-    }
-    $scope.increasequan=function(id,flag){
-      updateproduct(id,flag,0)
-    }
-    $scope.showImg=function(title,srcimg){
-      document.getElementById("mtitle").innerHTML=title;
-      document.getElementById("mimg").src=srcimg
-    }
-    $scope.placeOrder=function(){
-      if ($scope.cart.length==0){
-        danger("Please Add Items Into Cart")
-      }
-      else{
-        $scope.step= 2;
-        let names =document.getElementById("fn") ? document.getElementById("fn").value : ""
-        let address=document.getElementById("add") ? document.getElementById("add").value: "";
-        let number=document.getElementById("no") ? document.getElementById("no").value : "";
-        if(names.length >0 && address.length>0 && number.length>0){
-          $scope.order(names,address,number);
-        }
-        
-      }
-     
-    }
-    $scope.order=function(nm,add,no){
-          obj={
-              "Name": nm,
-              "Address": add,
-              "Number": no,
-              "Total Bill":$scope.getsum()
-          }
-          obj["Sum"]=""
-           $scope.cart.forEach(element => {
-            obj[element.title]=element.title+" x "+element.quantity+" x  " + element.price +" = " +element.quantity*element.price;
-            obj["Sum"]=obj["Sum"]+" + "+(element.quantity*element.price).toString();
-          });
-          //info("Please Wait.Your Order Is In Processing")
-          usersRef.push(obj, function () {
-          success("Order Placed & Added In Queue. Our Team Will Contact You Shortly");
-		setTimeout(myGreeting, 500);
-		
-          })
-      
-    }
-	   
-function myGreeting(){
-	
-	window.location.reload(false);
-}
-    $scope.backtocart=function(){
-      $scope.step=1;
-    }
-	
-    $scope.getsum = function(){
-    var total = 0;
-    for(var i = 0; i < $scope.cart.length; i++){
-        var product = $scope.cart[i];
-        total += (product.price * product.quantity);
-    }
-    return total;
-}
-
-    
-    $scope.addItem=function(id,title,price,img,unit,quantity){
-    
-
-        if(!checkproduct(id)){
-          let prod={
-          "id":id,
-          "title":title,
-          "price":price,
-          "img":img,
-          "quantity":quantity,
-          "unit":unit
-        }
-        $scope.cart.push(prod);
-       // document.getElementById("btn").click();
-       success(prod.title+" added to cart")
-
-      }
-      else {
-        updateproduct(id,1,1);
-      }
-
-      //document.getElementById("btn").click();
-    }
-    
-	$scope.delItem=function(id){
-	$scope.cart=$scope.cart.filter(item=>Number(item.id) != Number(id));
-	}
-	
-	//Function that returns false when item found
-    
-	function checkproduct(id){
-      //find function returns undefined when get nothing 
-      let status=$scope.cart.find(item=>Number(item.id)==Number(id));
-      return status==undefined ? false : true
-    }
-    //Update Quantity Function
-    function updateproduct(id,flag,modelshow){
-     
-      let status=$scope.cart.find(item=>Number(item.id)==Number(id));
-      //Products Found 
-      if(status!=undefined){
-
-        //If Add More Item
-        if(flag==1){
-       
-        status.quantity=(Number(status.quantity)+1);
-        success(status.title+" added to cart")
-        if(modelshow==1){
-          //document.getElementById("btn").click();
-          
-        }
-       
-        
-
-        }
-        else if(flag==0){
-
-        if(Number(status.quantity)-1==0){
-          $scope.cart=$scope.cart.filter(item=>Number(item.id) != Number(id));
-        }
-
-        else{
-          status.quantity=(Number(status.quantity)-1);
-          success(status.title+" removed from cart")
-          if(modelshow==1){
-          //document.getElementById("btn").click();
-        
-        }
-        }
-       
-        
-        }
-        
-      }
-      else{
-        warning("Something going wrong. Report it")
-      }
-
-
-    }
-   
-
-      $scope.places=[
-        {"id":1,"city":"Kowloon Tong"},
-        {"id":1,"city":"Shek Kip Mei"},
-        {"id":1,"city":"Fo Tan"},
-        {"id":1,"city":"Sham Shui Po"},
-        {"id":1,"city":"Lok Fo"}
-
-      ]
-      
-      $scope.categories=[
-         {"id":1,"title":"Grocery","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-grocery-61e9620ce82bd.jpeg","status":"1","titlesub":"Browse Grocery"},
-         {"id":8,"title":"Bakery Dairy","img":" https://pictures.grocerapps.com/lgthumb/grocerapp-bakery-dairy-61eab95d92b7a.jpeg","status":"1","titlesub":"Browse Bakery & Dairy "},
-         {"id":3,"title":"Fresh Meat","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-fresh-meat-61eab6cd051b0.jpeg","status":"1","titlesub":"Browse Fresh Meat"},
-         {"id":2,"title":"Fruits Vegetables","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-fruits-vegetables-61e92c79e6a95.jpeg","status":"1","titlesub":"Browse Fruits & Vegetables"}, 
-         {"id":10,"title":"Beverages","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-beverages-61eab9642ec81.jpeg","status":"1","titlesub":"Browse Beverages"},
-         {"id":9,"title":"Frozen Chilled","img":"https://pictures.grocerapps.com/lgthumb/grocerapp-frozen-chilled-61eab714bcb1c.jpeg","status":"0","titlesub":"Frozen & Chilled Coming Soon"},
-         {"id":4,"title":"Baby Care","img":"./categories/babycare.webp","status":"0","titlesub":"Baby Care Coming Soon"},
-         {"id":5,"title":"Home Care","img":"./categories/homecare.webp","status":"0","titlesub":"Home Care Coming Soon"}, 
-     ]
-
-     $scope.ramdaan=[
-       //Grocery Products
-       {id:7861,title:"Balocco Sfogliatine Pastry Puffs",img:"./landingimgs/sfogliatine.jpeg",subimg:[""],price:"12",oldprice:"16",unit:"200 g",tag:"",descr:``,parent:"",subparent:"",brand:"Balocco"},
-       {id:7863,title:"Kinder Bueno 3-Pack",img:"./landingimgs/buenokinder.jpg",subimg:[""],price:"15",oldprice:"17.5",unit:"129 g",tag:"",descr:``,parent:"",subparent:"",brand:"Kinder"},
-       {id:7864,title:"Kinder Chocolate 8-Small Bars ",img:"./landingimgs/Kinder Chocolate T8 100g  .jpeg",subimg:[""],price:"13.9",oldprice:"16",unit:"100 g",tag:"",descr:``,parent:"",subparent:"",brand:"Kinder"},
-       {id:7865,title:"Mars Chocolate 4s Pack",img:"./landingimgs/Mars Chocolate Bars.jpeg",subimg:[""],price:"12",oldprice:"14",unit:"100 g",tag:"",descr:``,parent:"",subparent:"",brand:"Mars"},
-       {id:7866,title:"Nescafé - Rich Blend Coffee",img:"./landingimgs/nescafe.jpeg",subimg:[""],price:"57",oldprice:"60",unit:"200 g",tag:"",descr:``,parent:"",subparent:"",brand:"Nescafe"},
-       {id:7867,title:"Coca Cola - 8 Cans ",img:"./landingimgs/cocacola 8 cans.webp",subimg:[""],price:"38",oldprice:"40",unit:"300 ml",tag:"",descr:``,parent:"",subparent:"",brand:"Coca cola"},
-       {id:7868,title:"Kelloggs Coco Chex Giant",img:"./landingimgs/COCO-CHEX.jpeg",subimg:[""],price:"34",oldprice:"40",unit:"300 g",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
-       {id:7869,title:"Kelloggs Frosties",img:"./landingimgs/kelloggs frosties.jpeg",subimg:[""],price:"37",oldprice:"40.9",unit:"420 g",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
-       {id:78610,title:"Lipton Mix Milk Tea Gold 34-PC",img:"./landingimgs/Lipton Hong Kong Style Gold.jpeg",subimg:[""],price:"46",oldprice:"63",unit:"16.5g  x 34 (34'S)",tag:"",descr:``,parent:"",subparent:"",brand:"Lipton"},
-       {id:78611,title:"Lipton Yellow Label  TeaBags 100 PC",img:"./landingimgs/lipton yellow label tea.jpeg",subimg:[""],price:"42.9",oldprice:"45",unit:"200 g",tag:"",descr:``,parent:"",subparent:"",brand:"Lipton"},
-       {id:78612,title:"Lipton Milk Mix Gold Tea",img:"./landingimgs//Lipton (Milk Tea Gold) Lipton Gold Milk Tea .jpeg",subimg:[""],price:"25",oldprice:"31",unit:"165 g",tag:"",descr:``,parent:"",subparent:"",brand:"Lipton"},
-       {id:78613,title:"Lipton Milk Tea Light ",img:"./landingimgs/LIPTON MILK TEA LIGHT .jpeg",subimg:[""],price:"25",oldprice:"31",unit:"175 g",tag:"",descr:``,parent:"",subparent:"",brand:"Lipton"},
-       {id:786114,title:"Emmi Swiss Premium Yogurt Blueberry",img:"./landingimgs/Emmi-Swiss-Blueberry.png",subimg:[""],price:"57",oldprice:"72",unit:"450 g",tag:"",descr:``,parent:"",subparent:"",brand:"Emmi"},
-       {id:786115,title:"Emmi Swiss Premium Yogurt Natural",img:"./landingimgs/Emmi-Swiss Natural.png",subimg:[""],price:"57",oldprice:"72",unit:"450 g",tag:"",descr:``,parent:"",subparent:"",brand:"Emmi"},
-       {id:786116,title:"Emmi Swiss Premium Yogurt Strawberry",img:"./landingimgs/Emmi-Swiss Strawberry.png",subimg:[""],price:"57",oldprice:"72",unit:"450 g",tag:"",descr:``,parent:"",subparent:"",brand:"Emmi"},
-       {id:786117,title:"Olper Milk 1L",img:"./landingimgs/olpers.jpg",subimg:[""],price:"14",oldprice:"20",unit:"1L",tag:"",descr:``,parent:"",subparent:"",brand:"Olpers"},
-       {id:786118,title:"Olper Milk Carton 12L",img:"./landingimgs/olpers.jpg",subimg:[""],price:"165",oldprice:"230",unit:"12L",tag:"",descr:``,parent:"",subparent:"",brand:"Olpers"},
-       {id:786119,title:"Garden Thick Toast Bread - 6 Slices",img:"./landingimgs/THICK TOAST SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"6 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
-      {id:786120,title:"Extra Thick Sandwich Bread - 4 Slices",img:"./landingimgs/EXTRATHICKSANDWICHBREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"4 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
-      {id:786121,title:"Sandwich Bread",img:"./landingimgs/SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"8 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
-      {id:786122,title:"Thin Sliced Sandwich Bread",img:"./landingimgs/THIN SLICED SANDWICH BREAD.jpg",subimg:[""],price:"10.5",oldprice:"13",unit:"10 Slices",tag:"",descr:``,parent:"",subparent:"",brand:"Garden"},
-      {id:786123,title:"Strawberry Jam",img:"./landingimgs/Strawberry Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
-      {id:786124,title:"Blue Berry Jam",img:"./landingimgs/Blueberry Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
-      {id:786125,title:"Apricot Jam",img:"./landingimgs/Apricot Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"370 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
-	   {id:786126,title:"Nutella Hazelnut Spread 350gm",img:"./landingimgs/HAZELNUT SPREAD WITH COCOA.jpg",subimg:[""],price:"44",oldprice:"50",unit:"350 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nutella"},
-       {id:786127,title:"Nutella Hazelnut Spread 180gm",img:"./landingimgs/nutella 180.jpg",subimg:[""],price:"25",oldprice:"28",unit:"180 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nutella"},
-       {id:786128,title:"Apricot Jam",img:"./landingimgs/Apricot Jam 370g.jpg",subimg:[""],price:"22",oldprice:"25",unit:"12L",tag:"",descr:``,parent:"",subparent:"",brand:"Meadows"},
-	   {id:786129,title:"Creamy Peanut Butter",img:"./landingimgs/PEANUT BUTTER CREAMY.jpg",subimg:[""],price:"34",oldprice:"45",unit:"462 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Skippy"},
-       {id:786130,title:"Crunch Peanut Butter",img:"./landingimgs/PEANUT BUTTER SUPER CHUNK.png",subimg:[""],price:"34",oldprice:"45",unit:"462 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Skippy"},
-       {id:786131,title:"Digestive 2-Pack ",img:"./landingimgs/digestive extra.jpg",subimg:[""],price:"30",oldprice:"40",unit:"1000 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Digestive"},
-	   {id:786132,title:"Pringles Sour Cream & Onion",img:"./landingimgs/SOUR CREAM&ONION FLV POTATO CHIPS.jpg",subimg:[""],price:"20",oldprice:"25",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
-	   {id:786133,title:"Pringles Cheesy Cheese",img:"./landingimgs/cheesy cheese.jpg",subimg:[""],price:"20",oldprice:"25",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
-	   {id:786134,title:"Pringles BBQ",img:"./landingimgs/pringles bbq.jpg",subimg:[""],price:"27",oldprice:"30",unit:"110 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Pringles"},
-	 
-     {id:786135,title:"Dettol Disinfecting Surface Wipes",img:"./landingimgs/Dettol disinfecting surface wipes -Lemon 80s .jpeg",subimg:[""],price:"47",oldprice:"55",unit:"80 pc",tag:"",descr:``,parent:"",subparent:"",brand:"Dettol"},
-     {id:786136,title:"Fairy Orginal",img:"./landingimgs/ORIGINAL LIQUID.jpeg",subimg:[""],price:"40",oldprice:"45",unit:"500 ml",tag:"",descr:``,parent:"",subparent:"",brand:"Fairy"},
-     {id:786137,title:"Fab Conc Laundry Powder",img:"./landingimgs/fab laundry.webp",subimg:[""],price:"39.5",oldprice:"40.99",unit:"2 kg",tag:"",descr:``,parent:"",subparent:"",brand:"Fab"},
-
-
-     {id:786138,title:"Nestle Cheerios",img:"./landingimgs/nestle cheerios 300g.webp",subimg:[""],price:"33",oldprice:"35",unit:"300 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nestle"},
-     {id:786139,title:"Nestle School Pack",img:"./landingimgs/NESTLE-SCHOOL-PACK-135G.jpeg",subimg:[""],price:"20",oldprice:"23",unit:"170 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
-     {id:786140,title:"Kelloggs Fun Pack",img:"./landingimgs/fun pack kelloggs.jpeg",subimg:[""],price:"39.5",oldprice:"40.99",unit:"2 kg",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
-     {id:786141,title:"Kellogggs Corn Flakes",img:"./landingimgs/corn flakes kelloggs.jpeg",subimg:[""],price:"18",oldprice:"20",unit:"170 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
-     {id:786142,title:"Kellogggs Choco Magic",img:"./landingimgs/chcoco magic kelloggs.jpeg",subimg:[""],price:"26",oldprice:"31.5",unit:"300 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
-     {id:786143,title:"Kelloggs Cocoa Frosties",img:"./landingimgs/cocoa frosties kelloggs.png",subimg:[""],price:"19",oldprice:"25",unit:"200 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Kelloggs"},
-     {id:786144,title:"Nestle Koko Krunch Cookie",img:"./landingimgs/koko crunch nestle.jpeg",subimg:[""],price:"34",oldprice:"36.5",unit:"330 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nestle"},
-     {id:786145,title:"Nestle Koko Krunch Pack Gift",img:"./landingimgs/nestle koko krunch offer.webp",subimg:[""],price:"60",oldprice:"66",unit:"660 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nestle"},
-
-     {id:786146,title:"Nestle Koko Krunch Maxx",img:"./landingimgs/koko krunch maxx.webp",subimg:[""],price:"34",oldprice:"36.5",unit:"250 gm",tag:"",descr:``,parent:"",subparent:"",brand:"Nestle"},
 
 
 
@@ -873,43 +2372,296 @@ function myGreeting(){
 
 
 
-	 ]
-      $scope.dupicate=[...$scope.ramdaan];
-      $scope.slidprodu=[...$scope.ramdaan]
-	  
-	   
-      $scope.filterme=function(val){
-        $scope.ramdaan=[...$scope.dupicate.filter((item)=> item.title.toUpperCase().includes($scope.searchingText.toUpperCase()))];
-      }
-	function myStopFunction() {
+            ]
+            $scope.dupicate = [...$scope.ramdaan];
+            $scope.slidprodu = [...$scope.ramdaan]
 
-  clearTimeout($scope.fnct);
-  
-}
-     //Take Parent Id From Above 
-     $scope.categoriesSub=[
-       {id:'3',title:'Fresh Meat',desc:'Mutton, Beef, Chicken',subcat:[{img:'./categories/chicken.webp',id:'',desc:'Chicken'},{img:'./categories/mutton.jpeg',id:'',desc:'Mutton'},{img:'./categories/beef.webp',id:'',desc:'Beef'}]},
-       {id:'2',title:'Fruits Vegetables',desc:'Fruits, Vegetables, Potato, Tomato, Brocoli, Onion, Banana',subcat:[{img:'./categories/vegetables.webp',id:'',desc:'Vegetables'},{img:'./categories/fruits.webp',id:'',desc:'Fruits'}]},
-       {id:'1',title:'Grocery',desc:'Oil, Daalain, Spices & Herbs, Flour, Jams, Sauces, Desserts, Olives, Pickels',subcat:[{img:'./categories/oil&ghee.webp',id:'',desc:'Oil & Ghee'},{img:'./categories/salt&sugar.webp',id:'',desc:'Spices, Salt & Sugar'},{img:'./categories/daalain.webp',id:'',desc:'Daalain, Rice & Flour'},{img:'./categories/sauses.webp',id:'',desc:'Sauces, Olives & Pickles'},{img:'./categories/jam&honey.webp',id:'',desc:'Jam, Honey & Spread'},{img:'./categories/baking.webp',id:'',desc:'Baking & Desserts'}]},
-       {id:'8',title:'Bakery Dairy',desc:'Milk, Butter, Cheese, Bread',subcat:[{img:'./categories/milk.webp',id:'',desc:'Milk'},{img:'./categories/breads.webp',id:'',desc:'Breads'},{img:'./categories/eggs.webp',id:'',desc:'Eggs'},{img:'./categories/butter&cream.webp',id:'',desc:'Cream & Butter'},{img:'./categories/cereals&oats.webp',id:'',desc:'Cereals & Oats'},{img:'./categories/cake&rusk.webp',id:'',desc:'Cake & Rusk'},{img:'./categories/cheese.webp',id:'',desc:'Cheese'},{img:'./categories/yogurt.webp',id:'',desc:'Yogurt'}]},
-       {id:'10',title:'Beverages',desc:'Tea, Cold Drinks, Sharbat, Juices, Energy Drinks, Instant Drinks',subcat:[{img:'./categories/sharbat.webp',id:'',desc:'Sharbat'},{img:'./categories/colddrinks.webp',id:'',desc:'Cold Drinks'},{img:'./categories/juices.webp',id:'',desc:'Juices'},{img:'./categories/tea.webp',id:'',desc:'Tea'},{img:'./categories/energydrinks.webp',id:'',desc:'Energy Drinks'},{img:'./categories/mineralwater.webp',id:'',desc:'Mineral Water'},{img:'./categories/coldtea&coffee.webp',id:'',desc:'Cold Tea, Coffee'},{img:'./categories/instantdrinks.webp',id:'',desc:'Instant Drinks'},{img:'./categories/falvouredmilk.webp',id:'',desc:'Flavoured Milk'}]},
-       {id:'9',title:'Frozen Chilled',desc:'Burger Pattie, Nuggets, Kabab',subcat:[{img:'./categories/kabab.webp',id:'',desc:'Kabab & Kofta'},{img:'./categories/burgerpatties.webp',id:'',desc:'Burger Patties'},{img:'./categories/nuggets.webp',id:'',desc:'Nuggets & Snacks'},{img:'./categories/samosa.webp',id:'',desc:'Samosa & Rolls'}]},
-       {id:'5',title:'Home Care',desc:'Cleaners, Detergents, Tissue, Repellents, Laundry',subcat:[{img:'./categories/floorcleaning.webp',id:'',desc:'Floor, Bath Cleaning'},{img:'./categories/laundry.webp',id:'',desc:'Laundry'},{img:'./categories/kitchencleaning.webp',id:'',desc:'Kitchen Cleaning'},{img:'./categories/cleaners.webp',id:'',desc:'Other Cleaners'},{img:'./categories/repellents.webp',id:'',desc:'Repellents Mosquito Killers'},{img:'./categories/airfreshers.webp',id:'',desc:'Air Fresheners'},{img:'./categories/tissues.webp',id:'',desc:'Tissue Papers'},{img:'./categories/cleaning accessaries.webp',id:'',desc:'Cleaning Accessories'}]},
-       {id:'4',title:'Baby Care',desc:'Diapers, Lotions, Baby Food',subcat:[{img:'./categories/diaper.webp',id:'',desc:'Diaper & Wipes'},{img:'./categories/foodmilk.webp',id:'',desc:'Food & Milk'},{img:'./categories/bath.webp',id:'',desc:'Bath & Toothpaste'},{img:'./categories/utensilsaccessaries.webp',id:'',desc:'Utensils & Accessories'}]},
-       {id:'15',title:'Desi Halal Food',desc:'Desi Food, Beryani, Shawarma, Sabzi, Daal, Tandorie Tikka,Chicken Pieces, Kabab',subcat:[{img:'./Unknown.png',id:'',desc:'Desi Food'},{img:'./Unknown.png',id:'',desc:'Beryani'},{img:'./Unknown.png',id:'',desc:'Shawarma'},{img:'./Unknown.png',id:'',desc:'Sabzi'},{img:'./Unknown.png',id:'',desc:'Daal'},{img:'./Unknown.png',id:'',desc:'Tandorie Tikka'},{img:'./Unknown.png',id:'',desc:'Chicken Pieces'},{img:'./Unknown.png',id:'',desc:'Kabab'}]},
 
-     ]
-    
-     
-     //Search Products Function 
+            $scope.filterme = function(val) {
+                $scope.ramdaan = [...$scope.dupicate.filter((item) => item.title.toUpperCase().includes($scope.searchingText.toUpperCase()))];
+            }
+            function myStopFunction() {
 
-      
-      
-     
- 
-   });
-   </script>
-   
-   
+                clearTimeout($scope.fnct);
+
+            }
+            //Take Parent Id From Above 
+            $scope.categoriesSub = [
+            {
+                id: '3',
+                title: 'Fresh Meat',
+                desc: 'Mutton, Beef, Chicken',
+                subcat: [{
+                    img: './categories/chicken.webp',
+                    id: '',
+                    desc: 'Chicken'
+                }, {
+                    img: './categories/mutton.jpeg',
+                    id: '',
+                    desc: 'Mutton'
+                }, {
+                    img: './categories/beef.webp',
+                    id: '',
+                    desc: 'Beef'
+                }]
+            },
+            {
+                id: '2',
+                title: 'Fruits Vegetables',
+                desc: 'Fruits, Vegetables, Potato, Tomato, Brocoli, Onion, Banana',
+                subcat: [{
+                    img: './categories/vegetables.webp',
+                    id: '',
+                    desc: 'Vegetables'
+                }, {
+                    img: './categories/fruits.webp',
+                    id: '',
+                    desc: 'Fruits'
+                }]
+            },
+            {
+                id: '1',
+                title: 'Grocery',
+                desc: 'Oil, Daalain, Spices & Herbs, Flour, Jams, Sauces, Desserts, Olives, Pickels',
+                subcat: [{
+                    img: './categories/oil&ghee.webp',
+                    id: '',
+                    desc: 'Oil & Ghee'
+                }, {
+                    img: './categories/salt&sugar.webp',
+                    id: '',
+                    desc: 'Spices, Salt & Sugar'
+                }, {
+                    img: './categories/daalain.webp',
+                    id: '',
+                    desc: 'Daalain, Rice & Flour'
+                }, {
+                    img: './categories/sauses.webp',
+                    id: '',
+                    desc: 'Sauces, Olives & Pickles'
+                }, {
+                    img: './categories/jam&honey.webp',
+                    id: '',
+                    desc: 'Jam, Honey & Spread'
+                }, {
+                    img: './categories/baking.webp',
+                    id: '',
+                    desc: 'Baking & Desserts'
+                }]
+            },
+            {
+                id: '8',
+                title: 'Bakery Dairy',
+                desc: 'Milk, Butter, Cheese, Bread',
+                subcat: [{
+                    img: './categories/milk.webp',
+                    id: '',
+                    desc: 'Milk'
+                }, {
+                    img: './categories/breads.webp',
+                    id: '',
+                    desc: 'Breads'
+                }, {
+                    img: './categories/eggs.webp',
+                    id: '',
+                    desc: 'Eggs'
+                }, {
+                    img: './categories/butter&cream.webp',
+                    id: '',
+                    desc: 'Cream & Butter'
+                }, {
+                    img: './categories/cereals&oats.webp',
+                    id: '',
+                    desc: 'Cereals & Oats'
+                }, {
+                    img: './categories/cake&rusk.webp',
+                    id: '',
+                    desc: 'Cake & Rusk'
+                }, {
+                    img: './categories/cheese.webp',
+                    id: '',
+                    desc: 'Cheese'
+                }, {
+                    img: './categories/yogurt.webp',
+                    id: '',
+                    desc: 'Yogurt'
+                }]
+            },
+            {
+                id: '10',
+                title: 'Beverages',
+                desc: 'Tea, Cold Drinks, Sharbat, Juices, Energy Drinks, Instant Drinks',
+                subcat: [{
+                    img: './categories/sharbat.webp',
+                    id: '',
+                    desc: 'Sharbat'
+                }, {
+                    img: './categories/colddrinks.webp',
+                    id: '',
+                    desc: 'Cold Drinks'
+                }, {
+                    img: './categories/juices.webp',
+                    id: '',
+                    desc: 'Juices'
+                }, {
+                    img: './categories/tea.webp',
+                    id: '',
+                    desc: 'Tea'
+                }, {
+                    img: './categories/energydrinks.webp',
+                    id: '',
+                    desc: 'Energy Drinks'
+                }, {
+                    img: './categories/mineralwater.webp',
+                    id: '',
+                    desc: 'Mineral Water'
+                }, {
+                    img: './categories/coldtea&coffee.webp',
+                    id: '',
+                    desc: 'Cold Tea, Coffee'
+                }, {
+                    img: './categories/instantdrinks.webp',
+                    id: '',
+                    desc: 'Instant Drinks'
+                }, {
+                    img: './categories/falvouredmilk.webp',
+                    id: '',
+                    desc: 'Flavoured Milk'
+                }]
+            },
+            {
+                id: '9',
+                title: 'Frozen Chilled',
+                desc: 'Burger Pattie, Nuggets, Kabab',
+                subcat: [{
+                    img: './categories/kabab.webp',
+                    id: '',
+                    desc: 'Kabab & Kofta'
+                }, {
+                    img: './categories/burgerpatties.webp',
+                    id: '',
+                    desc: 'Burger Patties'
+                }, {
+                    img: './categories/nuggets.webp',
+                    id: '',
+                    desc: 'Nuggets & Snacks'
+                }, {
+                    img: './categories/samosa.webp',
+                    id: '',
+                    desc: 'Samosa & Rolls'
+                }]
+            },
+            {
+                id: '5',
+                title: 'Home Care',
+                desc: 'Cleaners, Detergents, Tissue, Repellents, Laundry',
+                subcat: [{
+                    img: './categories/floorcleaning.webp',
+                    id: '',
+                    desc: 'Floor, Bath Cleaning'
+                }, {
+                    img: './categories/laundry.webp',
+                    id: '',
+                    desc: 'Laundry'
+                }, {
+                    img: './categories/kitchencleaning.webp',
+                    id: '',
+                    desc: 'Kitchen Cleaning'
+                }, {
+                    img: './categories/cleaners.webp',
+                    id: '',
+                    desc: 'Other Cleaners'
+                }, {
+                    img: './categories/repellents.webp',
+                    id: '',
+                    desc: 'Repellents Mosquito Killers'
+                }, {
+                    img: './categories/airfreshers.webp',
+                    id: '',
+                    desc: 'Air Fresheners'
+                }, {
+                    img: './categories/tissues.webp',
+                    id: '',
+                    desc: 'Tissue Papers'
+                }, {
+                    img: './categories/cleaning accessaries.webp',
+                    id: '',
+                    desc: 'Cleaning Accessories'
+                }]
+            },
+            {
+                id: '4',
+                title: 'Baby Care',
+                desc: 'Diapers, Lotions, Baby Food',
+                subcat: [{
+                    img: './categories/diaper.webp',
+                    id: '',
+                    desc: 'Diaper & Wipes'
+                }, {
+                    img: './categories/foodmilk.webp',
+                    id: '',
+                    desc: 'Food & Milk'
+                }, {
+                    img: './categories/bath.webp',
+                    id: '',
+                    desc: 'Bath & Toothpaste'
+                }, {
+                    img: './categories/utensilsaccessaries.webp',
+                    id: '',
+                    desc: 'Utensils & Accessories'
+                }]
+            },
+            {
+                id: '15',
+                title: 'Desi Halal Food',
+                desc: 'Desi Food, Beryani, Shawarma, Sabzi, Daal, Tandorie Tikka,Chicken Pieces, Kabab',
+                subcat: [{
+                    img: './Unknown.png',
+                    id: '',
+                    desc: 'Desi Food'
+                }, {
+                    img: './Unknown.png',
+                    id: '',
+                    desc: 'Beryani'
+                }, {
+                    img: './Unknown.png',
+                    id: '',
+                    desc: 'Shawarma'
+                }, {
+                    img: './Unknown.png',
+                    id: '',
+                    desc: 'Sabzi'
+                }, {
+                    img: './Unknown.png',
+                    id: '',
+                    desc: 'Daal'
+                }, {
+                    img: './Unknown.png',
+                    id: '',
+                    desc: 'Tandorie Tikka'
+                }, {
+                    img: './Unknown.png',
+                    id: '',
+                    desc: 'Chicken Pieces'
+                }, {
+                    img: './Unknown.png',
+                    id: '',
+                    desc: 'Kabab'
+                }]
+            },
+
+            ]
+
+
+
+
+
+
+
+
+        });
+        </script>
+
 </body>
 </html>
+
