@@ -26,7 +26,7 @@ function closeNav() {
 //Loader 
 $(window).on('load', function () {
     setTimeout(function () {// allowing 3 secs to fade out loader
-    $('.outerWrapper').fadeOut('slow');
+    /*$('.outerWrapper').fadeOut('slow');*/
     }, 1000);
    
 });
